@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "488243293443",
+    "firebase_url": "https://arboreal-vector-251521.firebaseio.com",
+    "project_id": "arboreal-vector-251521",
+    "storage_bucket": "arboreal-vector-251521.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488243293443:android:eace8643c8a39755",
+        "android_client_info": {
+          "package_name": "com.juan.firebaseregistro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488243293443-agm3s0hq30putfsdqe7mfnj1ll4hns12.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.juan.firebaseregistro",
+            "certificate_hash": "44370994b2a4268e7be3fcdb7cd68e8abfccb3c2"
+          }
+        },
+        {
+          "client_id": "488243293443-fd77vrrqfckoqk77d6u9f1q60arb9ddh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcMwGVr3BgdPO-ysXqQfhtdJ2d-lfNB6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488243293443-fd77vrrqfckoqk77d6u9f1q60arb9ddh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
