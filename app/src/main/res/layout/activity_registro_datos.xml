@@ -59,7 +59,7 @@
         android:id="@+id/imageLogo"
         android:layout_width="188dp"
         android:layout_height="368dp"
-        android:src="@drawable/logoeven"
+        android:src="@drawable/eventime"
         app:layout_constraintBottom_toTopOf="@+id/editCorreoRegisto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
