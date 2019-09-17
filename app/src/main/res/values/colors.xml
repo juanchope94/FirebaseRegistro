@@ -4,8 +4,13 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="Azul">#03A9F4</color>
-    <color name="Rojo">#E91E1E</color>
-    <color name="Negro">#000000</color>
+    <color name="Rojo_Mes">#9E0808</color>
+    <color name="Negro_Letras">#000000</color>
     <color name="Blanco">#FFFFFF</color>
-    <color name="Verde">#4CAF50</color>
+    <color name="Verde_Letras_Botones">#3F6016</color>
+    <color name="Gris_Fondo">#E0E0E0</color>
+    <color name="Gris_Letras">#4C4C4C</color>
+    <color name="Gris_Boton_Flotante">#9A9A9A</color>
+
+
 </resources>
