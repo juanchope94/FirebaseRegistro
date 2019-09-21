@@ -7,6 +7,23 @@
     android:background="@drawable/degradado"
     tools:context=".RegistroDatos">
 
+
+    <EditText
+        android:id="@+id/editNombreUsuario"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:hint="Nombre"
+        android:textColor="#FFFF"
+        android:textColorHint="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39">
+
+    </EditText>
+
+
     <EditText
         android:id="@+id/editContrasenaRegistro"
         android:layout_width="220dp"
@@ -16,10 +33,10 @@
         android:textColorHint="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.476">
+        app:layout_constraintVertical_bias="0.59000003">
 
     </EditText>
 
@@ -34,10 +51,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editContrasenaRegistro"
-        app:layout_constraintVertical_bias="0.11"></Button>
+        app:layout_constraintVertical_bias="0.45"></Button>
 
     <EditText
         android:id="@+id/editCorreoRegisto"
@@ -51,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384">
+        app:layout_constraintVertical_bias="0.49">
 
     </EditText>
 
