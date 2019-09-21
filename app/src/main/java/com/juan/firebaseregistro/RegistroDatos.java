@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class RegistroDatos extends AppCompatActivity implements View.OnClickListener {
@@ -74,6 +75,13 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
                                 } else {
                                     // If sign in fails, display a message to the user.
+                                    if(task.getException() instanceof FirebaseAuthUserCollisionException)
+                                    {
+
+                                        Toast.makeText(RegistroDatos.this, "El usuario ya se encuentra registrado!", Toast.LENGTH_LONG).show();
+
+                                    }
+                                    else
                                     Toast.makeText(RegistroDatos.this, "Upss a ocurrido un error "+task.getException(), Toast.LENGTH_LONG).show();
                                 }
 
@@ -89,6 +97,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+
         registrarDatos();
     }
 }

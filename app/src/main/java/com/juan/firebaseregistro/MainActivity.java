@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText edtCorreo, edtContrasena;
     TextView txtCrear;
-    Button btnIniciar, btnFacebook;
+    Button btnIniciar;
     SignInButton btnGmail;
     CallbackManager callbackManager;
 
@@ -88,8 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnIniciar.setOnClickListener(this);
         btnGmail = findViewById(R.id.btnGmail);
 
-        btnFacebook= findViewById(R.id.btnFacebok);
-        btnFacebook.setOnClickListener(this);
+
 
 
         progressDialog = new ProgressDialog(this);

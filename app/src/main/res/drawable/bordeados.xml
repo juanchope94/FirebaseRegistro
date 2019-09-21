@@ -10,18 +10,16 @@
         <stroke
             android:dashWidth="5dp"
             android:color="@color/Blanco"
-            android:width="2dp" />/stroke>
+            android:width="2dp" />/stroke> 
+
         <size android:width="120dp" android:height="120dp"></size>
 
 
-    <gradient
-        android:angle="180"
-        android:startColor="@color/Negro"
-        android:endColor="@color/Azul"></gradient>
+
 
 
         <size
-            android:width="165dp"
+            android:width="170dp"
             android:height="40dp" />
 
     </shape>
