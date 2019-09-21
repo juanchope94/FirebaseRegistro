@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegistroDatos extends AppCompatActivity implements View.OnClickListener {
 
-    EditText edtCorreoReg, edtContrasenaReg;
+    EditText edtCorreoReg, edtContrasenaReg, edtNombreUsuario;
     Button btnReg;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
@@ -36,6 +36,8 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
         edtContrasenaReg = findViewById(R.id.editContrasenaRegistro);
         btnReg = findViewById(R.id.btnRegistrar);
         progressDialog = new ProgressDialog(this);
+        edtNombreUsuario = findViewById(R.id.editNombreUsuario);
+
         btnReg.setOnClickListener(this);
     }
 
@@ -44,6 +46,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
         {
             String email = edtCorreoReg.getText().toString().trim();
             String password = edtContrasenaReg.getText().toString().trim();
+            String nombreusuario =edtNombreUsuario.getText().toString().trim();
 
             if (TextUtils.isEmpty(email)) {
                 Toast.makeText(RegistroDatos.this, "El email es campo obligatorio", Toast.LENGTH_SHORT).show();
@@ -51,6 +54,10 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
             else if (TextUtils.isEmpty(password)) {
                 Toast.makeText(RegistroDatos.this, "la constraseña es campo obligatorio", Toast.LENGTH_SHORT).show();
+            }
+            else if (TextUtils.isEmpty(nombreusuario)){
+                Toast.makeText(this, "El nombre De usuario es obligarorio ", Toast.LENGTH_SHORT).show();
+
             }
             else {
 
