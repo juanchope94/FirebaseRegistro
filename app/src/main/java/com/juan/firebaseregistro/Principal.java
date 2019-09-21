@@ -35,7 +35,7 @@ public class Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+        
         photoImageView = (ImageView) findViewById(R.id.imageUsuario);
         nameTextView = (TextView) findViewById(R.id.txtNombre);
         emailTextView = (TextView) findViewById(R.id.txtEmail);
