@@ -16,7 +16,7 @@
 
     <gradient
         android:angle="180"
-        android:startColor="@color/Negro_Letras"
+        android:startColor="@color/Negro"
         android:endColor="@color/Azul"></gradient>
 
 

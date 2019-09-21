@@ -11,6 +11,8 @@
     <color name="Gris_Fondo">#E0E0E0</color>
     <color name="Gris_Letras">#4C4C4C</color>
     <color name="Gris_Boton_Flotante">#9A9A9A</color>
+    <color name="azul_claro">#56B0DA</color>
+
 
 
 </resources>
