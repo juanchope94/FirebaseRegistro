@@ -20,12 +20,30 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistroDatos extends AppCompatActivity implements View.OnClickListener {
 
     EditText edtCorreoReg, edtContrasenaReg, edtNombreUsuario;
     Button btnReg;
-    private FirebaseAuth mAuth;
+  //private FirebaseAuth mAuth;
+     FirebaseAuth mAuth;
+   DatabaseReference aDatabase;
+
+
+    String email = "";
+    String nombreUsuario = "";
+    String password= "";
+
+
+
     private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +51,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
         setContentView(R.layout.activity_registro_datos);
         mAuth = FirebaseAuth.getInstance();
+      aDatabase = FirebaseDatabase.getInstance().getReference();
         edtCorreoReg = findViewById(R.id.editCorreoRegisto);
         edtContrasenaReg = findViewById(R.id.editContrasenaRegistro);
         btnReg = findViewById(R.id.btnRegistrar);
@@ -45,9 +64,11 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
         public void registrarDatos()
         {
-            String email = edtCorreoReg.getText().toString().trim();
-            String password = edtContrasenaReg.getText().toString().trim();
-            String nombreusuario =edtNombreUsuario.getText().toString().trim();
+             email = edtCorreoReg.getText().toString().trim();
+             password = edtContrasenaReg.getText().toString().trim();
+             nombreUsuario = edtNombreUsuario.getText().toString();
+
+
 
             if (TextUtils.isEmpty(email)) {
                 Toast.makeText(RegistroDatos.this, "El email es campo obligatorio", Toast.LENGTH_SHORT).show();
@@ -55,11 +76,11 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
             else if (TextUtils.isEmpty(password)) {
                 Toast.makeText(RegistroDatos.this, "la constraseña es campo obligatorio", Toast.LENGTH_SHORT).show();
-            }
-            else if (TextUtils.isEmpty(nombreusuario)){
-                Toast.makeText(this, "El nombre De usuario es obligarorio ", Toast.LENGTH_SHORT).show();
+            } else if(TextUtils.isEmpty(nombreUsuario)) {
+                Toast.makeText(this, "El nombre es Obligatorio", Toast.LENGTH_SHORT).show();
 
-            }
+        }
+
             else {
 
                 progressDialog.setMessage("Registrando Datos....");
@@ -70,8 +91,28 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(RegistroDatos.this, "Registro de datos exitoso!", Toast.LENGTH_SHORT).show();
+                                    // si la tarea se relalizo
+                                  Map<String,Object> map = new HashMap<>();
+                                    map.put("nombre",nombreUsuario);
+                                    map.put("correo",email);
+                                    map.put("fechaIngreso", ServerValue.TIMESTAMP);
+                                  //  map.put("nombre",nombreUsuario);
+
+                                    String id = mAuth.getCurrentUser().getUid();
+                                    aDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task2) {
+                                            if (task2.isSuccessful()){
+                                                startActivity(new Intent(RegistroDatos.this,MainActivity.class));
+                                                  finish();//evita que el usuario vuelva a la pantalla de registro cuand ya este registrado
+                                            }else {
+                                                Toast.makeText(RegistroDatos.this, "Error al registrar datos ", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        }
+                                    });
+
+
 
                                 } else {
                                     // If sign in fails, display a message to the user.
@@ -95,10 +136,13 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
         }
 
+
+
     @Override
     public void onClick(View v) {
 
         registrarDatos();
+
     }
 }
 
