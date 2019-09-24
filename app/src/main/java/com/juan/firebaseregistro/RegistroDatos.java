@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +42,10 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
     String email = "";
     String nombreUsuario = "";
     String password= "";
-
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
+    String strDate = dateFormat.format(date).toString();
+    //myRef.child("datetime").setValue(strDate);
 
 
     private ProgressDialog progressDialog;
@@ -95,15 +99,15 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
                                   Map<String,Object> map = new HashMap<>();
                                     map.put("nombre",nombreUsuario);
                                     map.put("correo",email);
-                                    map.put("fechaIngreso", ServerValue.TIMESTAMP);
-                                  //  map.put("nombre",nombreUsuario);
+                                  //  map.put("fechaIngreso", ServerValue.TIMESTAMP);
+                                   map.put("fechaIngreso",strDate);
 
                                     String id = mAuth.getCurrentUser().getUid();
                                     aDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task2) {
                                             if (task2.isSuccessful()){
-                                                startActivity(new Intent(RegistroDatos.this,MainActivity.class));
+                                                startActivity(new Intent(RegistroDatos.this,Principal.class));
                                                   finish();//evita que el usuario vuelva a la pantalla de registro cuand ya este registrado
                                             }else {
                                                 Toast.makeText(RegistroDatos.this, "Error al registrar datos ", Toast.LENGTH_SHORT).show();
