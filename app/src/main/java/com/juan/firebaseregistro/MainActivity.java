@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -44,6 +45,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnIniciar = findViewById(R.id.btnIniciar);
         btnIniciar.setOnClickListener(this);
         btnGmail = findViewById(R.id.btnGmail);
+        btnGmail.setOnClickListener(this);
 
 
 
@@ -102,10 +105,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Configurando el api de google para el inicio con gmail
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("488243293443-fd77vrrqfckoqk77d6u9f1q60arb9ddh.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
 
         mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
+
+        //Implementacion inicio de sesion con facebook
         callbackManager= CallbackManager.Factory.create();
         LoginButton loginButton =(LoginButton) findViewById(R.id.btnFace);
         loginButton.setReadPermissions(Arrays.asList("public_profile","email","user_birthday","user_friends"));
@@ -114,13 +120,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onSuccess(LoginResult loginResult) {
                 progressDialog.setMessage("Iniciando");
                 progressDialog.show();
-                String accestoken= loginResult.getAccessToken().getToken();
+                final String accestoken= loginResult.getAccessToken().getToken();
                 GraphRequest request= GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         progressDialog.dismiss();
                         Intent pasar = new Intent(MainActivity.this,Principal.class);
                         try {
+                            firebaseCredencial(accestoken,1);
                             String profile_picture= "https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250";
                             pasar.putExtra("imagen",profile_picture);
                             pasar.putExtra("email",object.getString("email"));
@@ -142,18 +149,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onCancel() {
-
+                Toast.makeText(MainActivity.this, "cancelll", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(FacebookException error) {
-
+                Toast.makeText(MainActivity.this, ""+error, Toast.LENGTH_SHORT).show();
             }
         });
 
 
     }
 
+    private void firebaseCredencial(String accestoken, int opcion)
+    {
+        AuthCredential credential=null;
+        if(opcion==1) {
+             credential = FacebookAuthProvider.getCredential(accestoken);
+        }
+        else{
+            credential = GoogleAuthProvider.getCredential(accestoken, null);
+        }
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Toast.makeText(MainActivity.this, "najsdnj", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+    }
 
 
     private void printKeyHash()
@@ -206,27 +231,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         callbackManager.onActivityResult(requestCode,resultCode,data);
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == SIGN_IN_CODE) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        }
-    }
+        if(resultCode==Activity.RESULT_OK) {
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            Toast.makeText(this, "holaaaa", Toast.LENGTH_SHORT).show();
-            // Signed in successfully, show authenticated UI.
-           // updateUI(account);
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w("HOLA","signInResult:failed code=" + e.getStatusCode());
-            Toast.makeText(this, "ERRORRR" + e.getCause(), Toast.LENGTH_SHORT).show();
-            //updateUI(null);
+            // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+            switch ( requestCode ) {
+
+                case SIGN_IN_CODE:
+
+                    try {
+                        // The Task returned from this call is always completed, no need to attach
+                        // a listener.
+                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                        firebaseCredencial(account.getIdToken(),2);
+                        Intent pasar = new Intent(MainActivity.this,Principal.class);
+                        pasar.putExtra("imagen",account.getPhotoUrl().toString());
+                        pasar.putExtra("email",account.getEmail());
+                        startActivity(pasar);
+                    } catch (ApiException e) {
+                        // The ApiException status code indicates the detailed failure reason.
+                        Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
+                    }
+                    break;
+                // The Task returned from this call is always completed, no need to attach
+                // a listener.
+
+
+            }
         }
     }
 
