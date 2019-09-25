@@ -12,10 +12,10 @@
         <activity android:name=".Perfil"></activity>
         <activity android:name=".Favoritos" />
         <activity android:name=".Menu_Principal" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".fragmento" />
         <activity android:name=".Principal" />
         <activity android:name=".RegistroDatos" />
-        <activity android:name=".fragmento">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
