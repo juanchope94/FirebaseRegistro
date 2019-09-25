@@ -5,12 +5,15 @@
             android:radius="20dp" />
 
         <solid
-            android:color="@android:color/transparent" />
+            android:color="@android:color/transparent"
+            android:background-color="#007E01"
+            />
 
         <stroke
             android:dashWidth="5dp"
             android:color="@color/Blanco"
-            android:width="2dp" />/stroke> 
+
+            android:width="2dp" />/stroke>
 
         <size android:width="120dp" android:height="120dp"></size>
 
