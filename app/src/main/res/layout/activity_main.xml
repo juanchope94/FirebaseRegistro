@@ -59,7 +59,7 @@
         android:layout_width="169dp"
         android:layout_height="16dp"
         android:text="Todavia no estas registrado?"
-        android:textColor="#FFFF"
+        android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class fragmento extends AppCompatActivity {
+public class Fragmento extends AppCompatActivity {
 
     final Fragment fragment1 = new Menu_Principal();
     final Fragment fragment2 = new Favoritos();
