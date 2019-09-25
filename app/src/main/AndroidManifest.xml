@@ -12,7 +12,7 @@
         <activity android:name=".Perfil"></activity>
         <activity android:name=".Favoritos" />
         <activity android:name=".Menu_Principal" />
-        <activity android:name=".Fragmento" />
+        <activity android:name=".fragmento" />
         <activity android:name=".Principal" />
         <activity android:name=".RegistroDatos" />
         <activity android:name=".MainActivity">
