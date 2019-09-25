@@ -63,7 +63,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
         edtNombreUsuario = findViewById(R.id.editNombreUsuario);
 
         btnReg.setOnClickListener(this);
-    }
+    }{}
 
 
         public void registrarDatos()
