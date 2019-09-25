@@ -86,8 +86,8 @@
 
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_width="188dp"
-        android:layout_height="368dp"
+        android:layout_width="196dp"
+        android:layout_height="263dp"
         android:src="@drawable/eventime"
         app:layout_constraintBottom_toTopOf="@+id/editContrasena"
         app:layout_constraintEnd_toEndOf="parent"
