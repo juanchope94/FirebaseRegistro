@@ -9,17 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-        <activity android:name=".Principal"></activity>
+        <activity android:name=".Perfil"></activity>
+        <activity android:name=".Favoritos" />
+        <activity android:name=".Menu_Principal" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Principal" />
         <activity android:name=".RegistroDatos" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".fragmento">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
