@@ -42,6 +42,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
     String email = "";
     String nombreUsuario = "";
     String password= "";
+    String roll="Usuario";
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Date date = new Date();
     String strDate = dateFormat.format(date).toString();
@@ -63,7 +64,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
         edtNombreUsuario = findViewById(R.id.editNombreUsuario);
 
         btnReg.setOnClickListener(this);
-    }
+    }{}
 
 
         public void registrarDatos()
@@ -99,7 +100,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
                                   Map<String,Object> map = new HashMap<>();
                                     map.put("nombre",nombreUsuario);
                                     map.put("correo",email);
-                                  //  map.put("fechaIngreso", ServerValue.TIMESTAMP);
+                                    map.put("rol",roll);
                                    map.put("fechaIngreso",strDate);
 
                                     String id = mAuth.getCurrentUser().getUid();
