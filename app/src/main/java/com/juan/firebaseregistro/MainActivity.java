@@ -42,6 +42,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -50,6 +51,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,7 +61,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -67,11 +75,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnIniciar;
     SignInButton btnGmail;
     CallbackManager callbackManager;
+    DatabaseReference actDatabase;
+
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
+    String actFecha = dateFormat.format(date).toString();
 
     public static final int SIGN_IN_CODE = 777;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
     GoogleSignInClient  mGoogleSignInClient;
+
 
     private GoogleApiClient googleApiClient;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
@@ -90,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnIniciar.setOnClickListener(this);
         btnGmail = findViewById(R.id.btnGmail);
         btnGmail.setOnClickListener(this);
+        actDatabase = FirebaseDatabase.getInstance().getReference();
 
 
 
@@ -158,6 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        printKeyHash();
 
     }
 
@@ -291,6 +307,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 pasar.putExtra("nombre",nombre);
                                 startActivity(pasar);
                                 Toast.makeText(MainActivity.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
+                                //actualizar la fecha
+
+
+
+
 
                             } else {
                                 // If sign in fails, display a message to the user.
