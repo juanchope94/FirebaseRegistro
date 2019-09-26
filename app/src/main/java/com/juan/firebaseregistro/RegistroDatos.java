@@ -1,14 +1,18 @@
 package com.juan.firebaseregistro;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -63,11 +67,19 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
         progressDialog = new ProgressDialog(this);
         edtNombreUsuario = findViewById(R.id.editNombreUsuario);
 
-        btnReg.setOnClickListener(this);
-    }{}
+       btnReg.setOnClickListener(this);
 
 
-        public void registrarDatos()
+
+    }
+
+
+
+
+
+
+
+    public void registrarDatos()
         {
              email = edtCorreoReg.getText().toString().trim();
              password = edtContrasenaReg.getText().toString().trim();
@@ -143,11 +155,12 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
 
 
-    @Override
+  @Override
     public void onClick(View v) {
 
         registrarDatos();
 
     }
+
 }
 
