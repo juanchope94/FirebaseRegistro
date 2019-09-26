@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/btnIniciar"
-        android:layout_width="125dp"
-        android:layout_height="49dp"
+        android:layout_width="127dp"
+        android:layout_height="36dp"
         android:background="@drawable/bordeados"
         android:text="Iniciar Sesion"
         android:textColor="#FFFF"
@@ -58,7 +58,7 @@
         android:id="@+id/textView"
         android:layout_width="169dp"
         android:layout_height="16dp"
-        android:text="Todavia no estas registrado?"
+        android:text="¿Todavia no estas registrado?"
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -72,14 +72,14 @@
     <TextView
         android:id="@+id/textCrear"
         android:layout_width="140dp"
-        android:layout_height="15dp"
+        android:layout_height="18dp"
         android:text="Crea tu cuenta gratis aqui"
         android:textColor="#7F8F8C"
         android:textSize="12dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editContrasena"
         app:layout_constraintVertical_bias="0.379" />
