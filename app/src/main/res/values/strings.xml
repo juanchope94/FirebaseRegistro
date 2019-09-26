@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FirebaseRegistro</string>
+    <string name="app_name">EvenTime</string>
     <string name="facebook_app_id">2428756667447211</string>
     <string name="facebook_login_protocol_scheme">fb2428756667447211</string>
 </resources>

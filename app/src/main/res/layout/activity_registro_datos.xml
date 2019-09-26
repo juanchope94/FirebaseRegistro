@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/degradado"
+    android:background="@drawable/inicio_sesion"
     tools:context=".RegistroDatos">
 
 
@@ -13,8 +13,8 @@
         android:layout_width="220dp"
         android:layout_height="42dp"
         android:hint="Nombre"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -29,8 +29,8 @@
         android:layout_width="220dp"
         android:layout_height="42dp"
         android:hint="Contraseña"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -62,8 +62,8 @@
         android:layout_width="216dp"
         android:layout_height="44dp"
         android:hint="Correo Electronico"
-        android:textColor="#FFFF"
-        android:textColorHint="#FFFF"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
@@ -75,15 +75,14 @@
 
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_width="188dp"
-        android:layout_height="368dp"
+        android:layout_width="196dp"
+        android:layout_height="263dp"
+        android:layout_marginTop="37dp"
         android:src="@drawable/eventime"
-        app:layout_constraintBottom_toTopOf="@+id/editCorreoRegisto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
