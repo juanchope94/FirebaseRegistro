@@ -20,6 +20,71 @@
         android:textSize="25dp">
 
     </TextView>
+    <Button
+
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bordeados_00"
+        android:text="Nombre"
+        android:textColor="@color/Negro_Letras"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_perfil_01"
+        android:layout_marginTop="100dp"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco"></Button>
+
+
+    <Button
+
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bordeados_00"
+        android:text="Cambiar Contraseña"
+        android:textColor="@color/Negro_Letras"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_cambio_contrasena"
+        android:layout_marginTop="170dp"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco">
+
+    </Button>
+    <Button
+
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Activar Notificaciones"
+        android:background="@drawable/bordeados_00"
+        android:textColor="@color/Negro_Letras"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_activar_notificaciones"
+        android:layout_marginTop="240dp"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco">
+
+    </Button>
+    <Button
+
+        style="@android:style/Widget.Holo.Light.ImageButton"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bordeados_00"
+        android:text="Cerrar Sesión"
+        android:textColor="@color/Negro_Letras"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_cerrar_session"
+        android:layout_marginTop="310dp"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco">
+
+    </Button>
+
 
 
 

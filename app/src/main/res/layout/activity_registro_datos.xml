@@ -42,8 +42,8 @@
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="149dp"
-        android:layout_height="64dp"
+        android:layout_width="145dp"
+        android:layout_height="38dp"
         android:background="@drawable/bordeados"
         android:text="Registrar Datos"
         android:textColor="#FFFF"
