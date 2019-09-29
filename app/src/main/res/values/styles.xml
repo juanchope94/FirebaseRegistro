@@ -5,6 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/Negro_Letras</item>
         <item name="colorPrimaryDark">@color/Gris_Fondo</item>
+        <item name="actionBarDivider">@color/Verde_Boton_Iniciar</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
