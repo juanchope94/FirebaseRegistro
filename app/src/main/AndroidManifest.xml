@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_eventime"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Perfil"></activity>
+        <activity android:name=".Deportes_y_Recreaccion"></activity>
+        <activity android:name=".Perfil" />
         <activity android:name=".Favoritos" />
         <activity android:name=".Menu_Principal" />
         <activity android:name=".MainActivity" />

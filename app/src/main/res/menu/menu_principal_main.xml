@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/deportes_Y_recreaccion"
+        android:title="Deportes y Recreacción"
+
+
+
+        ></item>
+    <item
+        android:id="@+id/ofertas_educativas"
+        android:title="Ofertas Educativas"
+
+
+        ></item>
+    <item
+        android:id="@+id/ofertas_laborales"
+        android:title="Ofertas Laborales"
+
+        ></item>
+
+</menu>

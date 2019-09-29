@@ -42,14 +42,15 @@
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="170dp"
         android:background="@drawable/bordeados_00"
+        android:drawableLeft="@drawable/ic_cambio_contrasena"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco"
         android:text="Cambiar Contraseña"
         android:textColor="@color/Negro_Letras"
         android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_cambio_contrasena"
-        android:layout_marginTop="170dp"
-        android:outlineAmbientShadowColor="@color/Blanco"
-        android:outlineSpotShadowColor="@color/Blanco">
+        android:tint="#2B2B2B">
 
     </Button>
     <Button
