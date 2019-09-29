@@ -12,7 +12,7 @@
         android:id="@+id/editNombreUsuario"
         android:layout_width="220dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="440dp"
+        android:layout_marginBottom="588dp"
         android:hint="Nombre"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
@@ -24,10 +24,43 @@
     </EditText>
 
     <EditText
+        android:id="@+id/editContrasenaRegistro"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:hint="Contraseña"
+        android:layout_marginTop="70dp"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="148dp"
+        android:layout_height="34dp"
+        android:background="@drawable/bordeados"
+        android:text="Registrar Datos"
+        android:textColor="#FFFF"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editContrasenaRegistro"
+        app:layout_constraintVertical_bias="0.133">
+
+    </Button>
+
+    <EditText
         android:id="@+id/editCorreoRegisto"
         android:layout_width="220dp"
         android:layout_height="43dp"
-        android:layout_marginTop="10dp"
         android:hint="Correo Electronico"
         android:onClick="guardar"
         android:textColor="@color/Negro_Letras"
@@ -37,50 +70,16 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408">
+        app:layout_constraintVertical_bias="0.343">
 
 
     </EditText>
-
-    <EditText
-        android:id="@+id/editContrasenaRegistro"
-        android:layout_width="220dp"
-        android:layout_height="42dp"
-        android:hint="Contraseña"
-        android:textColor="@color/Negro_Letras"
-        android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473">
-
-    </EditText>
-
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/bordeados"
-        android:text="Registrar Datos"
-        android:textColor="#FFFF"
-        android:textSize="14dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editContrasenaRegistro"
-        app:layout_constraintVertical_bias="0.0">
-
-    </Button>
 
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="196dp"
         android:layout_height="263dp"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="37dp"
         android:src="@drawable/eventime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
