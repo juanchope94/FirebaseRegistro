@@ -6,6 +6,15 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".Menu_Principal">
+    <ImageView
+        android:layout_width="158dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginLeft="-15dp"
+        android:src="@drawable/eventime_letras">
+
+    </ImageView>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_00"
@@ -52,14 +61,14 @@
         android:textColor="@color/Negro_Letras"
         android:textSize="20dp"
         android:layout_marginTop="250dp"
-        android:layout_marginLeft="70dp">
+        android:layout_marginLeft="80dp">
     </TextView>
 
     <ImageButton
         android:id="@+id/btn_Me_Gusta_Favoritos"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginLeft="145dp"
+        android:layout_marginLeft="150dp"
         android:layout_marginTop="250dp"
         android:background="@drawable/bordeados_01"
         android:src="@drawable/ic_corazon_favoritos"></ImageButton>
@@ -75,14 +84,6 @@
 
 
 
-    <ImageView
-        android:layout_width="158dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="-30dp"
-        android:layout_marginLeft="-15dp"
-        android:src="@drawable/eventime_letras">
-
-    </ImageView>
 
 
 
