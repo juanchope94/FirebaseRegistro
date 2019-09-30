@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/Negro_Letras</item>
@@ -8,12 +8,4 @@
         <item name="colorAccent">@color/Negro_Letras</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
-
-    <style name="Theme_00" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/Negro_Letras</item>
-        <item name="colorPrimaryDark">@color/Verde_Boton_Iniciar</item>
-        <item name="actionBarDivider">@color/Verde_Boton_Iniciar</item>
-    </style>
-
 </resources>
