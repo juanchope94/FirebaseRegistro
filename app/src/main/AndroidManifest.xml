@@ -9,14 +9,25 @@
         android:roundIcon="@mipmap/ic_eventime"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Menu_Favoritos"></activity>
         <activity android:name=".Deportes_y_Recreaccion"></activity>
         <activity android:name=".Perfil" />
         <activity android:name=".Favoritos" />
-        <activity android:name=".Menu_Principal" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Principal" />
-        <activity android:name=".RegistroDatos" />
-        <activity android:name=".fragmento">
+        <activity
+            android:name=".Menu_Principal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Principal"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegistroDatos"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".fragmento"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -8,10 +8,20 @@
     tools:context=".Menu_Principal">
 
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_00"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="40dp"
+        android:tooltipText="1dp"
+        app:itemTextColor="@color/Verde_Letras_Botones"
+        app:menu="@menu/menu_principal_main" />
 
     <ImageView
-        android:layout_width="108dp"
-        android:layout_height="85dp"
+        android:layout_width="134dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="-20dp"
         android:src="@drawable/eventime_letras">
 
     </ImageView>

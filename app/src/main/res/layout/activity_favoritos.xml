@@ -8,17 +8,127 @@
     tools:context=".Favoritos">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:textStyle="bold"
-        android:outlineAmbientShadowColor="@color/Blanco"
-        android:text="Me gusta"
-        android:textColor="@color/Blanco"
-        android:textSize="25dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="238dp"
+        android:layout_marginTop="-13dp"
+        android:src="@drawable/cine">
 
-    </TextView>
+    </ImageView>
+    <ImageView
+        android:layout_width="63dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="168dp"
+        android:src="@drawable/bordeados_01">
+    </ImageView>
+    <ImageView
+        android:layout_width="47dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/ic_activar_notificaciones"
+        android:layout_marginLeft="290dp">
+    </ImageView>
+    <ImageView
+        android:layout_width="63dp"
+        android:layout_height="96dp"
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="168dp"
+        android:src="@drawable/bordeados_01">
+    </ImageView>
+    <ImageView
+        android:layout_width="47dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/ic_corazon"
+        android:layout_marginLeft="355dp">
+    </ImageView>
+
+
+
+    <TextView
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="240dp"
+        android:text="CINE AL SENA"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="25dp"></TextView>
+
+    <ImageButton
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/ic_calendario"
+        >
+
+    </ImageButton>
+    <TextView
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="310dp"
+        android:text="viernes 6 de septiembre
+                      6:00 p.m. - 9:00 p.m."
+        android:textColor="@color/Negro_Letras"
+        android:textSize="12dp"></TextView>
+
+    <TextView
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="240dp"
+        android:text="CINE AL SENA"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="25dp"></TextView>
+
+    <ImageButton
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="370dp"
+        android:background="@drawable/ic_gps"
+        >
+
+    </ImageButton>
+    <TextView
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="380dp"
+        android:text="Centro de Servicios y Gestión Empresarial
+                                            Tv. 9 Nte. #60, Popayán, Cauca"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="12dp"></TextView>
+
+    <ImageButton
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="440dp"
+        android:background="@drawable/ic_movil"
+        >
+
+    </ImageButton>
+    <TextView
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="460dp"
+        android:text="311-3617453"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="12dp"></TextView>
+
+
+    <TextView
+        android:layout_width="401dp"
+        android:layout_height="169dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="530dp"
+        android:text="El próximo viernes 6 de septiembre en el auditorio del prmer piso (Salón de videoconferencias) de la torre norte, se llevara a cabo el 6° taller que hace parte de la iniciativa de promoción de cinematografia llamada cine al Sena, el invitado será el reconocido director caleño Jorge Navas, quien a través de uno de sus primeros trabajos cinematográficos: Alguien mató Algo, logró catapultarse en la industria cinematográfica nacional. "
+        android:textColor="@color/Gris_Letras"
+        android:textSize="12dp"></TextView>
+
 
 </FrameLayout>
