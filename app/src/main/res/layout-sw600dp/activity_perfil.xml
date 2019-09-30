@@ -8,6 +8,8 @@
     android:layout_height="match_parent"
     tools:context=".Perfil">
 
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="45dp"
@@ -21,7 +23,7 @@
 
     </TextView>
     <Button
-
+        android:id="@+id/btn_Nombre_Usuario"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -30,13 +32,13 @@
         android:textColor="@color/Negro_Letras"
         android:textStyle="bold"
         android:drawableLeft="@drawable/ic_perfil_01"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="100dp"
         android:outlineAmbientShadowColor="@color/Blanco"
         android:outlineSpotShadowColor="@color/Blanco"></Button>
 
 
     <Button
-
+        android:id="@+id/btn_Cambiar_Contrasena"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -52,7 +54,7 @@
 
     </Button>
     <Button
-
+        android:id="@+id/btn_Activar_Notificaciones"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -61,14 +63,13 @@
         android:textColor="@color/Negro_Letras"
         android:textStyle="bold"
         android:drawableLeft="@drawable/ic_activar_notificaciones"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="240dp"
         android:outlineAmbientShadowColor="@color/Blanco"
         android:outlineSpotShadowColor="@color/Blanco">
 
     </Button>
     <Button
-
-
+        android:id="@+id/btn_Cerrar_Session"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -77,7 +78,7 @@
         android:textColor="@color/Negro_Letras"
         android:textStyle="bold"
         android:drawableLeft="@drawable/ic_cerrar_session"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="310dp"
         android:outlineAmbientShadowColor="@color/Blanco"
         android:outlineSpotShadowColor="@color/Blanco">
 
