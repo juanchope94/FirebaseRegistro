@@ -23,7 +23,7 @@
 
     </TextView>
     <Button
-
+        android:id="@+id/btn_Nombre_Usuario"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -38,7 +38,7 @@
 
 
     <Button
-
+        android:id="@+id/btn_Cambiar_Contrasena"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -54,7 +54,7 @@
 
     </Button>
     <Button
-
+        android:id="@+id/btn_Activar_Notificaciones"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -69,8 +69,7 @@
 
     </Button>
     <Button
-
-
+        android:id="@+id/btn_Cerrar_Session"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
