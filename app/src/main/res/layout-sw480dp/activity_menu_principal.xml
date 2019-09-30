@@ -38,4 +38,13 @@
         android:textSize="20dp"></TextView>
 
 
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycEventosTodos"
+        android:layout_width="match_parent"
+        android:layout_height="316dp"
+        android:layout_marginTop="270dp" />
+>>>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
+
 </FrameLayout>

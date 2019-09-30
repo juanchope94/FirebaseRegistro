@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="160dp"
+        android:layout_height="150dp"
+        tools:layout_editor_absoluteX="-915dp"
+        tools:layout_editor_absoluteY="-25dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        >
+
+   <LinearLayout
+       android:layout_gravity="center"
+       android:orientation="vertical"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+       <ImageView
+           android:id="@+id/imgEventoItem"
+           android:layout_width="160dp"
+           android:layout_height="100dp"/>
+
+       <TextView
+           android:id="@+id/txtNombreItem"
+           android:layout_gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/>
+
+   </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
