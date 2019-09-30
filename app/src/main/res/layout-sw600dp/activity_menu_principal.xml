@@ -26,7 +26,11 @@
 
     </ImageView>
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycEventosTodos"
+        android:layout_width="match_parent"
+        android:layout_height="377dp"
+        android:layout_marginTop="340dp" />
 
 
 </FrameLayout>
