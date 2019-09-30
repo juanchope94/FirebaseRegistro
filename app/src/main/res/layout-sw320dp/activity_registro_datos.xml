@@ -35,10 +35,9 @@
         android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355">
+        app:layout_constraintVertical_bias="0.392">
 
 
     </EditText>
@@ -47,13 +46,12 @@
         android:id="@+id/editNombreUsuario"
         android:layout_width="220dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="580dp"
+        android:layout_marginBottom="540dp"
         android:hint="Nombre"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent">
 
     </EditText>
@@ -68,10 +66,9 @@
         android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.361">
+        app:layout_constraintVertical_bias="0.392">
 
     </EditText>
 

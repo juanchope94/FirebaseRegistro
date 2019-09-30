@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_eventime"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Menu_Favoritos"></activity>
-        <activity android:name=".Deportes_y_Recreaccion"></activity>
+        <activity android:name=".fragmento"></activity>
+        <activity android:name=".Menu_Favoritos" />
+        <activity android:name=".Deportes_y_Recreaccion" />
         <activity android:name=".Perfil" />
         <activity android:name=".Favoritos" />
         <activity
@@ -26,7 +27,7 @@
             android:name=".RegistroDatos"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".fragmento"
+            android:name=".Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
