@@ -37,55 +37,5 @@
         android:textColor="@color/Negro_Letras"
         android:textSize="20dp"></TextView>
 
-    <ImageView
-        android:layout_width="170dp"
-        android:layout_height="310dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/cine"></ImageView>
-
-    <TextView
-        android:layout_width="29dp"
-        android:layout_height="37dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="250dp"
-        android:text="SEP.06"
-        android:textColor="@color/Rojo_Mes">
-
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cine"
-        android:textColor="@color/Negro_Letras"
-        android:textSize="20dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="80dp">
-    </TextView>
-
-    <ImageButton
-        android:id="@+id/btn_Me_Gusta_Favoritos"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="250dp"
-        android:background="@drawable/bordeados_01"
-        android:src="@drawable/ic_corazon_favoritos"></ImageButton>
-
-    <TextView
-        android:layout_width="118dp"
-        android:layout_height="27dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="285dp"
-        android:text="Carrera Sena de Camara y Fotografia !Es Presencial!"
-        android:textColor="@color/Gris_Letras"
-        android:textSize="10dp"></TextView>
-
-
-
-
-
-
 
 </FrameLayout>
