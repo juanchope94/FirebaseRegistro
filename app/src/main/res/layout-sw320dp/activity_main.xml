@@ -82,7 +82,7 @@
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editContrasena"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintVertical_bias="0.34" />
 
     <ImageView
         android:id="@+id/imageLogo"
