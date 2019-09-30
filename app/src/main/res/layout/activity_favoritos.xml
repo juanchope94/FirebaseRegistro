@@ -50,10 +50,19 @@
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="220dp"
         android:text="CINE AL SENA"
         android:textColor="@color/Negro_Letras"
         android:textSize="25dp"></TextView>
+    <TextView
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="250dp"
+        android:text="Por Jorge Navas"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="12dp"></TextView>
+
 
     <ImageButton
         android:layout_width="54dp"
@@ -73,15 +82,6 @@
                       6:00 p.m. - 9:00 p.m."
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"></TextView>
-
-    <TextView
-        android:layout_width="196dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="240dp"
-        android:text="CINE AL SENA"
-        android:textColor="@color/Negro_Letras"
-        android:textSize="25dp"></TextView>
 
     <ImageButton
         android:layout_width="54dp"

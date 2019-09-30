@@ -10,7 +10,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="257dp"
+        android:layout_height="238dp"
         android:layout_marginTop="-13dp"
         android:src="@drawable/cine">
 
@@ -46,20 +46,11 @@
     </ImageView>
 
 
-
     <TextView
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="240dp"
-        android:text="CINE AL SENA"
-        android:textColor="@color/Negro_Letras"
-        android:textSize="25dp"></TextView>
-    <TextView
-        android:layout_width="196dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="250dp"
         android:text="Por Jorge Navas"
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"></TextView>
@@ -87,7 +78,7 @@
         android:layout_width="196dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="220dp"
         android:text="CINE AL SENA"
         android:textColor="@color/Negro_Letras"
         android:textSize="25dp"></TextView>
@@ -134,7 +125,7 @@
         android:layout_width="wrap_content"
         android:layout_height="169dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="530dp"
         android:text="El próximo viernes 6 de septiembre en el auditorio del prmer piso (Salón de videoconferencias) de la torre norte, se llevara a cabo el 6° taller que hace parte de la iniciativa de promoción de cinematografia llamada cine al Sena, el invitado será el reconocido director caleño Jorge Navas, quien a través de uno de sus primeros trabajos cinematográficos: Alguien mató Algo, logró catapultarse en la industria cinematográfica nacional. "
         android:textColor="@color/Gris_Letras"
         android:textSize="12dp"></TextView>
