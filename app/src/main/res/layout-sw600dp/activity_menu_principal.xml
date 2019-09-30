@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="227dp"
         android:text="Eventos Generales"
         android:textColor="@color/Negro_Letras"
         android:textSize="20dp"></TextView>
@@ -39,8 +39,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycEventosTodos"
         android:layout_width="match_parent"
-        android:layout_height="674dp"
-        android:layout_marginTop="250dp" />
+        android:layout_height="372dp"
+        android:layout_marginTop="280dp" />
     >>>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
 </FrameLayout>

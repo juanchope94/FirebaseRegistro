@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="227dp"
         android:text="Eventos Generales"
         android:autoSizeTextType="uniform"
         android:textColor="@color/Negro_Letras"

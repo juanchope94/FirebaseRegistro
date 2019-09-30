@@ -52,8 +52,11 @@ public class Menu_Principal extends Fragment {
             mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    itemEventos.clear();
+                    adaptadorEventos.notifyDataSetChanged();
                     if (dataSnapshot.exists()) {
                         for(int i=0; i<dataSnapshot.getChildrenCount();i++) {
+
 
                             objEvent = new Evento();
                             objEvent.setNombre(dataSnapshot.child(""+i).child("nombre").getValue().toString());
@@ -68,7 +71,7 @@ public class Menu_Principal extends Fragment {
 
                 }
             });
-        
+
 
         adaptadorEventos= new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick(){
             @Override

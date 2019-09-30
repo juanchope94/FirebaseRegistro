@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
 
         android:layout_width="160dp"
-        android:layout_height="150dp"
+        android:layout_height="157dp"
         tools:layout_editor_absoluteX="-915dp"
         tools:layout_editor_absoluteY="-25dp"
         app:cardUseCompatPadding="true"
@@ -25,15 +25,31 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content">
        <ImageView
+           android:layout_gravity="center"
            android:id="@+id/imgEventoItem"
            android:layout_width="160dp"
-           android:layout_height="100dp"/>
-
+           android:layout_height="95dp"/>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
        <TextView
+           android:maxLines="1"
+           android:ellipsize="end"
            android:id="@+id/txtNombreItem"
            android:layout_gravity="center"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"/>
+           android:layout_width="98dp"
+           android:layout_height="20dp"/>
+        <Button
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/bordeados_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:drawableLeft="@drawable/ic_corazon_favoritos"/>
+
+    </LinearLayout>
 
    </LinearLayout>
     </androidx.cardview.widget.CardView>
