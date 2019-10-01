@@ -23,7 +23,7 @@
         app:itemIconTint="@color/Verde_Boton_Iniciar"
         app:itemIconSize="30dp"
         android:layout_marginTop="30dp"
-        app:itemTextColor="@color/Negro_Letras"
+        app:itemTextColor="@color/Verde_Letras_Botones"
         android:tooltipText="1dp"
         app:menu="@menu/menu_principal_main" />
 
@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="227dp"
+        android:layout_marginTop="270dp"
         android:text="Eventos Generales"
         android:textColor="@color/Negro_Letras"
         android:textSize="20dp"></TextView>
@@ -40,8 +40,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycEventosTodos"
         android:layout_width="match_parent"
-        android:layout_height="301dp"
-        android:layout_marginTop="250dp" />
+        android:layout_height="450dp"
+        android:layout_marginTop="300dp" />
     >>>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
 
