@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Menu_Principal">
+    <ImageView
+        android:layout_width="158dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginLeft="-15dp"
+        android:src="@drawable/eventime_letras">
+
+    </ImageView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_00"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_alignParentBottom="true"
+        app:itemIconTint="@color/Verde_Boton_Iniciar"
+        app:itemIconSize="30dp"
+        android:layout_marginTop="30dp"
+        app:itemTextColor="@color/Verde_Letras_Botones"
+        android:tooltipText="1dp"
+        app:menu="@menu/menu_principal_main" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="227dp"
+        android:text="Eventos Generales"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="15dp"></TextView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycEventosTodos"
+        android:layout_width="match_parent"
+        android:layout_height="317dp"
+        android:layout_marginTop="250dp" />
+    >>>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
+
+</FrameLayout>
