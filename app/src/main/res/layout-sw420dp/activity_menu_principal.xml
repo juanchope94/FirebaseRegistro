@@ -27,6 +27,31 @@
         app:itemTextColor="@color/Verde_Letras_Botones"
         android:tooltipText="1dp"
         app:menu="@menu/menu_principal_main" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="77dp"
+        android:text="Recientes"
+        android:autoSizeTextType="uniform"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="20dp"></TextView>
+
+
+    <LinearLayout
+        android:layout_marginTop="90dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycEventosRecientes"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="1dp"
+            />
+
+    </LinearLayout>
 
 
     <TextView

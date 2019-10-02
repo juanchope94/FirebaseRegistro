@@ -68,8 +68,9 @@ public class Menu_Principal extends Fragment {
     }
 
     private void listarecientes() {
-        
-        mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
+
+        //mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Evento").limitToFirst(5).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listareciente.clear();
