@@ -14,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class fragmento extends AppCompatActivity {
 
+
     final Fragment fragment1 = new Menu_Principal();
     final Fragment fragment2 = new Menu_Favoritos();
     final Fragment fragment3 = new Perfil();

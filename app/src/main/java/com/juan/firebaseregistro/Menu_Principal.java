@@ -24,10 +24,13 @@ import java.util.List;
 
 public class Menu_Principal extends Fragment {
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,recycleRecientes;
     AdaptadorEventos adaptadorEventos;
+    AdaptadorEventosRecientes adaptadorEventosRecientes;
+
     Evento objEvent;
-    List<Evento> itemEventos;
+    List<Evento> itemEventos, listareciente;
+
     private DatabaseReference mDatabase;// ...
 
     public Menu_Principal()
@@ -44,33 +47,100 @@ public class Menu_Principal extends Fragment {
         final View view = getLayoutInflater().inflate(R.layout.activity_menu_principal,container,false);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         recyclerView= (RecyclerView) view.findViewById(R.id.recycEventosTodos);
+        recycleRecientes= (RecyclerView) view.findViewById(R.id.recycEventosRecientes);
         itemEventos= new ArrayList<>();
+        listareciente = new ArrayList<>();
+
+
+
         GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
+      final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+     layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+      recycleRecientes.setLayoutManager(layoutManager);
 
-            mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    itemEventos.clear();
-                    adaptadorEventos.notifyDataSetChanged();
-                    if (dataSnapshot.exists()) {
-                        for(int i=0; i<dataSnapshot.getChildrenCount();i++) {
+      listatodos();
+ listarecientes();
 
 
-                            objEvent = new Evento();
-                            objEvent.setNombre(dataSnapshot.child(""+i).child("nombre").getValue().toString());
-                            objEvent.setUrlImagen(dataSnapshot.child(""+i).child("urlImagen").getValue().toString());
-                            itemEventos.add(objEvent);
-                        }
+        return view;
+    }
+
+    private void listarecientes() {
+        
+        mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                listareciente.clear();
+                adaptadorEventosRecientes.notifyDataSetChanged();
+                if (dataSnapshot.exists()) {
+                    for(int i=0; i<dataSnapshot.getChildrenCount();i++) {
+
+
+                        objEvent = new Evento();
+                        objEvent.setNombre(dataSnapshot.child(""+i).child("nombre").getValue().toString());
+                        objEvent.setUrlImagen(dataSnapshot.child(""+i).child("urlImagen").getValue().toString());
+                        listareciente.add(objEvent);
                     }
                 }
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+ adaptadorEventosRecientes = new AdaptadorEventosRecientes(listareciente, getContext(), new AdaptadorEventos.OnItemClick() {
+     @Override
+     public void itemClick(Evento items, int position) {
+
+     }
+ });
+
+// adaptadorEventos= new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick(){
+//            @Override
+//            public void itemClick(Evento items, int position) {
+//
+//
+//            }
+//        });
+// */
+
+        recycleRecientes.setAdapter(adaptadorEventosRecientes);
+
+        //    recycleRecientes.setAdapter(adaptadorEventosRecientes);
+
+
+    }
+
+    //de aqui pa abajo es de juan
+
+    private void listatodos() {
+
+
+        mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemEventos.clear();
+                adaptadorEventos.notifyDataSetChanged();
+                if (dataSnapshot.exists()) {
+                    for(int i=0; i<dataSnapshot.getChildrenCount();i++) {
+
+
+                        objEvent = new Evento();
+                        objEvent.setNombre(dataSnapshot.child(""+i).child("nombre").getValue().toString());
+                        objEvent.setUrlImagen(dataSnapshot.child(""+i).child("urlImagen").getValue().toString());
+                        itemEventos.add(objEvent);
+                    }
                 }
-            });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         adaptadorEventos= new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick(){
@@ -80,13 +150,14 @@ public class Menu_Principal extends Fragment {
 
             }
         });
+
         recyclerView.setAdapter(adaptadorEventos);
 
-        return view;
+       //    recycleRecientes.setAdapter(adaptadorEventosRecientes);
     }
 
 
-    }
+}
 
 
 

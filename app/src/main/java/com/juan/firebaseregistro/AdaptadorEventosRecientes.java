@@ -1,11 +1,9 @@
 package com.juan.firebaseregistro;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,25 +14,25 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.EventoViewHolder> {
+public class AdaptadorEventosRecientes extends RecyclerView.Adapter<AdaptadorEventosRecientes.EventoViewHolder> {
 
-    List<Evento> lista;
+    List<Evento> listare;
     Context context;
     public interface OnItemClick
     {
         void itemClick(Evento items, int position);
     }
-    private OnItemClick listener;
+    private AdaptadorEventos.OnItemClick listener;
 
-    public AdaptadorEventos(List<Evento> lista, Context context, OnItemClick listener) {
-        this.lista = lista;
+    public AdaptadorEventosRecientes(List<Evento> listare, Context context, AdaptadorEventos.OnItemClick listener) {
+        this.listare = listare;
         this.context = context;
         this.listener=listener;
     }
 
     public class EventoViewHolder extends RecyclerView.ViewHolder {
-     TextView nombre;
-     ImageView foto;
+        TextView nombre;
+        ImageView foto;
 
         public EventoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -56,22 +54,23 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
     @NonNull
     @Override
-    public EventoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.itemevento,viewGroup,false);
-        EventoViewHolder eventoViewHolder=  new EventoViewHolder(view);
+    public AdaptadorEventosRecientes.EventoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.itemeventoreciente,viewGroup,false);
+        AdaptadorEventosRecientes.EventoViewHolder eventoViewHolder=  new EventoViewHolder(view);
         return eventoViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventoViewHolder contactosViewHolder, int i) {
-        contactosViewHolder.bind(lista.get(i),i);
-
-
+    public void onBindViewHolder(@NonNull EventoViewHolder holder, int position) {
+        holder.bind(listare.get(position),position);
     }
+
+
+
 
     @Override
     public int getItemCount() {
-        return lista.size();
+        return listare.size();
     }
 
 
