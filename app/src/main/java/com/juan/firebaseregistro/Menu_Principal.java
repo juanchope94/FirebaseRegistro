@@ -58,7 +58,7 @@ public class Menu_Principal extends Fragment {
         recyclerView.setLayoutManager(gridLayoutManager);
 
       final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-     layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+      layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
       recycleRecientes.setLayoutManager(layoutManager);
 
       listatodos();

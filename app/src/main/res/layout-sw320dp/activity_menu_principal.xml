@@ -36,7 +36,7 @@
             android:id="@+id/recycEventosRecientes"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="15dp"
             />
 
     </LinearLayout>
@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="270dp"
         android:text="Eventos Generales"
         android:textColor="@color/Negro_Letras"
         android:textSize="20dp"></TextView>
@@ -66,8 +66,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycEventosTodos"
         android:layout_width="match_parent"
-        android:layout_height="242dp"
-        android:layout_marginTop="240dp" />
+        android:layout_height="373dp"
+        android:layout_marginTop="300dp" />
     >>>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
 
