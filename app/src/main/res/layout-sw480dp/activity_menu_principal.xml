@@ -6,69 +6,88 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".Menu_Principal">
-    <ImageView
-        android:layout_width="158dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="-30dp"
-        android:layout_marginLeft="-15dp"
-        android:src="@drawable/eventime_letras">
 
-    </ImageView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="77dp"
-        android:text="Recientes"
-        android:autoSizeTextType="uniform"
-        android:textColor="@color/Negro_Letras"
-        android:textSize="20dp"></TextView>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-    <LinearLayout
-        android:layout_marginTop="90dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="131dp"
+            android:layout_height="47dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:src="@drawable/eventime_letras"
+            app:layout_constraintBottom_toTopOf="@+id/navigation_00"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_00"
+            android:layout_width="432dp"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:tooltipText="1dp"
+            app:itemIconTint="@color/Verde_Boton_Iniciar"
+            app:itemTextColor="@color/Verde_Letras_Botones"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:menu="@menu/menu_principal_main"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:text="Recientes"
+            android:textColor="@color/Negro_Letras"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/recycEventosRecientes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintStart_toStartOf="parent"></TextView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycEventosRecientes"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="1dp"
-            />
+            android:layout_width="412dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:text="Eventos Generales"
+            android:textColor="@color/Negro_Letras"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/recycEventosTodos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintStart_toStartOf="parent"></TextView>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycEventosTodos"
+            android:layout_width="385dp"
+            android:layout_height="293dp"
+            android:layout_marginBottom="236dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent" />
 
+        >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_00"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_alignParentBottom="true"
-        app:itemIconTint="@color/Verde_Boton_Iniciar"
-        app:itemIconSize="30dp"
-        android:layout_marginTop="30dp"
-        app:itemTextColor="@color/Verde_Letras_Botones"
-        android:tooltipText="1dp"
-        app:menu="@menu/menu_principal_main" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="227dp"
-        android:text="Eventos Generales"
-        android:textColor="@color/Negro_Letras"
-        android:textSize="15dp"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycEventosTodos"
-        android:layout_width="match_parent"
-        android:layout_height="317dp"
-        android:layout_marginTop="250dp" />
-    >>>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
 </FrameLayout>
