@@ -28,8 +28,8 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation_00"
-            android:layout_width="432dp"
-            android:layout_height="44dp"
+            android:layout_width="411dp"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="8dp"
             android:tooltipText="1dp"
@@ -77,11 +77,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycEventosTodos"
             android:layout_width="385dp"
-            android:layout_height="293dp"
-            android:layout_marginBottom="308dp"
+            android:layout_height="380dp"
+            android:layout_marginBottom="92dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.34"
+            app:layout_constraintHorizontal_bias="0.384"
             app:layout_constraintStart_toStartOf="parent" />
 
         >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
