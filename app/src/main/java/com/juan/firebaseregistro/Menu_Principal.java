@@ -1,9 +1,12 @@
 package com.juan.firebaseregistro;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +32,8 @@ public class Menu_Principal extends Fragment {
     RecyclerView recyclerView,recycleRecientes;
     AdaptadorEventos adaptadorEventos;
     AdaptadorEventosRecientes adaptadorEventosRecientes;
+    BottomNavigationView opciones;
+    TextView tituloSeccion;
 
     Evento objEvent;
     List<Evento> itemEventos, listareciente;
@@ -46,11 +52,15 @@ public class Menu_Principal extends Fragment {
 
 
         final View view = getLayoutInflater().inflate(R.layout.activity_menu_principal,container,false);
+        opciones= (BottomNavigationView) view.findViewById(R.id.navigation_00);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         recyclerView= (RecyclerView) view.findViewById(R.id.recycEventosTodos);
         recycleRecientes= (RecyclerView) view.findViewById(R.id.recycEventosRecientes);
         itemEventos= new ArrayList<>();
+        tituloSeccion= view.findViewById(R.id.textView2);
         listareciente = new ArrayList<>();
+
+        opciones.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
 
@@ -67,6 +77,30 @@ public class Menu_Principal extends Fragment {
 
         return view;
     }
+
+    BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener(){
+        @Override
+        public boolean onNavigationItemSelected (@NonNull MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.deportes_Y_recreaccion:
+                    tituloSeccion.setText("Deportes y Recreacion");
+                    return true;
+                case R.id.ofertas_educativas:
+                    tituloSeccion.setText("Ofertas Educativas");
+                    return true;
+                case R.id.ofertas_laborales:
+                    tituloSeccion.setText("Ofertas Laborales");
+                    return true;
+
+
+            }
+
+            return false;
+
+        }
+
+    };
 
     private void listarecientes() {
 
