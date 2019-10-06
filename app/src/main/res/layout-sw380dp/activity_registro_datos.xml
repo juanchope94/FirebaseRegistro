@@ -41,7 +41,7 @@
         android:id="@+id/btnRegistrar"
         android:layout_width="148dp"
         android:layout_height="34dp"
-        android:layout_marginBottom="376dp"
+        android:layout_marginBottom="328dp"
         android:background="@drawable/bordeados"
         android:text="Registrar Datos"
         android:textColor="#FFFF"
@@ -49,6 +49,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent">
 
     </Button>
