@@ -9,51 +9,45 @@
 
     <Button
         android:id="@+id/btnIniciar"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="127dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/bordeados"
         android:text="Iniciar Sesion"
         android:textColor="#FFFF"
         android:textSize="14dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editContrasena"
-        app:layout_constraintVertical_bias="0.136"></Button>
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"></Button>
 
     <EditText
         android:id="@+id/editContrasena"
-        android:layout_width="220dp"
+        android:layout_width="215dp"
         android:layout_height="42dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="36dp"
         android:hint="Contraseña"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnIniciar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386">
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent">
 
     </EditText>
 
     <EditText
         android:id="@+id/editCorreo"
-        android:layout_width="219dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="216dp"
+        android:layout_height="44dp"
         android:hint="Correo Electronico"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editContrasena"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323">
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent">
 
     </EditText>
 
@@ -61,69 +55,63 @@
         android:id="@+id/textView"
         android:layout_width="169dp"
         android:layout_height="16dp"
+        android:layout_marginBottom="8dp"
         android:text="¿Todavia no estas registrado?"
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textCrear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciar"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textCrear"
-        android:layout_width="140dp"
+        android:layout_width="119dp"
         android:layout_height="18dp"
+        android:layout_marginBottom="44dp"
         android:text="Crea tu cuenta gratis aqui"
         android:textColor="#7F8F8C"
         android:textSize="12dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnFace"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editContrasena"
-        app:layout_constraintVertical_bias="0.379" />
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="196dp"
         android:layout_height="263dp"
-        android:layout_marginTop="10dp"
         android:src="@drawable/eventime"
-        app:layout_constraintBottom_toTopOf="@+id/editContrasena"
+        app:layout_constraintBottom_toTopOf="@+id/editCorreo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGmail"
-        android:layout_width="174dp"
+        android:layout_width="183dp"
         android:layout_height="37dp"
+        android:layout_marginBottom="64dp"
         android:text="Iniciar con gmail"
         android:textColor="#FFFF"
         android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btnFace"
-        android:layout_width="175dp"
-        android:layout_height="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="172dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
