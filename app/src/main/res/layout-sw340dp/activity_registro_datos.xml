@@ -41,7 +41,7 @@
         android:id="@+id/btnRegistrar"
         android:layout_width="148dp"
         android:layout_height="34dp"
-        android:layout_marginBottom="376dp"
+        android:layout_marginBottom="184dp"
         android:background="@drawable/bordeados"
         android:text="Registrar Datos"
         android:textColor="#FFFF"

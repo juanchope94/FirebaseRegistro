@@ -12,33 +12,13 @@
         android:id="@+id/editNombreUsuario"
         android:layout_width="220dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="440dp"
         android:hint="Nombre"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editContrasenaRegistro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent">
-
-    </EditText>
-
-    <EditText
-        android:id="@+id/editCorreoRegisto"
-        android:layout_width="220dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="10dp"
-        android:hint="Correo Electronico"
-        android:onClick="guardar"
-        android:textColor="@color/Negro_Letras"
-        android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408">
-
 
     </EditText>
 
@@ -46,22 +26,22 @@
         android:id="@+id/editContrasenaRegistro"
         android:layout_width="220dp"
         android:layout_height="42dp"
+        android:layout_marginBottom="32dp"
         android:hint="Contraseña"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473">
+        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintStart_toStartOf="parent">
 
     </EditText>
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="148dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="276dp"
         android:background="@drawable/bordeados"
         android:text="Registrar Datos"
         android:textColor="#FFFF"
@@ -70,22 +50,36 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editContrasenaRegistro"
-        app:layout_constraintVertical_bias="0.182">
+        app:layout_constraintStart_toStartOf="parent">
 
     </Button>
+
+    <EditText
+        android:id="@+id/editCorreoRegisto"
+        android:layout_width="220dp"
+        android:layout_height="43dp"
+        android:hint="Correo Electronico"
+        android:onClick="guardar"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/editNombreUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+    </EditText>
 
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="196dp"
         android:layout_height="263dp"
-        android:layout_marginTop="47dp"
         android:src="@drawable/eventime"
+        app:layout_constraintBottom_toTopOf="@+id/editCorreoRegisto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
