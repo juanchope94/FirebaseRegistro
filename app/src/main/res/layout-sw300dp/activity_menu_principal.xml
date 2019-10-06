@@ -59,7 +59,6 @@
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -79,9 +78,10 @@
             android:id="@+id/recycEventosTodos"
             android:layout_width="385dp"
             android:layout_height="293dp"
-            android:layout_marginBottom="172dp"
+            android:layout_marginBottom="308dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.34"
             app:layout_constraintStart_toStartOf="parent" />
 
         >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0

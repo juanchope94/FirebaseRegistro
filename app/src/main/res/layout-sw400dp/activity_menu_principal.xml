@@ -28,8 +28,8 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation_00"
-            android:layout_width="432dp"
-            android:layout_height="44dp"
+            android:layout_width="409dp"
+            android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="8dp"
             android:tooltipText="1dp"
@@ -54,12 +54,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycEventosRecientes"
-            android:layout_width="412dp"
-            android:layout_height="100dp"
+            android:layout_width="384dp"
+            android:layout_height="103dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -79,7 +78,7 @@
             android:id="@+id/recycEventosTodos"
             android:layout_width="385dp"
             android:layout_height="293dp"
-            android:layout_marginBottom="172dp"
+            android:layout_marginBottom="176dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

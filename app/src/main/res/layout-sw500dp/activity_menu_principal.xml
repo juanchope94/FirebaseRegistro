@@ -28,8 +28,8 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation_00"
-            android:layout_width="432dp"
-            android:layout_height="44dp"
+            android:layout_width="962dp"
+            android:layout_height="76dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="8dp"
             android:tooltipText="1dp"
@@ -54,12 +54,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycEventosRecientes"
-            android:layout_width="412dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="963dp"
+            android:layout_height="102dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintHorizontal_bias="0.029"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -72,16 +71,16 @@
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/recycEventosTodos"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.059"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"></TextView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycEventosTodos"
-            android:layout_width="385dp"
-            android:layout_height="293dp"
-            android:layout_marginBottom="172dp"
+            android:layout_width="960dp"
+            android:layout_height="249dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
