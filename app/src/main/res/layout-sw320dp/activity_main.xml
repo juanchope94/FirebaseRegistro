@@ -267,14 +267,14 @@
         android:id="@+id/btnGmail"
         android:layout_width="183dp"
         android:layout_height="37dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="48dp"
         android:text="Iniciar con gmail"
         android:textColor="#FFFF"
         android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent" />
 
 
