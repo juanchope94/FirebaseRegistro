@@ -8,40 +8,11 @@
     tools:context=".RegistroDatos">
 
 
-    <EditText
-        android:id="@+id/editNombreUsuario"
-        android:layout_width="220dp"
-        android:layout_height="42dp"
-        android:hint="Nombre"
-        android:textColor="@color/Negro_Letras"
-        android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toTopOf="@+id/editContrasenaRegistro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </EditText>
-
-    <EditText
-        android:id="@+id/editContrasenaRegistro"
-        android:layout_width="220dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="32dp"
-        android:hint="Contraseña"
-        android:textColor="@color/Negro_Letras"
-        android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </EditText>
-
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="148dp"
         android:layout_height="34dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginBottom="336dp"
         android:background="@drawable/bordeados"
         android:text="Registrar Datos"
         android:textColor="#FFFF"
@@ -49,22 +20,50 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent">
 
     </Button>
 
     <EditText
+        android:id="@+id/editContrasenaRegistro"
+        android:layout_width="196dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="32dp"
+        android:hint="Contraseña"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/editNombreUsuario"
+        android:layout_width="196dp"
+        android:layout_height="44dp"
+        android:hint="Nombre"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/editContrasenaRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </EditText>
+
+    <EditText
         android:id="@+id/editCorreoRegisto"
-        android:layout_width="220dp"
-        android:layout_height="43dp"
+        android:layout_width="196dp"
+        android:layout_height="44dp"
         android:hint="Correo Electronico"
         android:onClick="guardar"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toTopOf="@+id/editNombreUsuario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent">
 
 
@@ -72,14 +71,85 @@
 
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_width="196dp"
-        android:layout_height="263dp"
+        android:layout_width="195dp"
+        android:layout_height="265dp"
         android:src="@drawable/eventime"
         app:layout_constraintBottom_toTopOf="@+id/editCorreoRegisto"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="216dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="216dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="491dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="353dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="265dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="337dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="403dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="429dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="142dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="141dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
