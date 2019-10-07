@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inicio_sesion"
+    tools:context=".RegistroDatos">
+
+
+    <EditText
+        android:id="@+id/editNombreUsuario"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:hint="Nombre"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/editContrasenaRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/editContrasenaRegistro"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="32dp"
+        android:hint="Contraseña"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="148dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="272dp"
+        android:background="@drawable/bordeados"
+        android:text="Registrar Datos"
+        android:textColor="#FFFF"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </Button>
+
+    <EditText
+        android:id="@+id/editCorreoRegisto"
+        android:layout_width="220dp"
+        android:layout_height="43dp"
+        android:hint="Correo Electronico"
+        android:onClick="guardar"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/editNombreUsuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.556"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+    </EditText>
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="196dp"
+        android:layout_height="263dp"
+        android:src="@drawable/eventime"
+        app:layout_constraintBottom_toTopOf="@+id/editCorreoRegisto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

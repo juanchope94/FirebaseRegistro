@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inicio_sesion"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="127dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/bordeados"
+        android:text="Iniciar Sesion"
+        android:textColor="#FFFF"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"></Button>
+
+    <EditText
+        android:id="@+id/editContrasena"
+        android:layout_width="215dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="36dp"
+        android:hint="Contraseña"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/btnIniciar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/editCorreo"
+        android:layout_width="216dp"
+        android:layout_height="44dp"
+        android:hint="Correo Electronico"
+        android:textColor="@color/Negro_Letras"
+        android:textColorHint="@color/Negro_Letras"
+        app:layout_constraintBottom_toTopOf="@+id/editContrasena"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="189dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="8dp"
+        android:text="¿Todavia no estas registrado?"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textCrear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textCrear"
+        android:layout_width="132dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="44dp"
+        android:text="Crea tu cuenta gratis aqui"
+        android:textColor="#7F8F8C"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnFace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="196dp"
+        android:layout_height="263dp"
+        android:src="@drawable/eventime"
+        app:layout_constraintBottom_toTopOf="@+id/editCorreo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGmail"
+        android:layout_width="183dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="72dp"
+        android:text="Iniciar con gmail"
+        android:textColor="#FFFF"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btnFace"
+        android:layout_width="172dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
