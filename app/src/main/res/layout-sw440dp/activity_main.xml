@@ -219,7 +219,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="143dp" />
+        app:layout_constraintGuide_begin="109dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
@@ -254,7 +254,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="140dp" />
+        app:layout_constraintGuide_end="106dp" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btnFace"
