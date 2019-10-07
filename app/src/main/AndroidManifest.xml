@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_eventime"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragmento"></activity>
-        <activity android:name=".Menu_Favoritos" />
-        <activity android:name=".Deportes_y_Recreaccion" />
-        <activity android:name=".Perfil" />
-        <activity android:name=".Favoritos" />
+        <activity android:name=".fragmento"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".Menu_Favoritos"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Deportes_y_Recreaccion"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Perfil"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Favoritos"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Menu_Principal"
             android:screenOrientation="portrait" />
