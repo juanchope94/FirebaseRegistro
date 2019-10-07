@@ -38,11 +38,7 @@ public class Menu_Principal extends Fragment {
     Evento objEvent;
     List<Evento> itemEventos, listareciente;
 
-    private DatabaseReference mDatabase;// ...
-
-    public Menu_Principal() {
-
-    }
+    private DatabaseReference mDatabase;
 
 
     @Nullable
@@ -51,6 +47,7 @@ public class Menu_Principal extends Fragment {
 
 
         final View view = getLayoutInflater().inflate(R.layout.activity_menu_principal, container, false);
+
         opciones = (BottomNavigationView) view.findViewById(R.id.navigation_00);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycEventosTodos);
@@ -74,6 +71,42 @@ public class Menu_Principal extends Fragment {
         return view;
     }
 
+    public void ActualizarRecycler(final String parametro) {
+
+        mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                itemEventos.clear();
+                adaptadorEventos.notifyDataSetChanged();
+                if (dataSnapshot.exists()) {
+                    for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
+
+                        if (dataSnapshot.child("" + i).child("categoria").getValue().toString().equals(parametro)) {
+                            objEvent = new Evento();
+                            objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
+                            objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
+                            itemEventos.add(objEvent);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick() {
+            @Override
+            public void itemClick(Evento items, int position) {
+
+
+            }
+        });
+
+        recyclerView.setAdapter(adaptadorEventos);
+    }
+
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -81,113 +114,20 @@ public class Menu_Principal extends Fragment {
             switch (menuItem.getItemId()) {
                 case R.id.deportes_Y_recreaccion:
                     tituloSeccion.setText("Deportes y Recreacion");
-                    mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            itemEventos.clear();
-                            adaptadorEventos.notifyDataSetChanged();
-                            if (dataSnapshot.exists()) {
-                                for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
-
-                                    if (dataSnapshot.child("" + i).child("categoria").getValue().toString().equals("Deporte")) {
-                                        objEvent = new Evento();
-                                        objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
-                                        objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
-                                        itemEventos.add(objEvent);
-                                    }
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                    adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick() {
-                        @Override
-                        public void itemClick(Evento items, int position) {
-
-
-                        }
-                    });
-
-                    recyclerView.setAdapter(adaptadorEventos);
-
-
+                    ActualizarRecycler("Deporte");
                     return true;
                 case R.id.ofertas_educativas:
                     tituloSeccion.setText("Ofertas Educativas");
-                    mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            itemEventos.clear();
-                            adaptadorEventos.notifyDataSetChanged();
-                            if (dataSnapshot.exists()) {
-                                for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
+                    ActualizarRecycler("Educacion");
 
-                                    if (dataSnapshot.child("" + i).child("categoria").getValue().toString().equals("Educacion")) {
-                                        objEvent = new Evento();
-                                        objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
-                                        objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
-                                        itemEventos.add(objEvent);
-                                    }
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                    adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick() {
-                        @Override
-                        public void itemClick(Evento items, int position) {
-
-
-                        }
-                    });
-
-                    recyclerView.setAdapter(adaptadorEventos);
                     return true;
                 case R.id.ofertas_laborales:
                     tituloSeccion.setText("Ofertas Laborales");
-                    mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            itemEventos.clear();
-                            adaptadorEventos.notifyDataSetChanged();
-                            if (dataSnapshot.exists()) {
-                                for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
-
-                                    if (dataSnapshot.child("" + i).child("categoria").getValue().toString().equals("Laboral")) {
-                                        objEvent = new Evento();
-                                        objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
-                                        objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
-                                        itemEventos.add(objEvent);
-                                    }
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-                    adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick() {
-                        @Override
-                        public void itemClick(Evento items, int position) {
-
-
-                        }
-                    });
-
-                    recyclerView.setAdapter(adaptadorEventos);
+                    ActualizarRecycler("Laboral");
                     return true;
 
-
+                default:
+                    listatodos();
             }
 
             return false;

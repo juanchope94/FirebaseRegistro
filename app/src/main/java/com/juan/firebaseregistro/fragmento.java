@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -28,6 +29,7 @@ public class fragmento extends AppCompatActivity {
         BottomNavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
         fm.beginTransaction().add(R.id.content_main,fragment1,"1").commit();
         fm.beginTransaction().add(R.id.content_main,fragment2,"2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.content_main,fragment3,"3").hide(fragment3).commit();
@@ -38,6 +40,12 @@ public class fragmento extends AppCompatActivity {
         public boolean onNavigationItemSelected (@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.menu_Principal:
+                    Fragment frg = null;
+                    frg = getSupportFragmentManager().findFragmentByTag(fragment1.getTag());
+                    final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.detach(frg);
+                    ft.attach(frg);
+                    ft.commit();
                     fm.beginTransaction().hide(active).show(fragment1).commit();
                     active=fragment1;
                     return true;
