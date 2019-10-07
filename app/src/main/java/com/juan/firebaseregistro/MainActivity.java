@@ -220,9 +220,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onStart() {
         super.onStart();
+        // para mantener sesion activada
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-       // updateUI(account);
+        updateUI(currentUser);
     }
+    private void signOut() {
+        mAuth.signOut();
+        updateUI(null);
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -329,6 +336,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            Intent intent = new Intent(getBaseContext(), fragmento.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    }
+
 
 
 }
