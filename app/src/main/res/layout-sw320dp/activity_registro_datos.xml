@@ -50,7 +50,6 @@
         android:layout_width="196dp"
         android:layout_height="44dp"
         android:hint="Correo Electronico"
-        android:onClick="guardar"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras"
         app:layout_constraintBottom_toTopOf="@+id/editNombreUsuario"
