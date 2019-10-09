@@ -31,6 +31,7 @@
         android:layout_below="@+id/editCorreo"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="71dp"
+        android:textSize="15dp"
         android:hint="Contraseña"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras">
@@ -45,6 +46,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="71dp"
         android:hint="Correo Electronico"
+        android:textSize="15dp"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras">
 
@@ -256,7 +258,6 @@
         android:layout_height="37dp"
         android:layout_below="@+id/textCrear"
         android:layout_centerHorizontal="true"
-
         android:text="Iniciar con gmail"
         android:textColor="#FFFF"
         android:textSize="14dp"

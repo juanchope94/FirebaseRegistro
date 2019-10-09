@@ -32,6 +32,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="71dp"
         android:hint="Contraseña"
+        android:textSize="15dp"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras">
 
@@ -44,6 +45,7 @@
         android:layout_below="@+id/imageLogo"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="71dp"
+        android:textSize="15dp"
         android:hint="Correo Electronico"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras">
@@ -66,7 +68,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-
         android:layout_marginTop="0dp"
         android:text="Crea tu cuenta gratis aqui"
         android:textColor="#7F8F8C"

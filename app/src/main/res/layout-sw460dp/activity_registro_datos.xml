@@ -37,6 +37,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="70dp"
         android:hint="Nombre"
+        android:textSize="15dp"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras">
 
@@ -50,6 +51,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="73dp"
         android:layout_marginStart="71dp"
+        android:textSize="15dp"
         android:hint="Correo Electronico"
         android:onClick="guardar"
         android:textColor="@color/Negro_Letras"
@@ -68,6 +70,7 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="73dp"
         android:hint="Contraseña"
+        android:textSize="15dp"
         android:textColor="@color/Negro_Letras"
         android:textColorHint="@color/Negro_Letras">
 
