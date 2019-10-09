@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_perfil"
+    android:background="@drawable/fondo_pantalla_00"
     tools:context=".Favoritos">
 
 
     <ImageView
         android:id="@+id/img_Favoritos"
-        android:layout_width="match_parent"
-        android:layout_height="238dp"
-        android:layout_marginTop="-13dp"
-        android:src="@drawable/cine">
+        android:layout_width="411dp"
+        android:layout_height="217dp"
+        android:src="@drawable/cine"
+        app:layout_constraintBottom_toTopOf="@+id/txt_Nombre_Del_Evento_Favoritos"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
 
     </ImageView>
 
@@ -21,115 +24,137 @@
         android:id="@+id/btn_Campana_Favoritos"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="192dp"
         android:background="@drawable/bordeados_01"
-        android:src="@drawable/ic_activar_notificaciones"></ImageButton>
+        android:src="@drawable/ic_activar_notificaciones"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="341dp"></ImageButton>
+
 
     <ImageButton
         android:id="@+id/btn_Me_Gusta_Favoritos"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="192dp"
         android:background="@drawable/bordeados_01"
         android:src="@drawable/ic_corazon_favoritos"
-        android:layout_marginLeft="355dp">
-    </ImageButton>
-
-
+        app:layout_constraintEnd_toStartOf="@+id/btn_Campana_Favoritos"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageButton>
 
     <TextView
         android:id="@+id/txt_Nombre_Del_Evento_Favoritos"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="220dp"
         android:text="CINE AL SENA"
         android:textColor="@color/Negro_Letras"
-        android:textSize="25dp"></TextView>
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="217dp"></TextView>
+
     <TextView
         android:id="@+id/txt_Nombre_Del_Autor_Favoritos"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="250dp"
         android:text="Por Jorge Navas"
         android:textColor="@color/Negro_Letras"
-        android:textSize="12dp"></TextView>
-
+        android:textSize="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_Fecha_Del_Evento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nombre_Del_Evento_Favoritos"
+        app:layout_constraintVertical_bias="0.0"></TextView>
 
     <ImageButton
         android:id="@+id/btn_Calendario"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginStart="16dp"
         android:background="@drawable/ic_calendario"
-        >
+        app:layout_constraintBottom_toTopOf="@+id/btn_Ubicacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nombre_Del_Autor_Favoritos">
 
     </ImageButton>
+
+
     <TextView
         android:id="@+id/txt_Fecha_Del_Evento"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="310dp"
         android:text="viernes 6 de septiembre
                       6:00 p.m. - 9:00 p.m."
         android:textColor="@color/Negro_Letras"
-        android:textSize="12dp"></TextView>
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toEndOf="@+id/btn_Calendario"
+        tools:layout_editor_absoluteY="289dp"></TextView>
 
     <ImageButton
         android:id="@+id/btn_Ubicacion"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/ic_gps"
-        >
+        app:layout_constraintBottom_toTopOf="@+id/btn_Llamar"
+        app:layout_constraintStart_toStartOf="parent">
 
     </ImageButton>
+
     <TextView
         android:id="@+id/txt_Dirreccion"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="380dp"
         android:text="Centro de Servicios y Gestión Empresarial
                                             Tv. 9 Nte. #60, Popayán, Cauca"
         android:textColor="@color/Negro_Letras"
-        android:textSize="12dp"></TextView>
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toEndOf="@+id/btn_Ubicacion"
+        tools:layout_editor_absoluteY="364dp"></TextView>
 
     <ImageButton
         android:id="@+id/btn_Llamar"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/ic_movil"
-        >
+        app:layout_constraintBottom_toTopOf="@+id/txt_Descripcion_Del_Evento"
+        app:layout_constraintStart_toStartOf="parent">
 
     </ImageButton>
+
     <TextView
         android:id="@+id/txt_Numero_Telefonico"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="460dp"
         android:text="311-3617453"
         android:textColor="@color/Negro_Letras"
-        android:textSize="12dp"></TextView>
-
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toEndOf="@+id/btn_Llamar"
+        tools:layout_editor_absoluteY="440dp"></TextView>
 
     <TextView
         android:id="@+id/txt_Descripcion_Del_Evento"
-        android:layout_width="wrap_content"
-        android:layout_height="169dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="530dp"
+        android:layout_width="411dp"
+        android:layout_height="155dp"
+        android:layout_marginBottom="36dp"
         android:text="El próximo viernes 6 de septiembre en el auditorio del prmer piso (Salón de videoconferencias) de la torre norte, se llevara a cabo el 6° taller que hace parte de la iniciativa de promoción de cinematografia llamada cine al Sena, el invitado será el reconocido director caleño Jorge Navas, quien a través de uno de sus primeros trabajos cinematográficos: Alguien mató Algo, logró catapultarse en la industria cinematográfica nacional. "
         android:textColor="@color/Gris_Letras"
-        android:textSize="12dp"></TextView>
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></TextView>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
