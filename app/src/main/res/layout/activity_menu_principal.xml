@@ -13,8 +13,8 @@
 
 
         <ImageView
-            android:layout_width="131dp"
-            android:layout_height="47dp"
+            android:layout_width="119dp"
+            android:layout_height="59dp"
             android:scaleX="2"
             android:scaleY="2"
             android:src="@drawable/eventime_letras"
@@ -28,7 +28,7 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation_00"
-            android:layout_width="411dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:scaleX="1"
             android:scaleY="1"
@@ -56,7 +56,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycEventosRecientes"
-            android:layout_width="412dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
@@ -79,7 +79,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycEventosTodos"
-            android:layout_width="385dp"
+            android:layout_width="match_parent"
             android:layout_height="293dp"
             android:layout_marginBottom="172dp"
             app:layout_constraintBottom_toBottomOf="parent"
