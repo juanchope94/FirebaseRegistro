@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,29 +11,29 @@
         android:id="@+id/btnIniciar"
         android:layout_width="127dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="76dp"
+        android:layout_below="@+id/editContrasena"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/bordeados"
+        android:gravity="center"
         android:text="Iniciar Sesion"
         android:textColor="#FFFF"
         android:textSize="14dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"></Button>
+        android:textStyle="bold"></Button>
 
     <EditText
         android:id="@+id/editContrasena"
         android:layout_width="196dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="36dp"
+        android:layout_height="44dp"
+        android:layout_below="@+id/editCorreo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="71dp"
         android:hint="Contraseña"
         android:textColor="@color/Negro_Letras"
-        android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toTopOf="@+id/btnIniciar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent">
+        android:textColorHint="@color/Negro_Letras">
 
     </EditText>
 
@@ -41,13 +41,12 @@
         android:id="@+id/editCorreo"
         android:layout_width="196dp"
         android:layout_height="44dp"
+        android:layout_below="@+id/imageLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="71dp"
         android:hint="Correo Electronico"
         android:textColor="@color/Negro_Letras"
-        android:textColorHint="@color/Negro_Letras"
-        app:layout_constraintBottom_toTopOf="@+id/editContrasena"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent">
+        android:textColorHint="@color/Negro_Letras">
 
     </EditText>
 
@@ -55,41 +54,34 @@
         android:id="@+id/imageLogo"
         android:layout_width="195dp"
         android:layout_height="265dp"
-        android:src="@drawable/eventime"
-        app:layout_constraintBottom_toTopOf="@+id/editCorreo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/eventime" />
+
 
     <TextView
         android:id="@+id/textCrear"
-        android:layout_width="130dp"
-        android:layout_height="16dp"
-        android:layout_marginBottom="44dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+
         android:text="Crea tu cuenta gratis aqui"
         android:textColor="#7F8F8C"
         android:textSize="12dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnFace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="184dp"
-        android:layout_height="20dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnIniciar"
+        android:layout_centerHorizontal="true"
         android:text="¿Todavia no estas registrado?"
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textCrear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -156,35 +148,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="494dp" />
+        app:layout_constraintGuide_end="467dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="656dp" />
+        app:layout_constraintGuide_begin="659dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="420dp" />
+        app:layout_constraintGuide_begin="423dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="347dp" />
+        app:layout_constraintGuide_begin="351dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="524dp" />
+        app:layout_constraintGuide_begin="545dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -198,86 +190,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="383dp" />
+        app:layout_constraintGuide_begin="387dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="496dp" />
+        app:layout_constraintGuide_begin="503dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="540dp" />
+        app:layout_constraintGuide_begin="589dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="203dp" />
+        app:layout_constraintGuide_begin="110dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="264dp" />
+        app:layout_constraintGuide_begin="308dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="516dp" />
+        app:layout_constraintGuide_begin="519dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="584dp" />
+        app:layout_constraintGuide_begin="615dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="611dp" />
+        app:layout_constraintGuide_begin="622dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="200dp" />
+        app:layout_constraintGuide_end="107dp" />
+
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGmail"
+        android:layout_width="172dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/textCrear"
+        android:layout_centerHorizontal="true"
+
+        android:text="Iniciar con gmail"
+        android:textColor="#FFFF"
+        android:textSize="14dp"
+        android:textStyle="bold" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btnFace"
         android:layout_width="172dp"
         android:layout_height="37dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnGmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_below="@+id/btnGmail"
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/btnGmail"
-        android:layout_width="183dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="368dp"
-        android:text="Iniciar con gmail"
-        android:textColor="#FFFF"
-        android:textSize="14dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="114dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
