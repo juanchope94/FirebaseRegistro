@@ -258,7 +258,6 @@
         android:layout_height="37dp"
         android:layout_below="@+id/textCrear"
         android:layout_centerHorizontal="true"
-
         android:text="Iniciar con gmail"
         android:textColor="#FFFF"
         android:textSize="14dp"
