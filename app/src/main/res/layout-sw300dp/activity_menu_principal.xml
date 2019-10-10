@@ -8,84 +8,76 @@
     tools:context=".Menu_Principal">
 
 
-        <ImageView
-            android:layout_width="104dp"
-            android:layout_height="52dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="7dp"
-            android:layout_marginEnd="300dp"
-            android:scaleX="2"
-            android:scaleY="2"
-            android:src="@drawable/eventime_letras">
+    <ImageView
+        android:id="@+id/img_Eventime"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@drawable/eventime_letras">
 
-        </ImageView>
+    </ImageView>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation_00"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="60dp"
-            android:scaleX="1"
-            android:scaleY="1"
-            android:tooltipText="1dp"
-            app:itemTextColor="@color/Verde_Letras_Botones"
-            app:menu="@menu/menu_principal_main"
-            tools:layout_editor_absoluteX="0dp" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_00"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/img_Eventime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:tooltipText="1dp"
+        app:itemTextColor="@color/Verde_Letras_Botones"
+        app:menu="@menu/menu_principal_main"
+        tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
             android:layout_below="@+id/navigation_00"
-            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="320dp"
-            android:autoSizeTextType="uniform"
             android:text="Recientes"
             android:textColor="@color/Negro_Letras"
-            android:textSize="20dp"></TextView>
+            android:textSize="15dp"></TextView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycEventosRecientes"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_below="@+id/textView3"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycEventosRecientes"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/recycEventosRecientes"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="5dp"
+        />
 
-            android:layout_marginEnd="239dp"
-            android:autoSizeTextType="uniform"
-            android:text="Eventos Generales"
-            android:textColor="@color/Negro_Letras"
-            android:textSize="20dp"></TextView>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:layout_below="@+id/recycEventosRecientes"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:text="Eventos Generales"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="15dp"></TextView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycEventosTodos"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycEventosTodos"
+        android:layout_width="match_parent"
+        android:layout_height="366dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="132dp" />
 
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="121dp" />
-
-        >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
+    >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
 
 </RelativeLayout>
