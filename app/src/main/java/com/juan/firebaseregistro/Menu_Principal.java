@@ -1,5 +1,7 @@
 package com.juan.firebaseregistro;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,6 +36,9 @@ public class Menu_Principal extends Fragment {
     AdaptadorEventosRecientes adaptadorEventosRecientes;
     BottomNavigationView opciones;
     TextView tituloSeccion;
+    Comunicador comunicador;
+    Activity activity;
+    AdaptadorEventos.OnItemClick click;
 
     Evento objEvent;
     List<Evento> itemEventos, listareciente;
@@ -63,12 +68,35 @@ public class Menu_Principal extends Fragment {
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recycleRecientes.setLayoutManager(layoutManager);
-
+        eventoclick();
         listatodos();
         listarecientes();
 
 
         return view;
+    }
+    private void eventoclick() {
+        click = new AdaptadorEventos.OnItemClick() {
+            @Override
+            public void itemClick(Evento  position) {
+                comunicador.enviardatos(position);
+            }
+
+
+        };
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (context instanceof Activity) {
+
+            this.activity = (Activity) context;
+            comunicador = (Comunicador) this.activity;
+        }
+        //  if (context instanceof OnF)
+
     }
 
     public void ActualizarRecycler(final String parametro) {
@@ -85,6 +113,11 @@ public class Menu_Principal extends Fragment {
                             objEvent = new Evento();
                             objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
                             objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
+                            objEvent.setDescripcion(dataSnapshot.child("" + i).child("descripcion").getValue().toString());
+                            objEvent.setCategoria(dataSnapshot.child("" + i).child("categoria").getValue().toString());
+                            objEvent.setFecha(dataSnapshot.child("" + i).child("fecha").getValue().toString());
+                            objEvent.setDireccion(dataSnapshot.child("" + i).child("direccion").getValue().toString());
+                            objEvent.setTelefono(dataSnapshot.child("" + i).child("telefono").getValue().toString());
                             itemEventos.add(objEvent);
                         }
                     }
@@ -96,13 +129,7 @@ public class Menu_Principal extends Fragment {
 
             }
         });
-        adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick() {
-            @Override
-            public void itemClick(Evento items, int position) {
-
-
-            }
-        });
+        adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);
 
         recyclerView.setAdapter(adaptadorEventos);
     }
@@ -151,6 +178,11 @@ public class Menu_Principal extends Fragment {
                         objEvent = new Evento();
                         objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
                         objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
+                        objEvent.setDescripcion(dataSnapshot.child("" + i).child("descripcion").getValue().toString());
+                        objEvent.setCategoria(dataSnapshot.child("" + i).child("categoria").getValue().toString());
+                        objEvent.setFecha(dataSnapshot.child("" + i).child("fecha").getValue().toString());
+                        objEvent.setDireccion(dataSnapshot.child("" + i).child("direccion").getValue().toString());
+                        objEvent.setTelefono(dataSnapshot.child("" + i).child("telefono").getValue().toString());
                         listareciente.add(objEvent);
                     }
                 }
@@ -161,23 +193,17 @@ public class Menu_Principal extends Fragment {
 
             }
         });
-        adaptadorEventosRecientes = new AdaptadorEventosRecientes(listareciente, getContext(), new AdaptadorEventos.OnItemClick() {
+        adaptadorEventosRecientes = new AdaptadorEventosRecientes(listareciente,getContext(), new AdaptadorEventosRecientes.OnItemClick() {
             @Override
             public void itemClick(Evento items, int position) {
 
             }
         });
 
-// adaptadorEventos= new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick(){
-//            @Override
-//            public void itemClick(Evento items, int position) {
-//
-//
-//            }
-//        });
-// */
 
-        recycleRecientes.setAdapter(adaptadorEventosRecientes);
+
+
+                recycleRecientes.setAdapter(adaptadorEventosRecientes);
 
         //    recycleRecientes.setAdapter(adaptadorEventosRecientes);
 
@@ -201,6 +227,12 @@ public class Menu_Principal extends Fragment {
                         objEvent = new Evento();
                         objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
                         objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
+                        objEvent.setDescripcion(dataSnapshot.child("" + i).child("descripcion").getValue().toString());
+                        objEvent.setCategoria(dataSnapshot.child("" + i).child("categoria").getValue().toString());
+                        objEvent.setFecha(dataSnapshot.child("" + i).child("fecha").getValue().toString());
+                        objEvent.setDireccion(dataSnapshot.child("" + i).child("direccion").getValue().toString());
+                        objEvent.setTelefono(dataSnapshot.child("" + i).child("telefono").getValue().toString());
+
                         itemEventos.add(objEvent);
                     }
                 }
@@ -213,13 +245,7 @@ public class Menu_Principal extends Fragment {
         });
 
 
-        adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(), new AdaptadorEventos.OnItemClick() {
-            @Override
-            public void itemClick(Evento items, int position) {
-
-
-            }
-        });
+        adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);
 
         recyclerView.setAdapter(adaptadorEventos);
 

@@ -1,6 +1,8 @@
 package com.juan.firebaseregistro;
 
-public class Evento {
+import java.io.Serializable;
+
+public class Evento implements Serializable {
 
     String nombre;
     String telefono;
