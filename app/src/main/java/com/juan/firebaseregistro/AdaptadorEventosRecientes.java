@@ -22,9 +22,9 @@ public class AdaptadorEventosRecientes extends RecyclerView.Adapter<AdaptadorEve
     {
         void itemClick(Evento items, int position);
     }
-    private AdaptadorEventos.OnItemClick listener;
+    private AdaptadorEventosRecientes.OnItemClick listener;
 
-    public AdaptadorEventosRecientes(List<Evento> listare, Context context, AdaptadorEventos.OnItemClick listener) {
+    public AdaptadorEventosRecientes(List<Evento> listare, Context context, AdaptadorEventosRecientes.OnItemClick listener) {
         this.listare = listare;
         this.context = context;
         this.listener=listener;

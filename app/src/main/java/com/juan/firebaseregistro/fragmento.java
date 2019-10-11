@@ -13,12 +13,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class fragmento extends AppCompatActivity {
+public class fragmento extends AppCompatActivity implements Comunicador {
 
 
     final Fragment fragment1 = new Menu_Principal();
     final Fragment fragment2 = new Menu_Favoritos();
     final Fragment fragment3 = new Perfil();
+   Favoritos favoritos = new Favoritos();
+   // final Fragment favoritos = new Favoritos();
+
+
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragment1;
 
@@ -33,6 +37,9 @@ public class fragmento extends AppCompatActivity {
         fm.beginTransaction().add(R.id.content_main,fragment1,"1").commit();
         fm.beginTransaction().add(R.id.content_main,fragment2,"2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.content_main,fragment3,"3").hide(fragment3).commit();
+      //  fm.beginTransaction().add(R.id.content_main,favoritos,"4").hide(favoritos).commit();
+
+
     }
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
     = new BottomNavigationView.OnNavigationItemSelectedListener(){
@@ -40,6 +47,7 @@ public class fragmento extends AppCompatActivity {
         public boolean onNavigationItemSelected (@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.menu_Principal:
+
                     Fragment frg = null;
                     frg = getSupportFragmentManager().findFragmentByTag(fragment1.getTag());
                     final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -81,4 +89,18 @@ public class fragmento extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void enviardatos(Evento eventoco) {
+
+       favoritos = new Favoritos();
+        Bundle bundleenvio = new Bundle();
+        bundleenvio.putSerializable("objeto",eventoco);
+        favoritos.setArguments(bundleenvio);
+        // de aqui cargo el fragment en el activity
+     fm.beginTransaction().replace(R.id.content_main,favoritos).addToBackStack(null).commit();
+       // fm.beginTransaction().hide(fragment1).hide(fragment2).hide(fragment3).addToBackStack(null).show(favoritos).commit();
+      //  active=favoritos;
+
+
+    }
 }
