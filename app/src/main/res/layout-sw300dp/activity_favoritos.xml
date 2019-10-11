@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_menu_principal"
     tools:context=".Favoritos">
 
 
@@ -135,7 +134,6 @@
         android:id="@+id/btn_Llamar"
         android:layout_width="54dp"
         android:layout_height="54dp"
-
         android:layout_above="@+id/txt_Descripcion_Del_Evento"
         android:background="@drawable/ic_movil">
 
@@ -145,12 +143,12 @@
         android:id="@+id/txt_Numero_Telefonico"
         android:layout_width="149dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btn_Llamar"
+        android:layout_above="@+id/txt_Descripcion_Del_Evento"
+        android:layout_below="@+id/txt_Dirreccion"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="-1dp"
-
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="188dp"
         android:layout_toEndOf="@+id/btn_Llamar"
         android:text="311-3617453"
@@ -164,8 +162,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="115dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="149dp"
         android:text="El próximo viernes 6 de septiembre en el auditorio del prmer piso (Salón de videoconferencias) de la torre norte, se llevara a cabo el 6° taller que hace parte de la iniciativa de promoción de cinematografia llamada cine al Sena, el invitado será el reconocido director caleño Jorge Navas, quien a través de uno de sus primeros trabajos cinematográficos: Alguien mató Algo, logró catapultarse en la industria cinematográfica nacional. "
         android:textColor="@color/Gris_Letras"
         android:textSize="12dp">
