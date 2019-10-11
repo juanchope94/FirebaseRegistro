@@ -93,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toEndOf="@+id/btn_Calendario"
-        tools:layout_editor_absoluteY="289dp"></TextView>
+        tools:layout_editor_absoluteY="324dp"></TextView>
 
     <ImageButton
         android:id="@+id/btn_Ubicacion"
@@ -118,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toEndOf="@+id/btn_Ubicacion"
-        tools:layout_editor_absoluteY="364dp"></TextView>
+        tools:layout_editor_absoluteY="433dp"></TextView>
 
     <ImageButton
         android:id="@+id/btn_Llamar"
@@ -142,7 +142,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toEndOf="@+id/btn_Llamar"
-        tools:layout_editor_absoluteY="440dp"></TextView>
+        tools:layout_editor_absoluteY="508dp"></TextView>
 
     <TextView
         android:id="@+id/txt_Descripcion_Del_Evento"

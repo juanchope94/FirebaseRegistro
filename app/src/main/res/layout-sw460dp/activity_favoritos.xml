@@ -69,6 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_Nombre_Del_Evento_Favoritos"
         app:layout_constraintVertical_bias="0.0"></TextView>
 
+
     <ImageButton
         android:id="@+id/btn_Calendario"
         android:layout_width="54dp"
@@ -77,10 +78,10 @@
         android:background="@drawable/ic_calendario"
         app:layout_constraintBottom_toTopOf="@+id/btn_Ubicacion"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Nombre_Del_Autor_Favoritos">
+        app:layout_constraintTop_toBottomOf="@+id/txt_Nombre_Del_Autor_Favoritos"
+        app:layout_constraintVertical_bias="0.783">
 
     </ImageButton>
-
 
     <TextView
         android:id="@+id/txt_Fecha_Del_Evento"
@@ -91,9 +92,9 @@
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toEndOf="@+id/btn_Calendario"
-        tools:layout_editor_absoluteY="289dp"></TextView>
+        tools:layout_editor_absoluteY="355dp"></TextView>
 
     <ImageButton
         android:id="@+id/btn_Ubicacion"
@@ -116,9 +117,9 @@
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toEndOf="@+id/btn_Ubicacion"
-        tools:layout_editor_absoluteY="364dp"></TextView>
+        tools:layout_editor_absoluteY="433dp"></TextView>
 
     <ImageButton
         android:id="@+id/btn_Llamar"
@@ -140,9 +141,9 @@
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toEndOf="@+id/btn_Llamar"
-        tools:layout_editor_absoluteY="440dp"></TextView>
+        tools:layout_editor_absoluteY="495dp"></TextView>
 
     <TextView
         android:id="@+id/txt_Descripcion_Del_Evento"
