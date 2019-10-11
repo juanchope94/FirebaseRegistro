@@ -18,7 +18,7 @@
         android:textStyle="bold"
         android:outlineAmbientShadowColor="@color/Blanco"
         android:text="Configuraciónes"
-        android:textColor="@color/Blanco"
+        android:textColor="@color/Negro_Letras"
         android:textSize="25dp">
 
     </TextView>
