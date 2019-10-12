@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
                         progressDialog.dismiss();
-                        Intent pasar = new Intent(MainActivity.this,Principal.class);
+                        Intent pasar = new Intent(MainActivity.this,fragmento.class);
                         try {
                             firebaseCredencial(accestoken,1);
                             String profile_picture= "https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250";
