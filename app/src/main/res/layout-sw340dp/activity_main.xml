@@ -14,7 +14,7 @@
         android:layout_below="@+id/editContrasena"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="71dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="23dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/bordeados"
@@ -253,7 +253,7 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGmail"
-        android:layout_width="172dp"
+        android:layout_width="178dp"
         android:layout_height="37dp"
         android:layout_below="@+id/textCrear"
         android:layout_centerHorizontal="true"
