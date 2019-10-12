@@ -254,7 +254,7 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btnGmail"
-        android:layout_width="172dp"
+        android:layout_width="179dp"
         android:layout_height="37dp"
         android:layout_below="@+id/textCrear"
         android:layout_centerHorizontal="true"
