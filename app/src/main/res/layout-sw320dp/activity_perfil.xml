@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,55 +9,40 @@
     tools:context=".Perfil">
 
 
+
     <TextView
-        android:id="@+id/configuraciones"
-        android:layout_width="199dp"
-        android:layout_height="41dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="197dp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
         android:outlineAmbientShadowColor="@color/Blanco"
         android:text="Configuraciónes"
         android:textColor="@color/Negro_Letras"
-        android:textSize="25dp"
-        android:textStyle="bold">
+        android:textSize="25dp">
 
     </TextView>
-
-
     <Button
         android:id="@+id/btn_Nombre_Usuario"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/configuraciones"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="196dp"
         android:background="@drawable/bordeados_00"
-        android:drawableLeft="@drawable/ic_perfil_01"
-        android:outlineAmbientShadowColor="@color/Blanco"
-        android:outlineSpotShadowColor="@color/Blanco"
         android:text="Nombre"
         android:textColor="@color/Negro_Letras"
-        android:textStyle="bold"></Button>
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_perfil_01"
+        android:layout_marginTop="100dp"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco"></Button>
+
 
     <Button
         android:id="@+id/btn_Cambiar_Contrasena"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Nombre_Usuario"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="195dp"
+        android:layout_marginTop="170dp"
         android:background="@drawable/bordeados_00"
         android:drawableLeft="@drawable/ic_cambio_contrasena"
         android:outlineAmbientShadowColor="@color/Blanco"
@@ -68,25 +53,19 @@
         android:tint="#2B2B2B">
 
     </Button>
-
     <Button
         android:id="@+id/btn_Activar_Notificaciones"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Cambiar_Contrasena"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="195dp"
-        android:background="@drawable/bordeados_00"
-        android:drawableLeft="@drawable/ic_activar_notificaciones"
-        android:outlineAmbientShadowColor="@color/Blanco"
-        android:outlineSpotShadowColor="@color/Blanco"
         android:text="Activar Notificaciones"
+        android:background="@drawable/bordeados_00"
         android:textColor="@color/Negro_Letras"
-        android:textStyle="bold">
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_activar_notificaciones"
+        android:layout_marginTop="240dp"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco">
 
     </Button>
 
@@ -94,15 +73,8 @@
         android:id="@+id/btn_Cerrar_Session"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_Activar_Notificaciones"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="195dp"
-        android:layout_marginBottom="395dp"
+        android:layout_marginTop="310dp"
         android:background="@drawable/bordeados_00"
         android:drawableLeft="@drawable/ic_cerrar_session"
         android:outlineAmbientShadowColor="@color/Blanco"
@@ -114,6 +86,4 @@
     </Button>
 
 
-
-
-</RelativeLayout>
+</FrameLayout>
