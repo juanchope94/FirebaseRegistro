@@ -54,7 +54,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
                     ft.detach(frg);
                     ft.attach(frg);
                     ft.commit();
-                    fm.beginTransaction().hide(active).show(fragment1).commit();
+                    fm.beginTransaction().hide(active).hide(favoritos).hide(fragment3).show(fragment1).commit();
                     active=fragment1;
                     return true;
 
@@ -66,7 +66,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
                     return true;
                 case R.id.perfil:
-                    fm.beginTransaction().hide(active).show(fragment3).commit();
+                    fm.beginTransaction().hide(active).hide(favoritos).show(fragment3).addToBackStack(null).commit();
                     active=fragment3;
                     return true;
 
@@ -97,9 +97,12 @@ public class fragmento extends AppCompatActivity implements Comunicador {
         bundleenvio.putSerializable("objeto",eventoco);
         favoritos.setArguments(bundleenvio);
         // de aqui cargo el fragment en el activity
-     fm.beginTransaction().replace(R.id.content_main,favoritos).addToBackStack(null).commit();
-       // fm.beginTransaction().hide(fragment1).hide(fragment2).hide(fragment3).addToBackStack(null).show(favoritos).commit();
-      //  active=favoritos;
+    // fm.beginTransaction().replace(R.id.content_main,favoritos).hide(fragment2).addToBackStack(null).commit();
+
+     fm.beginTransaction().add(R.id.content_main,favoritos).hide(fragment1).hide(fragment3)
+             .addToBackStack(null).commit();
+
+
 
 
     }
