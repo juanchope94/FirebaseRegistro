@@ -25,7 +25,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -39,11 +38,8 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
     EditText edtCorreoReg, edtContrasenaReg, edtNombreUsuario;
     Button btnReg;
-  //private FirebaseAuth mAuth;
-     FirebaseAuth mAuth;
-   //DatabaseReference aDatabase;
-   //firestore variable
-   FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth;
+     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
 
@@ -72,8 +68,6 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
         edtNombreUsuario = findViewById(R.id.editNombreUsuario);
 
        btnReg.setOnClickListener(this);
-
-
 
 
 

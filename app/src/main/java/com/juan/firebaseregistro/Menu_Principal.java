@@ -42,8 +42,6 @@ public class Menu_Principal extends Fragment {
     Evento objEvent;
     List<Evento> itemEventos, listareciente;
 
-    //private DatabaseReference mDatabase;
-
 
     @Nullable
     @Override
@@ -100,6 +98,8 @@ public class Menu_Principal extends Fragment {
 
     public void ActualizarRecycler(final String parametro) {
 
+        itemEventos.clear();
+        adaptadorEventos.notifyDataSetChanged();
         db.collection("Evento").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -107,7 +107,9 @@ public class Menu_Principal extends Fragment {
                     List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                     for (DocumentSnapshot d: list){
                         Evento e = d.toObject(Evento.class);
-                        itemEventos.add(e);
+                        if(e.getCategoria().equals(parametro)) {
+                            itemEventos.add(e);
+                        }
                     }
                     adaptadorEventos.notifyDataSetChanged();
                 }
