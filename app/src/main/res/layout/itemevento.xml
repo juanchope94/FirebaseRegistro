@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:background="@drawable/bordeados_02"
-            android:drawableLeft="@drawable/ic_corazon_favoritos"
+            android:drawableLeft="@drawable/boton_pulsado"
             android:paddingLeft="9dp" />
 
     </LinearLayout>
