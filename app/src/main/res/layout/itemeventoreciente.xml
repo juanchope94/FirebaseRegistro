@@ -32,6 +32,7 @@
                     android:id="@+id/txtNombreItem"
                     android:layout_width="56dp"
                     android:layout_height="20dp"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:ellipsize="end"
                     android:maxLines="1" />
