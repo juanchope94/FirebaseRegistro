@@ -86,8 +86,8 @@
         android:outlineAmbientShadowColor="@color/Blanco"
         android:outlineSpotShadowColor="@color/Blanco"
         android:text="Cerrar Sesión"
-        android:textSize="10dp"
         android:textColor="@color/Negro_Letras"
+        android:textSize="10dp"
         android:textStyle="bold">
 
     </Button>
