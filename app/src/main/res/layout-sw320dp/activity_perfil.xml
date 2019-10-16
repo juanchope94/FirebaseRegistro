@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,23 +22,19 @@
         android:textSize="25dp">
 
     </TextView>
-
     <Button
         android:id="@+id/btn_Nombre_Usuario"
         android:layout_width="196dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="195dp"
         android:background="@drawable/bordeados_03"
-        android:drawableLeft="@drawable/ic_perfil_01"
         android:text="Nombre"
-        android:textColor="@color/Negro_Letras"
         android:textSize="10dp"
-        android:textStyle="bold"></Button>
+        android:textColor="@color/Negro_Letras"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_perfil_01"
+        android:layout_marginTop="100dp"
+        ></Button>
 
 
     <Button
@@ -86,11 +82,11 @@
         android:outlineAmbientShadowColor="@color/Blanco"
         android:outlineSpotShadowColor="@color/Blanco"
         android:text="Cerrar Sesión"
-        android:textColor="@color/Negro_Letras"
         android:textSize="10dp"
+        android:textColor="@color/Negro_Letras"
         android:textStyle="bold">
 
     </Button>
 
 
-</RelativeLayout>
+</FrameLayout>

@@ -41,8 +41,8 @@
 
     <TextView
         android:id="@+id/txt_Nombre_Del_Evento_Favoritos"
-        android:layout_width="419dp"
-        android:layout_height="wrap_content"
+        android:layout_width="428dp"
+        android:layout_height="58dp"
         android:layout_below="@+id/img_Favoritos"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
@@ -55,7 +55,7 @@
     <TextView
         android:id="@+id/txt_Nombre_Del_Autor_Favoritos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_below="@+id/txt_Nombre_Del_Evento_Favoritos"
         android:text="Por Jorge Navas"
         android:textColor="@color/Negro_Letras"
@@ -152,7 +152,7 @@
         android:layout_height="276dp"
         android:layout_below="@+id/txt_Numero_Telefonico"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="0dp"
         android:text="El próximo viernes 6 de septiembre en el auditorio del prmer piso (Salón de videoconferencias) de la torre norte, se llevara a cabo el 6° taller que hace parte de la iniciativa de promoción de cinematografia llamada cine al Sena, el invitado será el reconocido director caleño Jorge Navas, quien a través de uno de sus primeros trabajos cinematográficos: Alguien mató Algo, logró catapultarse en la industria cinematográfica nacional. "
         android:textColor="@color/Gris_Letras"
