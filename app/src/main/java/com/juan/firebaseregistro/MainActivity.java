@@ -51,8 +51,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnIniciar;
     SignInButton btnGmail;
     CallbackManager callbackManager;
-    DatabaseReference actDatabase;
+    //DatabaseReference actDatabase;
 
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Date date = new Date();
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnIniciar.setOnClickListener(this);
         btnGmail = findViewById(R.id.btnGmail);
         btnGmail.setOnClickListener(this);
-        actDatabase = FirebaseDatabase.getInstance().getReference();
+        //actDatabase = FirebaseDatabase.getInstance().getReference();
 
 
 

@@ -19,14 +19,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -40,7 +41,10 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
     Button btnReg;
   //private FirebaseAuth mAuth;
      FirebaseAuth mAuth;
-   DatabaseReference aDatabase;
+   //DatabaseReference aDatabase;
+   //firestore variable
+   FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
 
     String email = "";
@@ -60,7 +64,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
         setContentView(R.layout.activity_registro_datos);
         mAuth = FirebaseAuth.getInstance();
-      aDatabase = FirebaseDatabase.getInstance().getReference();
+       //aDatabase = FirebaseDatabase.getInstance().getReference();
         edtCorreoReg = findViewById(R.id.editCorreoRegisto);
         edtContrasenaReg = findViewById(R.id.editContrasenaRegistro);
         btnReg = findViewById(R.id.btnRegistrar);
@@ -119,20 +123,22 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
                                    map.put("fechaIngreso",strDate);
 
                                     String id = mAuth.getCurrentUser().getUid();
-                                    aDatabase.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task2) {
-                                            if (task2.isSuccessful()){
-                                                startActivity(new Intent(RegistroDatos.this,Principal.class));
-                                                  finish();//evita que el usuario vuelva a la pantalla de registro cuand ya este registrado
-                                            }else {
-                                                Toast.makeText(RegistroDatos.this, "Error al registrar datos ", Toast.LENGTH_SHORT).show();
-                                            }
+                                    db.collection("users")
+                                            .add(map)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    startActivity(new Intent(RegistroDatos.this,Menu_Principal.class));
+                                                    finish();
+                                                }
+                                            })
 
-                                        }
-                                    });
-
-
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(RegistroDatos.this, "Error al registrar datos ", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
 
                                 } else {
                                     // If sign in fails, display a message to the user.

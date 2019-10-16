@@ -18,12 +18,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -39,11 +38,11 @@ public class Menu_Principal extends Fragment {
     Comunicador comunicador;
     Activity activity;
     AdaptadorEventos.OnItemClick click;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     Evento objEvent;
     List<Evento> itemEventos, listareciente;
 
-    private DatabaseReference mDatabase;
+    //private DatabaseReference mDatabase;
 
 
     @Nullable
@@ -54,7 +53,7 @@ public class Menu_Principal extends Fragment {
         final View view = getLayoutInflater().inflate(R.layout.activity_menu_principal, container, false);
 
         opciones = (BottomNavigationView) view.findViewById(R.id.navigation_00);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        //mDatabase = FirebaseDatabase.getInstance().getReference();
         recyclerView = (RecyclerView) view.findViewById(R.id.recycEventosTodos);
         recycleRecientes = (RecyclerView) view.findViewById(R.id.recycEventosRecientes);
         itemEventos = new ArrayList<>();
@@ -101,32 +100,17 @@ public class Menu_Principal extends Fragment {
 
     public void ActualizarRecycler(final String parametro) {
 
-        mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
+        db.collection("Evento").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                itemEventos.clear();
-                adaptadorEventos.notifyDataSetChanged();
-                if (dataSnapshot.exists()) {
-                    for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
-
-                        if (dataSnapshot.child("" + i).child("categoria").getValue().toString().equals(parametro)) {
-                            objEvent = new Evento();
-                            objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
-                            objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
-                            objEvent.setDescripcion(dataSnapshot.child("" + i).child("descripcion").getValue().toString());
-                            objEvent.setCategoria(dataSnapshot.child("" + i).child("categoria").getValue().toString());
-                            objEvent.setFecha(dataSnapshot.child("" + i).child("fecha").getValue().toString());
-                            objEvent.setDireccion(dataSnapshot.child("" + i).child("direccion").getValue().toString());
-                            objEvent.setTelefono(dataSnapshot.child("" + i).child("telefono").getValue().toString());
-                            itemEventos.add(objEvent);
-                        }
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if (!queryDocumentSnapshots.isEmpty()){
+                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                    for (DocumentSnapshot d: list){
+                        Evento e = d.toObject(Evento.class);
+                        itemEventos.add(e);
                     }
+                    adaptadorEventos.notifyDataSetChanged();
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);
@@ -165,48 +149,28 @@ public class Menu_Principal extends Fragment {
 
     private void listarecientes() {
 
-        //mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
-        mDatabase.child("Evento").limitToFirst(5).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                listareciente.clear();
-                adaptadorEventosRecientes.notifyDataSetChanged();
-                if (dataSnapshot.exists()) {
-                    for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
-
-
-                        objEvent = new Evento();
-                        objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
-                        objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
-                        objEvent.setDescripcion(dataSnapshot.child("" + i).child("descripcion").getValue().toString());
-                        objEvent.setCategoria(dataSnapshot.child("" + i).child("categoria").getValue().toString());
-                        objEvent.setFecha(dataSnapshot.child("" + i).child("fecha").getValue().toString());
-                        objEvent.setDireccion(dataSnapshot.child("" + i).child("direccion").getValue().toString());
-                        objEvent.setTelefono(dataSnapshot.child("" + i).child("telefono").getValue().toString());
-                        listareciente.add(objEvent);
+        db.collection("Evento").orderBy("fecha").limit(5).get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if (!queryDocumentSnapshots.isEmpty()){
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                            for (DocumentSnapshot d: list){
+                                Evento e = d.toObject(Evento.class);
+                                listareciente.add(e);
+                            }
+                            adaptadorEventos.notifyDataSetChanged();
+                        }
                     }
-                }
-            }
+                });
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
         adaptadorEventosRecientes = new AdaptadorEventosRecientes(listareciente,getContext(), new AdaptadorEventosRecientes.OnItemClick() {
             @Override
             public void itemClick(Evento items, int position) {
 
             }
         });
-
-
-
-
-                recycleRecientes.setAdapter(adaptadorEventosRecientes);
-
-        //    recycleRecientes.setAdapter(adaptadorEventosRecientes);
-
+        recycleRecientes.setAdapter(adaptadorEventosRecientes);
 
     }
 
@@ -214,37 +178,19 @@ public class Menu_Principal extends Fragment {
 
     private void listatodos() {
 
-
-        mDatabase.child("Evento").addValueEventListener(new ValueEventListener() {
+        db.collection("Evento").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                itemEventos.clear();
-                adaptadorEventos.notifyDataSetChanged();
-                if (dataSnapshot.exists()) {
-                    for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
-
-
-                        objEvent = new Evento();
-                        objEvent.setNombre(dataSnapshot.child("" + i).child("nombre").getValue().toString());
-                        objEvent.setUrlImagen(dataSnapshot.child("" + i).child("urlImagen").getValue().toString());
-                        objEvent.setDescripcion(dataSnapshot.child("" + i).child("descripcion").getValue().toString());
-                        objEvent.setCategoria(dataSnapshot.child("" + i).child("categoria").getValue().toString());
-                        objEvent.setFecha(dataSnapshot.child("" + i).child("fecha").getValue().toString());
-                        objEvent.setDireccion(dataSnapshot.child("" + i).child("direccion").getValue().toString());
-                        objEvent.setTelefono(dataSnapshot.child("" + i).child("telefono").getValue().toString());
-
-                        itemEventos.add(objEvent);
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if (!queryDocumentSnapshots.isEmpty()){
+                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                    for (DocumentSnapshot d: list){
+                        Evento e = d.toObject(Evento.class);
+                        itemEventos.add(e);
                     }
+                    adaptadorEventos.notifyDataSetChanged();
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
         });
-
-
         adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);
 
         recyclerView.setAdapter(adaptadorEventos);

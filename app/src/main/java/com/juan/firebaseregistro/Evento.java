@@ -8,7 +8,7 @@ public class Evento implements Serializable {
     String telefono;
     String urlImagen;
 
-    public Evento(String nombre, String telefono, String urlImagen, String categoria, String descripcion, String direccion, String fecha, long latitud, long longitud) {
+    public Evento(String nombre, String telefono, String urlImagen, String categoria, String descripcion, String direccion, String fecha, String latitud, String longitud) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.urlImagen = urlImagen;
@@ -84,23 +84,23 @@ public class Evento implements Serializable {
         this.fecha = fecha;
     }
 
-    public long getLatitud() {
+    public String getLatitud() {
         return latitud;
     }
 
-    public void setLatitud(long latitud) {
+    public void setLatitud(String latitud) {
         this.latitud = latitud;
     }
 
-    public long getLongitud() {
+    public String getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(long longitud) {
+    public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
 
-    long latitud, longitud;
+    String latitud, longitud;
 
 
 
