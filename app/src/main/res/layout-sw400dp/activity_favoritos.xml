@@ -42,6 +42,7 @@
     <TextView
         android:id="@+id/txt_Nombre_Del_Evento_Favoritos"
         android:layout_width="406dp"
+        android:layout_marginTop="25dp"
         android:layout_height="31dp"
         android:layout_below="@+id/img_Favoritos"
         android:layout_centerHorizontal="true"
@@ -54,7 +55,7 @@
     <TextView
         android:id="@+id/txt_Nombre_Del_Autor_Favoritos"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/txt_Nombre_Del_Evento_Favoritos"
         android:text="Por Jorge Navas"
         android:textColor="@color/Negro_Letras"

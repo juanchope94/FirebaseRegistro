@@ -46,6 +46,7 @@
         android:layout_below="@+id/img_Favoritos"
         android:layout_centerHorizontal="true"
         android:text="CINE AL SENA"
+        android:layout_marginTop="25dp"
         android:textColor="@color/Negro_Letras"
         android:textSize="25dp">
 
