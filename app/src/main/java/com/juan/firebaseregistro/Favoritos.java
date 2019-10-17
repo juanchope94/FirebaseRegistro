@@ -124,12 +124,9 @@ public class Favoritos extends Fragment {
                     // Toast.makeText(getContext(), "fun"+part1+part2+part3, Toast.LENGTH_SHORT).show();
 
                     Calendar cal = Calendar.getInstance();
-                    boolean val = false;
+
                     Intent intento = null;
-                    while (val = false)
-                    {
-                        try
-                        {
+
 
                             cal.set(Calendar.YEAR, Integer.parseInt(part1));
                             cal.set(Calendar.MONTH, Integer.parseInt(part2));
@@ -147,16 +144,8 @@ public class Favoritos extends Fragment {
                             intentoc.putExtra(CalendarContract.Events.EVENT_LOCATION, titulo);
 
                             startActivity(intentoc);
-                            val = true;
 
 
-
-                        }catch (Exception e)
-                        {
-
-
-                        }
-                    }
                 }
             });
         }
