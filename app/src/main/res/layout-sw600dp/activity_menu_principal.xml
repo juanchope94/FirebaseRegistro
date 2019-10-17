@@ -69,12 +69,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycEventosTodos"
-        android:layout_width="match_parent"
-        android:layout_height="691dp"
+        android:layout_width="410dp"
+        android:layout_height="629dp"
         android:layout_below="@+id/textView2"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="92dp"
         android:layout_marginBottom="100dp" />
 
     >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
