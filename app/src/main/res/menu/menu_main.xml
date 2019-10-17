@@ -18,7 +18,7 @@
     <item
         android:id="@+id/perfil"
         android:title="Perfil"
-        android:icon="@drawable/ic_perfil"
+        android:icon="@drawable/ic_perfil_01"
 
         ></item>
 

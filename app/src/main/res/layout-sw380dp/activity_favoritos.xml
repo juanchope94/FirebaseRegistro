@@ -11,7 +11,7 @@
         android:id="@+id/img_Favoritos"
         android:layout_width="match_parent"
         android:layout_height="203dp"
-        android:src="@drawable/cine">
+        >
 
     </ImageView>
 

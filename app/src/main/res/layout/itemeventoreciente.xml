@@ -19,7 +19,6 @@
                 android:id="@+id/imgEventoItem"
                 android:layout_width="128dp"
                 android:layout_height="86dp"
-                android:src="@drawable/cine"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="2dp" />
             <LinearLayout

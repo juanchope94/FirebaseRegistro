@@ -12,7 +12,6 @@
         android:id="@+id/img_Favoritos"
         android:layout_width="match_parent"
         android:layout_height="217dp"
-        android:src="@drawable/cine"
         app:layout_constraintBottom_toTopOf="@+id/txt_Nombre_Del_Evento_Favoritos"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
