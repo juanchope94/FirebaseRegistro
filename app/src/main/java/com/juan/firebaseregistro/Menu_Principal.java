@@ -2,14 +2,12 @@ package com.juan.firebaseregistro;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +22,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +35,7 @@ public class Menu_Principal extends Fragment {
     Comunicador comunicador;
     Activity activity;
     AdaptadorEventos.OnItemClick click;
+    AdaptadorEventosRecientes.OnItemClick clickr;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Evento objEvent;
     List<Evento> itemEventos, listareciente;
@@ -66,18 +64,31 @@ public class Menu_Principal extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recycleRecientes.setLayoutManager(layoutManager);
         eventoclick();
+        eventoClicr();
         listatodos();
         listarecientes();
 
 
         return view;
     }
+    private void eventoClicr()
+    {
+        clickr = new AdaptadorEventosRecientes.OnItemClick() {
+            @Override
+            public void itemClick(Evento position) {
+                comunicador.enviardatos(position);
+
+            }
+        };
+    }
     private void eventoclick() {
         click = new AdaptadorEventos.OnItemClick() {
             @Override
-            public void itemClick(Evento  position) {
+            public void itemClick(Evento position) {
                 comunicador.enviardatos(position);
             }
+
+
 
 
         };
@@ -166,12 +177,7 @@ public class Menu_Principal extends Fragment {
                     }
                 });
 
-        adaptadorEventosRecientes = new AdaptadorEventosRecientes(listareciente,getContext(), new AdaptadorEventosRecientes.OnItemClick() {
-            @Override
-            public void itemClick(Evento items, int position) {
-
-            }
-        });
+        adaptadorEventosRecientes = new AdaptadorEventosRecientes(listareciente,getContext(), clickr);
         recycleRecientes.setAdapter(adaptadorEventosRecientes);
 
     }

@@ -20,7 +20,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
     final Fragment fragment2 = new Menu_Favoritos();
     final Fragment fragment3 = new Perfil();
    Favoritos favoritos = new Favoritos();
-   // final Fragment favoritos = new Favoritos();
+
 
 
     final FragmentManager fm = getSupportFragmentManager();
@@ -37,7 +37,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
         fm.beginTransaction().add(R.id.content_main,fragment1,"1").commit();
         fm.beginTransaction().add(R.id.content_main,fragment2,"2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.content_main,fragment3,"3").hide(fragment3).commit();
-      //  fm.beginTransaction().add(R.id.content_main,favoritos,"4").hide(favoritos).commit();
+
 
 
     }
