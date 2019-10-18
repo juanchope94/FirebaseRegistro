@@ -32,7 +32,9 @@ public class Favoritos extends Fragment {
     ImageView imagenevento;
     ImageButton botonLlamar, botonCalendario, botonubicacion;
     String telefono;
-    String titulo;
+    String titulo, descripcion;
+    int  duracion= 1;
+
     public static String  latitud;
     public static String longitud;
     final private int REQUIERE =111;
@@ -77,6 +79,7 @@ public class Favoritos extends Fragment {
             numeroTelefono.setText(eventomues.getTelefono());
             telefono = eventomues.getTelefono();
             titulo = eventomues.getNombre();
+            descripcion= eventomues.getDescripcion();
             latitud = eventomues.getLatitud();
             longitud= eventomues.getLongitud();
             final String fecha = eventomues.getFecha();
@@ -101,29 +104,16 @@ botonubicacion.setOnClickListener(new View.OnClickListener() {
             botonLlamar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //  Toast.makeText(getContext(), "presiono", Toast.LENGTH_SHORT).show();
 
 
 
-                    int llamar = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE);
-                    requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, REQUIERE);
+
+
                     Uri uri = Uri.parse("tel:" + telefono);
                     Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                   // if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
+                  //  {return;}
                     startActivity(intent);
-
-                    if (llamar != PackageManager.PERMISSION_GRANTED) {
-
-
-
-
-
-                    }
-
-
-
-
-
-
 
 
 
@@ -142,9 +132,11 @@ botonubicacion.setOnClickListener(new View.OnClickListener() {
                     Intent intento = null;
 
 
+
                             cal.set(Calendar.YEAR, Integer.parseInt(part1));
-                            cal.set(Calendar.MONTH, Integer.parseInt(part2));
+                            cal.set(Calendar.MONTH, Integer.parseInt(part2)-1) ;
                             cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(part3));
+
 
                             Intent intentoc = new Intent(Intent.ACTION_EDIT);
                             intentoc.setType("vnd.android.cursor.item/event");
@@ -152,9 +144,11 @@ botonubicacion.setOnClickListener(new View.OnClickListener() {
                             intentoc.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,cal.getTimeInMillis()+ 60 +60 + 1000);
 
 
-                            intentoc.putExtra(CalendarContract.Events.ALL_DAY, "1");
+                    intentoc.putExtra(CalendarContract.Events.ALL_DAY,duracion);
                             intentoc.putExtra(CalendarContract.Events.TITLE, titulo);
-                            intentoc.putExtra(CalendarContract.Events.DESCRIPTION, titulo);
+
+                            intentoc.putExtra(CalendarContract.Events.DESCRIPTION, descripcion);
+
                             intentoc.putExtra(CalendarContract.Events.EVENT_LOCATION, titulo);
 
 
