@@ -30,9 +30,11 @@ public class Favoritos extends Fragment {
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
     ImageView imagenevento;
-    ImageButton botonLlamar, botonCalendario;
+    ImageButton botonLlamar, botonCalendario, botonubicacion;
     String telefono;
     String titulo;
+    public static String  latitud;
+    public static String longitud;
     final private int REQUIERE =111;
 
 
@@ -46,7 +48,6 @@ public class Favoritos extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState ) {
 
 
-        //View view = inflater.inflate(R.layout.activity_favoritos,container,false);
         final View view = getLayoutInflater().inflate(R.layout.activity_favoritos, container, false);
 
         nombreevento = (TextView) view.findViewById(R.id.txt_Nombre_Del_Evento_Favoritos);
@@ -57,9 +58,12 @@ public class Favoritos extends Fragment {
         botonLlamar =(ImageButton) view.findViewById(R.id.btn_Llamar);
         botonCalendario =(ImageButton) view.findViewById(R.id.btn_Calendario);
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
+        botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
 
 
         Bundle eventodetall  = getArguments();
+
+
         Evento eventomues = null;
         if (getArguments() != null){
 
@@ -73,6 +77,8 @@ public class Favoritos extends Fragment {
             numeroTelefono.setText(eventomues.getTelefono());
             telefono = eventomues.getTelefono();
             titulo = eventomues.getNombre();
+            latitud = eventomues.getLatitud();
+            longitud= eventomues.getLongitud();
             final String fecha = eventomues.getFecha();
 
             String[] parts = fecha.split("-");
@@ -81,7 +87,15 @@ public class Favoritos extends Fragment {
             final String part3 = parts[2];
 
 
+botonubicacion.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getContext(), "la"+latitud+longitud, Toast.LENGTH_SHORT).show();
 
+        Intent mapas = new Intent(getContext(),Ubication.class);
+        startActivity(mapas);
+    }
+});
 
 
             botonLlamar.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +156,7 @@ public class Favoritos extends Fragment {
                             intentoc.putExtra(CalendarContract.Events.TITLE, titulo);
                             intentoc.putExtra(CalendarContract.Events.DESCRIPTION, titulo);
                             intentoc.putExtra(CalendarContract.Events.EVENT_LOCATION, titulo);
+
 
                             startActivity(intentoc);
 
