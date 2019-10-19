@@ -59,14 +59,14 @@ public class fragmento extends AppCompatActivity implements Comunicador {
                     return true;
 
                 case R.id.menu_Favoritos:
-                 // fm.beginTransaction().hide(active).show(fragment2).commit();
-                  Intent intento = new Intent(fragmento.this,MainActivity.class);
+
+                  Intent intento = new Intent(fragmento.this.getBaseContext(),MainActivity.class);
                   startActivity(intento);
-                   // active=fragment2;
+
 
                     return true;
                 case R.id.perfil:
-                    fm.beginTransaction().hide(active).hide(favoritos).show(fragment3).addToBackStack(null).commit();
+                    fm.beginTransaction().replace(R.id.content_main,fragment3).hide(active).hide(favoritos).show(fragment3).addToBackStack(null).commit();
                     active=fragment3;
                     return true;
 
