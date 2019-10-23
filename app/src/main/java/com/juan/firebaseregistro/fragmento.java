@@ -40,6 +40,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
 
 
+
     }
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
     = new BottomNavigationView.OnNavigationItemSelectedListener(){
@@ -47,6 +48,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
         public boolean onNavigationItemSelected (@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.menu_Principal:
+
 
                     Fragment frg = null;
                     frg = getSupportFragmentManager().findFragmentByTag(fragment1.getTag());
@@ -66,7 +68,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
                     return true;
                 case R.id.perfil:
-                    fm.beginTransaction().replace(R.id.content_main,fragment3).hide(active).hide(favoritos).show(fragment3).addToBackStack(null).commit();
+                    fm.beginTransaction().hide(active).show(fragment3).addToBackStack(null).commit();
                     active=fragment3;
                     return true;
 
@@ -99,8 +101,12 @@ public class fragmento extends AppCompatActivity implements Comunicador {
         // de aqui cargo el fragment en el activity
     // fm.beginTransaction().replace(R.id.content_main,favoritos).hide(fragment2).addToBackStack(null).commit();
 
-     fm.beginTransaction().add(R.id.content_main,favoritos).hide(fragment1).hide(fragment3)
+     fm.beginTransaction().add(R.id.content_main,favoritos).hide(active).hide(fragment1)
              .addToBackStack(null).commit();
+     active=favoritos;
+
+
+
 
 
 
