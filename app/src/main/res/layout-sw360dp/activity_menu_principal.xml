@@ -72,9 +72,9 @@
         android:layout_width="match_parent"
         android:layout_height="295dp"
         android:layout_below="@+id/textView2"
-        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="112dp" />
 
     >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
