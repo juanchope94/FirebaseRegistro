@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              credential = FacebookAuthProvider.getCredential(accestoken);
         }
         else{
-            credential = GoogleAuthProvider.getCredential(accestoken, null);
+            credential = GoogleAuthProvider.getCredential(accestoken,null);
         }
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {

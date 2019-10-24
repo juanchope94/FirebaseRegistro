@@ -127,7 +127,9 @@ public class Menu_Principal extends Fragment {
                         }
                         itemEventos.clear();
                         for (QueryDocumentSnapshot doc : value) {
+
                                 Evento eve = doc.toObject(Evento.class);
+
                                 itemEventos.add(eve);
 
                         }
@@ -231,6 +233,7 @@ public class Menu_Principal extends Fragment {
                 itemEventos.clear();
                 for (QueryDocumentSnapshot doc : value) {
                     Evento eve = doc.toObject(Evento.class);
+                    eve.setId(doc.getId());
                     itemEventos.add(eve);
 
                 }

@@ -4,9 +4,18 @@ import java.io.Serializable;
 
 public class Evento implements Serializable {
 
+
+
+    String id;
     String nombre;
     String telefono;
     String urlImagen;
+    String latitud, longitud;
+    String categoria;
+    String descripcion;
+    String direccion;
+    String fecha;
+
 
     public Evento(String nombre, String telefono, String urlImagen, String categoria, String descripcion, String direccion, String fecha, String latitud, String longitud) {
         this.nombre = nombre;
@@ -23,10 +32,6 @@ public class Evento implements Serializable {
     public Evento() {
     }
 
-    String categoria;
-    String descripcion;
-    String direccion;
-    String fecha;
 
     public String getNombre() {
         return nombre;
@@ -99,8 +104,15 @@ public class Evento implements Serializable {
     public void setLongitud(String longitud) {
         this.longitud = longitud;
     }
+    public String getId() {
+        return id;
+    }
 
-    String latitud, longitud;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
 
 
 

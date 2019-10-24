@@ -16,8 +16,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.facebook.login.LoginManager;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.EventoViewHolder> {
 
@@ -43,6 +51,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         OnItemClick onItemClick;
         Evento eventopojo;
         View layout;
+        Button btnFavoritos;
 
 
         public EventoViewHolder(@NonNull View itemView) {
@@ -50,6 +59,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             layout = itemView;
             nombre = (TextView) itemView.findViewById(R.id.txtNombreItem);
             foto = (ImageView) itemView.findViewById(R.id.imgEventoItem);
+            btnFavoritos = itemView.findViewById(R.id.btn_favoritos);
         }
 
         public void setData(Evento eventopojo) {
@@ -67,6 +77,39 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
             nombre.setText(item.getNombre());
             Glide.with(context).load(item.getUrlImagen()).into(foto);
+            btnFavoritos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String email="";
+                    if( FirebaseAuth.getInstance().getCurrentUser()!=null)
+                    {
+                     FirebaseFirestore db = FirebaseFirestore.getInstance();
+                     email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                        Map<String,Object> map = new HashMap<>();
+                        map.put("idEvento",item.getId());
+                        map.put("correo",email);
+
+                        db.collection("Favoritos")
+                                .add(map)
+                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    @Override
+                                    public void onSuccess(DocumentReference documentReference) {
+                                        Toast.makeText(context, "Evento agregado a favoritos!", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(context, "Error al agregar a favoritos", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+
+                    }
+
+                }
+            });
 
 
         }
