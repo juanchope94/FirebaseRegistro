@@ -3,6 +3,7 @@ package com.juan.firebaseregistro;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,8 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -111,7 +116,35 @@ public class Menu_Principal extends Fragment {
 
         itemEventos.clear();
         adaptadorEventos.notifyDataSetChanged();
-        db.collection("Evento").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db.collection("Evento").whereEqualTo("categoria", parametro)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("", "Listen failed.", e);
+                            return;
+                        }
+                        itemEventos.clear();
+                        for (QueryDocumentSnapshot doc : value) {
+
+                                Evento eve = doc.toObject(Evento.class);
+
+                                itemEventos.add(eve);
+
+                        }
+
+                        adaptadorEventos.notifyDataSetChanged();
+
+                    }
+                });
+        adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);
+
+        recyclerView.setAdapter(adaptadorEventos);
+
+
+
+       /* db.collection("Evento").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 if (!queryDocumentSnapshots.isEmpty()){
@@ -125,10 +158,8 @@ public class Menu_Principal extends Fragment {
                     adaptadorEventos.notifyDataSetChanged();
                 }
             }
-        });
-        adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);
+        });*/
 
-        recyclerView.setAdapter(adaptadorEventos);
     }
 
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -162,18 +193,23 @@ public class Menu_Principal extends Fragment {
 
     private void listarecientes() {
 
-        db.collection("Evento").orderBy("fecha").limit(5).get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db.collection("Evento").orderBy("fecha").limit(5).addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        if (!queryDocumentSnapshots.isEmpty()){
-                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                            for (DocumentSnapshot d: list){
-                                Evento e = d.toObject(Evento.class);
-                                listareciente.add(e);
-                            }
-                            adaptadorEventos.notifyDataSetChanged();
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("", "Listen failed.", e);
+                            return;
                         }
+                        listareciente.clear();
+                        for (QueryDocumentSnapshot doc : value) {
+                            Evento eve = doc.toObject(Evento.class);
+                            listareciente.add(eve);
+
+                        }
+
+                        adaptadorEventosRecientes.notifyDataSetChanged();
+
                     }
                 });
 
@@ -186,17 +222,24 @@ public class Menu_Principal extends Fragment {
 
     private void listatodos() {
 
-        db.collection("Evento").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db.collection("Evento").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if (!queryDocumentSnapshots.isEmpty()){
-                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                    for (DocumentSnapshot d: list){
-                        Evento e = d.toObject(Evento.class);
-                        itemEventos.add(e);
-                    }
-                    adaptadorEventos.notifyDataSetChanged();
+            public void onEvent(@Nullable QuerySnapshot value,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w("", "Listen failed.", e);
+                    return;
                 }
+                itemEventos.clear();
+                for (QueryDocumentSnapshot doc : value) {
+                    Evento eve = doc.toObject(Evento.class);
+                    eve.setId(doc.getId());
+                    itemEventos.add(eve);
+
+                }
+
+                adaptadorEventos.notifyDataSetChanged();
+
             }
         });
         adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);

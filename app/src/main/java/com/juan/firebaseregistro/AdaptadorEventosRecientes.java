@@ -5,8 +5,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +39,7 @@ public class AdaptadorEventosRecientes extends RecyclerView.Adapter<AdaptadorEve
         Dialog dialog;
         TextView nombre;
         ImageView foto;
+        Button btnFavoritos;
         OnItemClick onItemClick;
         Evento eventopojo;
         View layout;
@@ -48,6 +51,7 @@ public class AdaptadorEventosRecientes extends RecyclerView.Adapter<AdaptadorEve
             layout = itemView;
             nombre = (TextView) itemView.findViewById(R.id.txtNombreItem);
             foto= (ImageView) itemView.findViewById(R.id.imgEventoItem);
+
         }
 
         public void setData(Evento eventopojo) {
@@ -63,6 +67,9 @@ public class AdaptadorEventosRecientes extends RecyclerView.Adapter<AdaptadorEve
 
             nombre.setText(item.getNombre());
             Glide.with(context).load(item.getUrlImagen()).into(foto);
+
+
+
 
 
         }
