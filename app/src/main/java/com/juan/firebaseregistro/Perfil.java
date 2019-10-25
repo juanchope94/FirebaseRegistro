@@ -19,6 +19,9 @@ import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Perfil extends Fragment {
+    public static Perfil newInstance() {
+        return new Perfil();
+    }
 
     Button btn_cerrar;
 

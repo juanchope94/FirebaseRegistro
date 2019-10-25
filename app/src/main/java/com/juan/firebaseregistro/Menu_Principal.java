@@ -32,6 +32,10 @@ import java.util.List;
 
 public class Menu_Principal extends Fragment {
 
+    public static Menu_Principal newInstance() {
+        return new Menu_Principal();
+    }
+
     RecyclerView recyclerView, recycleRecientes;
     AdaptadorEventos adaptadorEventos;
     AdaptadorEventosRecientes adaptadorEventosRecientes;
