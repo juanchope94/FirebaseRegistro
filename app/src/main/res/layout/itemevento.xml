@@ -44,6 +44,7 @@
            android:layout_height="20dp"/>
 
         <Button
+            android:id="@+id/btn_favoritos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
