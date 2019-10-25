@@ -68,7 +68,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
                     return true;
                 case R.id.perfil:
-                    fm.beginTransaction().hide(active).show(fragment3).addToBackStack(null).commit();
+                    fm.beginTransaction().hide(active).hide(fragment1).show(fragment3).addToBackStack(null).commit();
                     active=fragment3;
                     return true;
 
