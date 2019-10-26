@@ -5,6 +5,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.provider.CalendarContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +24,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Calendar;
 
 public class Favoritos extends Fragment {
-
+    public static Favoritos newInstance()
+    {
+        return new Favoritos();
+    }
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
     ImageView imagenevento;
-    ImageButton botonLlamar, botonCalendario, botonubicacion;
+    ImageButton botonLlamar, botonCalendario, botonubicacion, botonfavoritos;
     String telefono;
     String titulo, descripcion;
     int  duracion= 1;
@@ -38,6 +46,7 @@ public class Favoritos extends Fragment {
     public static String  latitud;
     public static String longitud;
     final private int REQUIERE =111;
+    private static final String TAG = "MyActivity";
 
 
     public Favoritos() {
@@ -59,6 +68,7 @@ public class Favoritos extends Fragment {
         numeroTelefono =(TextView) view.findViewById(R.id.txt_Numero_Telefonico);
         botonLlamar =(ImageButton) view.findViewById(R.id.btn_Llamar);
         botonCalendario =(ImageButton) view.findViewById(R.id.btn_Calendario);
+        botonfavoritos =(ImageButton) view.findViewById(R.id.btn_Campana_Favoritos);
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
         botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
 
@@ -160,7 +170,25 @@ botonubicacion.setOnClickListener(new View.OnClickListener() {
         }
 
 
+botonfavoritos.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
 
+        FirebaseMessaging.getInstance().subscribeToTopic("Prueba")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = titulo;
+                        if (!task.isSuccessful()) {
+                            msg = telefono;
+                        }
+                      //  Log.d(Tag, msg);
+                        Log.d(TAG,msg);
+                        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+});
 
         return view;
 
