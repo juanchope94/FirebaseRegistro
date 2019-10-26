@@ -39,18 +39,19 @@ double longitud = Double.parseDouble(Favoritos.longitud);
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-       
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
+        {
         mMap = googleMap;
         float zoomlevel =15.0f;
         LatLng mostrar = new LatLng( latitudd, longitud);
 
         mMap.addMarker ( new MarkerOptions ()
                 .position ( mostrar )
-                .title ( Favoritos.latitud )
+                .title ( Favoritos.titulomapa )
                 .icon ( BitmapDescriptorFactory.fromResource ( R.drawable.eventime_gps) ));
         mMap.moveCamera ( CameraUpdateFactory.newLatLngZoom ( mostrar, zoomlevel ) );
-if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
-{return;}
+
+return;}
         mMap.setMyLocationEnabled(true);
 mMap.getUiSettings().setZoomControlsEnabled(true);
     }

@@ -45,6 +45,7 @@ public class Favoritos extends Fragment {
 
     public static String  latitud;
     public static String longitud;
+    public static String titulomapa;
     final private int REQUIERE =111;
     private static final String TAG = "MyActivity";
 
@@ -89,6 +90,7 @@ public class Favoritos extends Fragment {
             numeroTelefono.setText(eventomues.getTelefono());
             telefono = eventomues.getTelefono();
             titulo = eventomues.getNombre();
+            titulomapa = eventomues.getNombre();
             descripcion= eventomues.getDescripcion();
             latitud = eventomues.getLatitud();
             longitud= eventomues.getLongitud();
@@ -103,7 +105,7 @@ public class Favoritos extends Fragment {
 botonubicacion.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Toast.makeText(getContext(), "la"+latitud+longitud, Toast.LENGTH_SHORT).show();
+
 
         Intent mapas = new Intent(getContext(),Ubication.class);
         startActivity(mapas);
