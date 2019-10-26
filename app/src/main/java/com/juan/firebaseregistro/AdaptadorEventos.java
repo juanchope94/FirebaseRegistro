@@ -3,6 +3,7 @@ package com.juan.firebaseregistro;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +14,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.List;
@@ -52,6 +60,8 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         Evento eventopojo;
         View layout;
         Button btnFavoritos;
+        boolean  resp=false;
+        String idFav="";
 
 
         public EventoViewHolder(@NonNull View itemView) {
@@ -80,33 +90,93 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             btnFavoritos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String email="";
+
                     if( FirebaseAuth.getInstance().getCurrentUser()!=null)
                     {
+                        String email="";
                      FirebaseFirestore db = FirebaseFirestore.getInstance();
                      email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
-                        Map<String,Object> map = new HashMap<>();
-                        map.put("idEvento",item.getId());
-                        map.put("correo",email);
 
-                        db.collection("Favoritos")
-                                .add(map)
-                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                    @Override
-                                    public void onSuccess(DocumentReference documentReference) {
-                                        Toast.makeText(context, "Evento agregado a favoritos!", Toast.LENGTH_SHORT).show();
-                                    }
-                                })
 
-                                .addOnFailureListener(new OnFailureListener() {
+                        final String finalEmail = email;
+                        db.collection("Favoritos").whereEqualTo("correo", email).
+                                whereEqualTo("idEvento",item.getId())
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(context, "Error al agregar a favoritos", Toast.LENGTH_SHORT).show();
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                                db.collection("Favoritos").document(document.getId())
+                                                        .delete()
+                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            @Override
+                                                            public void onSuccess(Void aVoid) {
+                                                                resp=false;
+
+                                                                Toast.makeText(context, "Evento removido de tus favoritos!", Toast.LENGTH_LONG).show();
+
+                                                            }
+                                                        })
+                                                        .addOnFailureListener(new OnFailureListener() {
+                                                            @Override
+                                                            public void onFailure(@NonNull Exception e) {
+
+                                                                resp=false;
+                                                                Toast.makeText(context, "Error al eliminar de favoritos, vuelve a intentar", Toast.LENGTH_LONG).show();
+
+                                                            }
+                                                        });
+
+                                                return;
+
+                                            }
+                                            Map<String,Object> map = new HashMap<>();
+                                            map.put("idEvento",item.getId());
+                                            map.put("correo", finalEmail);
+                                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                            db.collection("Favoritos")
+                                                    .add(map)
+                                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                        @Override
+                                                        public void onSuccess(DocumentReference documentReference) {
+
+                                                            resp=false;
+                                                            Toast.makeText(context, "Evento agregado a favoritos!", Toast.LENGTH_LONG).show();
+                                                        }
+                                                    })
+
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+
+                                                            resp=false;
+                                                            Toast.makeText(context, "Error al agregar a favoritos, vuelve a intentar", Toast.LENGTH_LONG).show();
+                                                        }
+                                                    });
+                                        } else {
+
+                                        }
                                     }
                                 });
 
 
+                        if (resp==true)
+                        {
+
+                            Toast.makeText(context, "entro el perro", Toast.LENGTH_SHORT).show();
+
+                        }
+                        else {
+
+
+
+                        }
                     }
+
+
 
                 }
             });
