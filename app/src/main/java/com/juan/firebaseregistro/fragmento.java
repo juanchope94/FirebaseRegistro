@@ -9,21 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class fragmento extends AppCompatActivity implements Comunicador {
 
 
-    final Fragment fragment1 = new Menu_Principal();
+    final Fragment      fragment1 = new Menu_Principal();
     final Fragment fragment2 = new Menu_Favoritos();
     final Fragment fragment3 = new Perfil();
-   Favoritos favoritos = new Favoritos();
-
-
-
     final FragmentManager fm = getSupportFragmentManager();
+    Favoritos favoritos = new Favoritos();
     Fragment active = fragment1;
 
     @Override
@@ -33,38 +29,23 @@ public class fragmento extends AppCompatActivity implements Comunicador {
         BottomNavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
         fm.beginTransaction().add(R.id.content_main,fragment1,"1").commit();
         fm.beginTransaction().add(R.id.content_main,fragment2,"2").hide(fragment2).commit();
         fm.beginTransaction().add(R.id.content_main,fragment3,"3").hide(fragment3).commit();
-
-
-
-
     }
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-    = new BottomNavigationView.OnNavigationItemSelectedListener(){
+            = new BottomNavigationView.OnNavigationItemSelectedListener(){
         @Override
         public boolean onNavigationItemSelected (@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.menu_Principal:
-
-
-                    Fragment frg = null;
-                    frg = getSupportFragmentManager().findFragmentByTag(fragment1.getTag());
-                    final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    ft.detach(frg);
-                    ft.attach(frg);
-                    ft.commit();
-                    fm.beginTransaction().hide(active).hide(favoritos).hide(fragment3).show(fragment1).commit();
+                    fm.beginTransaction().hide(active).show(fragment1).commit();
                     active=fragment1;
                     return true;
 
                 case R.id.menu_Favoritos:
-
-                  Intent intento = new Intent(fragmento.this.getBaseContext(),MainActivity.class);
-                  startActivity(intento);
-
+                    Intent intento = new Intent(fragmento.this.getBaseContext(),MainActivity.class);
+                    startActivity(intento);
 
                     return true;
                 case R.id.perfil:
@@ -77,7 +58,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
             return false;
 
-    }
+        }
 
     };
     @Override
@@ -94,16 +75,16 @@ public class fragmento extends AppCompatActivity implements Comunicador {
     @Override
     public void enviardatos(Evento eventoco) {
 
-       favoritos = new Favoritos();
+        favoritos = new Favoritos();
         Bundle bundleenvio = new Bundle();
         bundleenvio.putSerializable("objeto",eventoco);
         favoritos.setArguments(bundleenvio);
         // de aqui cargo el fragment en el activity
-    // fm.beginTransaction().replace(R.id.content_main,favoritos).hide(fragment2).addToBackStack(null).commit();
+        // fm.beginTransaction().replace(R.id.content_main,favoritos).hide(fragment2).addToBackStack(null).commit();
 
-     fm.beginTransaction().add(R.id.content_main,favoritos).hide(active).hide(fragment1)
-             .addToBackStack(null).commit();
-     active=favoritos;
+        fm.beginTransaction().add(R.id.content_main,favoritos).hide(active).hide(fragment1)
+                .addToBackStack(null).commit();
+        active=favoritos;
 
 
 
