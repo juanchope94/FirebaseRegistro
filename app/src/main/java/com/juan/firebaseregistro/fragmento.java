@@ -86,7 +86,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
     }
     private void cambiarFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_main,fragment,);
+        transaction.replace(R.id.content_main,fragment);
 
         transaction.addToBackStack(null);
         transaction.commit();
