@@ -133,7 +133,7 @@ public class Menu_Principal extends Fragment {
                         for (QueryDocumentSnapshot doc : value) {
 
                                 Evento eve = doc.toObject(Evento.class);
-
+                                eve.setId(doc.getId());
                                 itemEventos.add(eve);
 
                         }
