@@ -44,7 +44,7 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
                         if (FirebaseAuth.getInstance().getCurrentUser()!=null)
                         {
-                            cambiarFragment(Menu_Favoritos.newInstance());
+                            cambiarFragmentper(Menu_Favoritos.newInstance());
                         }else {
                             Intent intento = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intento);
@@ -84,11 +84,11 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
 
     }
-    private void cambiarFragment(Fragment fragment1) {
+    private void cambiarFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_main,fragment1);
-        transaction.addToBackStack(null);
+        transaction.replace(R.id.content_main,fragment);
 
+        transaction.addToBackStack(null);
         transaction.commit();
     }
     private void cambiarFragmentper(Fragment fragment1) {

@@ -116,6 +116,8 @@ public class Menu_Principal extends Fragment {
 
     }
 
+
+
     public void ActualizarRecycler(final String parametro) {
 
         itemEventos.clear();
