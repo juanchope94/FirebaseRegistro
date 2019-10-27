@@ -18,9 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class fragmento extends AppCompatActivity implements Comunicador {
 
     private BottomNavigationView bnview;
-    final Fragment fragment1 = new Menu_Principal();
-    final Fragment fragment2 = new Menu_Favoritos();
-    final Fragment fragment3 = new Perfil();
+   // final Fragment fragment1 = new Menu_Principal();
+   //final Fragment fragment2 = new Menu_Favoritos();
+   //final Fragment fragment3 = new Perfil();
     Favoritos favoritos = new Favoritos();
     final FragmentManager fm = getSupportFragmentManager();
 
