@@ -75,7 +75,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="145dp" />
+        android:layout_marginBottom="170dp" />
 
     >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
