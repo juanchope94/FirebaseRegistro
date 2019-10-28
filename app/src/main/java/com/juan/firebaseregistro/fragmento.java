@@ -42,13 +42,9 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
                     case R.id.menu_Favoritos:
 
-                        if (FirebaseAuth.getInstance().getCurrentUser()!=null)
-                        {
+                      
                             cambiarFragmentper(Menu_Favoritos.newInstance());
-                        }else {
-                            Intent intento = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intento);
-                        }
+
                         return true;
 
                     case R.id.perfil:

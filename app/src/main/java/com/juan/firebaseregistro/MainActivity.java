@@ -296,8 +296,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 int pos= email.indexOf("@");
                                 String nombre= email.substring(0,pos);
                                 // Sign in success, update UI with the signed-in user's information
-                                Intent pasar= new Intent(MainActivity.this,Principal.class);
-                                pasar.putExtra("nombre",nombre);
+                                Intent pasar= new Intent(getBaseContext(),fragmento.class);
                                 startActivity(pasar);
                                 Toast.makeText(MainActivity.this, "Bienvenido!", Toast.LENGTH_SHORT).show();
                                 //actualizar la fecha
