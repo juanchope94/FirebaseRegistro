@@ -26,7 +26,7 @@
 
     <EditText
         android:id="@+id/editContrasena"
-        android:layout_width="196dp"
+        android:layout_width="230dp"
         android:layout_height="44dp"
         android:layout_below="@+id/editCorreo"
         android:layout_centerHorizontal="true"
@@ -40,7 +40,7 @@
 
     <EditText
         android:id="@+id/editCorreo"
-        android:layout_width="196dp"
+        android:layout_width="230dp"
         android:layout_height="44dp"
         android:textSize="15dp"
         android:layout_below="@+id/imageLogo"
