@@ -24,7 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -75,7 +77,6 @@ public class Menu_Favoritos extends Fragment {
 
         if(mAuth.getCurrentUser()!=null) {
             llenarListaFavoritos();
-            //cargarFavoritos();
             eventoclick();
         }
 
@@ -100,7 +101,7 @@ public class Menu_Favoritos extends Fragment {
             this.activity = (Activity) context;
             comunicador = (Comunicador) this.activity;
         }
-        //  if (context instanceof OnF)
+
 
     }
 
@@ -108,76 +109,64 @@ public class Menu_Favoritos extends Fragment {
     private void llenarListaFavoritos() {
 
         email = mAuth.getCurrentUser().getEmail();
+        eventosFavoritos.clear();
+
         db.collection("Favoritos").whereEqualTo("correo", email)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("", "Listen failed.", e);
+                            return;
+                        }
+                        eventosFavoritos.clear();
 
-                                String id=document.getString("idEvento");
-                                Log.d("cantidad: ", "llenarListaFavoritos: "+document.getString("idEvento"));
+                        for (QueryDocumentSnapshot doc : value) {
 
+                            DocumentReference docRef = db.collection("Evento")
+                                    .document(doc.getString("idEvento"));
+                            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot document = task.getResult();
+                                        if (document.exists()) {
+                                            Evento eve = document.toObject(Evento.class);
+                                            eve.setId(document.getId());
+                                            eventosFavoritos.add(eve);
 
-
-
-                                DocumentReference docRef = db.collection("Evento")
-                                        .document(document.getString("idEvento"));
-                                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                        if (task.isSuccessful()) {
-                                            DocumentSnapshot document = task.getResult();
-                                            if (document.exists()) {
-                                                Evento eve = document.toObject(Evento.class);
-                                                eve.setId(document.getId());
-                                                eventosFavoritos.add(eve);
-
-                                            } else {
-                                                Log.d("", "No such document");
-                                            }
-                                            adaptadorEventos.notifyDataSetChanged();
                                         } else {
-                                            Log.d("", "get failed with ", task.getException());
+                                            Log.d("", "No such document");
                                         }
+                                        adaptadorEventos.notifyDataSetChanged();
+                                    } else {
+                                        Log.d("", "get failed with ", task.getException());
                                     }
-                                });
+                                }
+                            });
 
 
-
-
-
-                            adaptadorEventos = new AdaptadorEventos(eventosFavoritos, getContext(),click);
+                            adaptadorEventos = new AdaptadorEventos(eventosFavoritos, getContext(), click);
                             recyclerViewFavoritos.setAdapter(adaptadorEventos);
 
 
-
-
-                            }
-
-                        } else {
-
                         }
                     }
+
+
                 });
 
 
-        Toast.makeText(activity, ""+idEventos.size(), Toast.LENGTH_SHORT).show();
+
 
     }
-    private void cargarFavoritos() {
-        eventosFavoritos.clear();
 
-        for (int i = 0; i < idEventos.size(); i++) {
-
-        }
-    }
 
     private void updateUI(FirebaseUser user) {
         if (user == null) {
             Intent intent = new Intent(getContext(), MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK );
             startActivity(intent);
         }
     }

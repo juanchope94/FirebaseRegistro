@@ -145,7 +145,6 @@ public class Menu_Principal extends Fragment {
                     }
                 });
         adaptadorEventos = new AdaptadorEventos(itemEventos, getContext(),click);
-
         recyclerView.setAdapter(adaptadorEventos);
 
 
