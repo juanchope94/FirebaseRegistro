@@ -1,6 +1,7 @@
 package com.juan.firebaseregistro;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -62,7 +63,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         Button btnFavoritos;
         boolean  resp=false;
         String idFav="";
-
+        ProgressDialog progressDialog;
 
         public EventoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,9 +91,12 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             btnFavoritos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                progressDialog = new ProgressDialog(context);
 
                     if( FirebaseAuth.getInstance().getCurrentUser()!=null)
                     {
+                        progressDialog.setMessage("Porcesando");
+                        progressDialog.show();
                         String email="";
                      FirebaseFirestore db = FirebaseFirestore.getInstance();
                      email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
@@ -115,7 +119,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
                                                             @Override
                                                             public void onSuccess(Void aVoid) {
                                                                 resp=false;
-
+                                                                progressDialog.dismiss();
                                                                 Toast.makeText(context, "Evento removido de tus favoritos!", Toast.LENGTH_LONG).show();
 
                                                             }
@@ -125,6 +129,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
                                                             public void onFailure(@NonNull Exception e) {
 
                                                                 resp=false;
+
                                                                 Toast.makeText(context, "Error al eliminar de favoritos, vuelve a intentar", Toast.LENGTH_LONG).show();
 
                                                             }
@@ -144,6 +149,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
                                                         public void onSuccess(DocumentReference documentReference) {
 
                                                             resp=false;
+                                                            progressDialog.dismiss();
                                                             Toast.makeText(context, "Evento agregado a favoritos!", Toast.LENGTH_LONG).show();
                                                         }
                                                     })
