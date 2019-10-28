@@ -60,8 +60,9 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText edtCorreo, edtContrasena;
-    TextView txtCrear;
+    TextView txtCrear, txtOlvideContra;
     Button btnIniciar;
+
     SignInButton btnGmail;
     CallbackManager callbackManager;
 
@@ -87,13 +88,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         edtCorreo = findViewById(R.id.editCorreo);
         edtContrasena = findViewById(R.id.editContrasena);
+        txtOlvideContra = findViewById(R.id.btnReestablecer);
         txtCrear = findViewById(R.id.textCrear);
         btnIniciar = findViewById(R.id.btnIniciar);
         btnIniciar.setOnClickListener(this);
         btnGmail = findViewById(R.id.btnGmail);
         btnGmail.setOnClickListener(this);
 
-
+txtOlvideContra.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent inten = new Intent(MainActivity.this,CambioContra.class);
+        startActivity(inten);
+    }
+});
 
         progressDialog = new ProgressDialog(this);
         txtCrear.setOnClickListener(new View.OnClickListener() {
