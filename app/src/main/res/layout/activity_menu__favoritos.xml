@@ -8,6 +8,15 @@
     tools:context=".Menu_Favoritos">
 
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycFavoritos"
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="158dp" />
 </RelativeLayout>
 

@@ -16,9 +16,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/eventime_logo_02"
+        android:icon="@mipmap/ic_eventime_00"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/eventime_logo_02"
+        android:roundIcon="@mipmap/ic_eventime_00"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CambioContra"></activity>
