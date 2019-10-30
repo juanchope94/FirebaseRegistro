@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -36,6 +37,8 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -43,6 +46,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 import org.json.JSONException;
@@ -55,6 +60,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -69,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     Date date = new Date();
     String actFecha = dateFormat.format(date).toString();
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static final int SIGN_IN_CODE = 777;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
@@ -137,6 +144,30 @@ txtOlvideContra.setOnClickListener(new View.OnClickListener() {
                         Intent pasar = new Intent(MainActivity.this,fragmento.class);
                         try {
                             firebaseCredencial(accestoken,1);
+                            //insertar usuario de facebook a firestore
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            //Toast.makeText(MainActivity.this, "Facebook: "+user.getEmail(), Toast.LENGTH_SHORT).show();
+                            final String name = user.getDisplayName();
+                            final String email1 = user.getEmail();
+                            Uri photoUrl = user.getPhotoUrl();
+                            Toast.makeText(MainActivity.this, "Nombre :"+name, Toast.LENGTH_SHORT).show();
+                            Map<String, Object> userF = new HashMap<>();
+                            userF.put("correo", email1);
+                            userF.put("nombre", name);
+                            userF.put("rol", "Usuario");
+                            db.collection("users").add(userF)
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            Toast.makeText(MainActivity.this, "Usuario Facebook:"+name, Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(MainActivity.this, "No se guardo el usuario Facebook", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
                             String profile_picture= "https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250";
                             pasar.putExtra("imagen",profile_picture);
                             pasar.putExtra("email",object.getString("email"));
