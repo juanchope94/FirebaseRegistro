@@ -30,7 +30,7 @@
         android:layout_marginBottom="10dp"
         android:textStyle="bold"
         android:tooltipText="1dp"
-        app:itemTextColor="@color/Verde_Letras_Botones"
+        app:itemIconTint="@color/Azul_Botones"
         app:menu="@menu/menu_principal_main"
         tools:layout_editor_absoluteX="0dp" />
 

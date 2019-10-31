@@ -22,7 +22,6 @@
         android:layout_alignParentBottom="true"
         app:itemIconTint="@color/Verde_Boton_Iniciar"
         app:itemIconSize="30dp"
-        app:itemTextColor="@color/Negro_Letras"
         android:tooltipText="1dp"
         app:menu="@menu/menu_main" />
 

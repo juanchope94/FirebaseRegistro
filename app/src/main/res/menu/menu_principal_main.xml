@@ -5,6 +5,7 @@
         
         android:id="@+id/bienestar"
         android:title="Bienestar"
+        android:icon="@drawable/ic_bienestar"
 
 
 
@@ -12,12 +13,14 @@
     <item
         android:id="@+id/ofertas_educativas"
         android:title="Ofertas Educativas"
+        android:icon="@drawable/ic_oferta_educativa"
 
 
         ></item>
     <item
         android:id="@+id/egresados"
         android:title="Egresados"
+        android:icon="@drawable/ic_egresado"
 
         ></item>
 

@@ -31,7 +31,6 @@
         android:tooltipText="1dp"
         app:itemIconSize="20dp"
         app:itemIconTint="@color/Verde_Boton_Iniciar"
-        app:itemTextColor="@color/Negro_Letras"
         app:menu="@menu/menu_main" />
 
 
