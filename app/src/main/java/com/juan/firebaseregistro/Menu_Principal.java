@@ -172,18 +172,18 @@ public class Menu_Principal extends Fragment {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
-                case R.id.deportes_Y_recreaccion:
-                    tituloSeccion.setText("Deportes y Recreacion");
-                    ActualizarRecycler("Deporte");
+                case R.id.bienestar:
+                    tituloSeccion.setText("Bienestar");
+                    ActualizarRecycler("Bienestar");
                     return true;
                 case R.id.ofertas_educativas:
                     tituloSeccion.setText("Ofertas Educativas");
                     ActualizarRecycler("Educacion");
 
                     return true;
-                case R.id.ofertas_laborales:
-                    tituloSeccion.setText("Ofertas Laborales");
-                    ActualizarRecycler("Laboral");
+                case R.id.egresados:
+                    tituloSeccion.setText("Egresados");
+                    ActualizarRecycler("Egresados");
                     return true;
 
                 default:

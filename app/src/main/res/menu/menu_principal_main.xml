@@ -3,8 +3,8 @@
 
     <item
         
-        android:id="@+id/deportes_Y_recreaccion"
-        android:title="Deportes y Recreacción"
+        android:id="@+id/bienestar"
+        android:title="Bienestar"
 
 
 
@@ -16,8 +16,8 @@
 
         ></item>
     <item
-        android:id="@+id/ofertas_laborales"
-        android:title="Ofertas Laborales"
+        android:id="@+id/egresados"
+        android:title="Egresados"
 
         ></item>
 
