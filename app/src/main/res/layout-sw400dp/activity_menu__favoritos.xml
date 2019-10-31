@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="2dp"
         android:scaleX="2"
         android:scaleY="2"
         android:src="@drawable/me_gusta" />
