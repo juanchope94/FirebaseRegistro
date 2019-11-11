@@ -1,7 +1,9 @@
 package com.juan.firebaseregistro;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -13,9 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Perfil extends Fragment {
@@ -25,7 +30,11 @@ public class Perfil extends Fragment {
 
     Button btn_cerrar;
     Button btn_cambio_contra;
+
     Button btn_nombre;
+   public String email;
+   
+
 
     public Perfil() {
 
@@ -40,6 +49,7 @@ public class Perfil extends Fragment {
         btn_cerrar = view.findViewById(R.id.btn_Cerrar_Session);
         btn_cambio_contra = view.findViewById(R.id.btn_Cambiar_Contrasena);
         btn_nombre = view.findViewById(R.id.btn_Nombre_Usuario);
+
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             btn_nombre.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
         }
@@ -68,18 +78,75 @@ public class Perfil extends Fragment {
             @Override
             public void onClick(View view) {
                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                   final AlertDialog.Builder mCambio = new AlertDialog.Builder(getContext());
+                   final View mView = getLayoutInflater().inflate(R.layout.alerta_cambio_pass,null);
+                   final EditText mEmail = mView.findViewById(R.id.edt_cambio_password);
+                   mEmail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                   Button mBoton = mView.findViewById(R.id.btn_confirma_cambio);
 
-                   Intent intn = new Intent(getContext(), CambioContra.class);
-                   startActivity(intn);
+
+                   mBoton.setOnClickListener(new View.OnClickListener() {
+                       @Override
+                       public void onClick(View nview) {
+                           email = mEmail.getText().toString().trim();
+                           if (!email.isEmpty())
+                           {
+                              resetPasword(email);
+
+
+                           }else
+                           {
+                               Toast.makeText(getContext(), "Debe Ingresar un Correo", Toast.LENGTH_SHORT).show();
+                           }
+
+
+                       }
+
+                   });
+
+                   mCambio.setView(mView);
+                   mCambio.create();
+                   mCambio.show();
+
+return;
                }
                else
                {
                    Toast.makeText(getContext(), "Usted no ha iniciado sesion aun...", Toast.LENGTH_SHORT).show();
                }
+
             }
+
+
         });
+
 
 
         return view;
     }
+
+    private void resetPasword(String correo)
+    {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+       mAuth.setLanguageCode("es"); // se manda el mensaje en español
+        mAuth.sendPasswordResetEmail(correo).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful())
+                {
+                    Toast.makeText(getContext(), "Se ha enviado un correo para reestablecer tu contraseña...", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getContext(), "No se pudo enviar el correo de reestablecer contraseña...", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+
+    }
+
 }
+   // Intent intn = new Intent(getContext(), CambioContra.class);
+    //startActivity(intn);
