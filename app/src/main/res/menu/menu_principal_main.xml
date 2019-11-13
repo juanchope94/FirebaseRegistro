@@ -5,7 +5,7 @@
         
         android:id="@+id/bienestar"
         android:title="Bienestar"
-        android:icon="@drawable/ic_bienestar"
+        android:icon="@drawable/icon_bienestar"
 
 
 
