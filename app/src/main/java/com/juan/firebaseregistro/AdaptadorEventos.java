@@ -1,5 +1,6 @@
 package com.juan.firebaseregistro;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -74,9 +75,9 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         }
 
         public void setData(Evento eventopojo) {
-//aqui tengo que seteat todos los datos al pojo, asi como esta nombre
+            //aqui tengo que seteat todos los datos al pojo, asi como esta nombre
             this.eventopojo = eventopojo;
-            nombre.setText(eventopojo.getNombre());
+           //nombre.setText(eventopojo.getNombre());
 
 
             //  descripcion.setTet(eventopojo.getDescripcion());
@@ -88,6 +89,35 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
             nombre.setText(item.getNombre());
             Glide.with(context).load(item.getUrlImagen()).into(foto);
+            if( FirebaseAuth.getInstance().getCurrentUser()!=null) {
+
+                String email="";
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                email= FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                db.collection("Favoritos").whereEqualTo("correo", email).
+                        whereEqualTo("idEvento",item.getId())
+                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot value,
+                                                @Nullable FirebaseFirestoreException e) {
+                                if (e != null) {
+                                    Log.w("", "Listen failed.", e);
+                                    return;
+                                }
+                                for (QueryDocumentSnapshot doc : value) {
+
+                                    btnFavoritos.setActivated(true);
+
+
+                                }
+
+                            }
+                        });
+
+
+
+            }
             btnFavoritos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -95,6 +125,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
                     if( FirebaseAuth.getInstance().getCurrentUser()!=null)
                     {
+
                         progressDialog.setMessage("Porcesando");
                         progressDialog.show();
                         String email="";
@@ -120,6 +151,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
                                                             public void onSuccess(Void aVoid) {
                                                                 resp=false;
                                                                 progressDialog.dismiss();
+                                                                btnFavoritos.setActivated(false);
                                                                 Toast.makeText(context, "Evento removido de tus favoritos!", Toast.LENGTH_LONG).show();
 
                                                             }
@@ -172,7 +204,6 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
                         if (resp==true)
                         {
 
-                            Toast.makeText(context, "entro el perro", Toast.LENGTH_SHORT).show();
 
                         }
                         else {

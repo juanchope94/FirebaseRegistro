@@ -4,12 +4,12 @@
 
         <item
             android:state_focused="true"
-            android:state_pressed="true"
+            android:state_activated="true"
             android:drawable="@drawable/ic_corazon_rojo"
             />
     <item
         android:state_focused="false"
-        android:state_pressed="true"
+        android:state_activated="true"
         android:drawable="@drawable/ic_corazon_rojo">
 
     </item>

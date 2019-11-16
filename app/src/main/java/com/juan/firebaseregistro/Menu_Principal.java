@@ -148,23 +148,6 @@ public class Menu_Principal extends Fragment {
         recyclerView.setAdapter(adaptadorEventos);
 
 
-
-       /* db.collection("Evento").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if (!queryDocumentSnapshots.isEmpty()){
-                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                    for (DocumentSnapshot d: list){
-                        Evento e = d.toObject(Evento.class);
-                        if(e.getCategoria().equals(parametro)) {
-                            itemEventos.add(e);
-                        }
-                    }
-                    adaptadorEventos.notifyDataSetChanged();
-                }
-            }
-        });*/
-
     }
 
     BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
