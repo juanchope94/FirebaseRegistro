@@ -4,7 +4,7 @@
     <item
         
         android:id="@+id/bienestar"
-        android:title="Bienestar"
+        android:title="Bienestar al Aprendiz"
         android:icon="@drawable/icon_bienestar"
 
 
