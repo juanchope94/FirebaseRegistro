@@ -144,7 +144,9 @@ txtOlvideContra.setOnClickListener(new View.OnClickListener() {
                         Intent pasar = new Intent(MainActivity.this,fragmento.class);
                         try {
                             firebaseCredencial(accestoken,1);
-                            //insertar usuario de facebook a firestore
+                            //TOCO COMENTAR LO DE GUSTAVO POR QUE DAÑO EL CODIGO :)
+                            // insertar usuario de facebook a firestore
+                            /*
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             //Toast.makeText(MainActivity.this, "Facebook: "+user.getEmail(), Toast.LENGTH_SHORT).show();
                             final String name = user.getDisplayName();
@@ -167,7 +169,7 @@ txtOlvideContra.setOnClickListener(new View.OnClickListener() {
                                     Toast.makeText(MainActivity.this, "No se guardo el usuario Facebook", Toast.LENGTH_SHORT).show();
                                 }
                             });
-
+                                */
                             String profile_picture= "https://graph.facebook.com/"+object.getString("id")+"/picture?width=250&height=250";
                             pasar.putExtra("imagen",profile_picture);
                             pasar.putExtra("email",object.getString("email"));
@@ -275,10 +277,10 @@ txtOlvideContra.setOnClickListener(new View.OnClickListener() {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+
         super.onActivityResult(requestCode, resultCode, data);
-
         callbackManager.onActivityResult(requestCode,resultCode,data);
-
         if(resultCode==Activity.RESULT_OK) {
 
             // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);

@@ -32,7 +32,7 @@ public class Perfil extends Fragment {
     Button btn_cambio_contra;
 
     Button btn_nombre;
-   public String email;
+    public String email;
    
 
 
@@ -108,7 +108,7 @@ public class Perfil extends Fragment {
                    mCambio.create();
                    mCambio.show();
 
-return;
+                return;
                }
                else
                {
