@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/cambio_de_contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@drawable/cambio_de_contrasena"/>
+
+
+    <EditText
+        android:id="@+id/edt_cambio_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su Correo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        ></EditText>
+
+    <Button
+        android:id="@+id/btn_confirma_cambio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bordeados"
+        android:textColor="@color/Blanco"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Confirmar"></Button>
+
+
+
+</LinearLayout>
