@@ -54,8 +54,8 @@ public class Menu_Favoritos extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+      //  FirebaseUser currentUser = mAuth.getCurrentUser();
+      //  updateUI(currentUser);
     }
 
     @Nullable

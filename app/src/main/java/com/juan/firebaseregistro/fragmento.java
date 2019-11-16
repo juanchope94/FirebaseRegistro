@@ -42,8 +42,14 @@ public class fragmento extends AppCompatActivity implements Comunicador {
 
                     case R.id.menu_Favoritos:
 
-                      
-                            cambiarFragmentper(Menu_Favoritos.newInstance());
+                      if (FirebaseAuth.getInstance().getCurrentUser()!=null) {
+                          cambiarFragmentper(Menu_Favoritos.newInstance());
+                      }
+                      else{
+                          Intent intent = new Intent(fragmento.this, MainActivity.class);
+                          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                          startActivity(intent);
+                      }
 
                         return true;
 
