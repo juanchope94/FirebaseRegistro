@@ -102,13 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnGmail = findViewById(R.id.btnGmail);
         btnGmail.setOnClickListener(this);
 
-txtOlvideContra.setOnClickListener(new View.OnClickListener() {
+        txtOlvideContra.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         Intent inten = new Intent(MainActivity.this,CambioContra.class);
         startActivity(inten);
-    }
-});
+            }
+            });
 
         progressDialog = new ProgressDialog(this);
         txtCrear.setOnClickListener(new View.OnClickListener() {
@@ -217,10 +217,13 @@ txtOlvideContra.setOnClickListener(new View.OnClickListener() {
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(MainActivity.this, "najsdnj", Toast.LENGTH_SHORT).show();
+                        FirebaseUser currentUser = mAuth.getCurrentUser();
+                        updateUI(currentUser);
 
                     }
                 });
+
+
     }
 
 
@@ -278,33 +281,27 @@ txtOlvideContra.setOnClickListener(new View.OnClickListener() {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode,resultCode,data);
+
         if(resultCode==Activity.RESULT_OK) {
 
-            // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
             switch ( requestCode ) {
 
                 case SIGN_IN_CODE:
 
                     try {
-                        // The Task returned from this call is always completed, no need to attach
-                        // a listener.
+
                         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                         GoogleSignInAccount account = task.getResult(ApiException.class);
                         firebaseCredencial(account.getIdToken(),2);
-                        Intent pasar = new Intent(MainActivity.this,Principal.class);
-                        pasar.putExtra("imagen",account.getPhotoUrl().toString());
-                        pasar.putExtra("email",account.getEmail());
-                        startActivity(pasar);
+
                     } catch (ApiException e) {
-                        // The ApiException status code indicates the detailed failure reason.
+
                         Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
                     }
                     break;
-                // The Task returned from this call is always completed, no need to attach
-                // a listener.
+
 
 
             }
