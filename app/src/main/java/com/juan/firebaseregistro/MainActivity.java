@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
 
+
         //Implementacion inicio de sesion con facebook
         callbackManager= CallbackManager.Factory.create();
         LoginButton loginButton =(LoginButton) findViewById(R.id.btnFace);
@@ -212,6 +213,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else{
             credential = GoogleAuthProvider.getCredential(accestoken,null);
+            /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            //Toast.makeText(MainActivity.this, "Facebook: "+user.getEmail(), Toast.LENGTH_SHORT).show();
+            final String name = user.getDisplayName();
+            final String email1 = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+            Toast.makeText(MainActivity.this, "Nombre :"+name, Toast.LENGTH_SHORT).show();
+            Map<String, Object> userF = new HashMap<>();
+            userF.put("correo", email1);
+            userF.put("nombre", name);
+            userF.put("rol", "Usuario");
+            db.collection("users").add(userF)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(MainActivity.this, "Usuario Gmail:"+name, Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(MainActivity.this, "No se guardo el usuario Facebook", Toast.LENGTH_SHORT).show();
+                }
+            });*/
         }
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
@@ -219,7 +242,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         FirebaseUser currentUser = mAuth.getCurrentUser();
                         updateUI(currentUser);
-
+                        ///Registro de usuario en coleccion users
+                        final String name = currentUser.getDisplayName();
+                        final String email1 = currentUser.getEmail();
+                        String actFecha = dateFormat.format(date).toString();
+                        Toast.makeText(MainActivity.this, "Nombre :"+name, Toast.LENGTH_SHORT).show();
+                        Map<String, Object> userF = new HashMap<>();
+                        userF.put("correo", email1);
+                        userF.put("nombre", name);
+                        userF.put("rol", "Usuario");
+                        userF.put("fechaIngreso",actFecha);
+                        db.collection("users").add(userF)
+                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    @Override
+                                    public void onSuccess(DocumentReference documentReference) {
+                                        Toast.makeText(MainActivity.this, "Usuario Gmail:"+name, Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(MainActivity.this, "No se guardo el usuario Facebook", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                 });
 
