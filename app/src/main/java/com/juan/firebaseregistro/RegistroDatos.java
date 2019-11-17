@@ -122,7 +122,7 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                 @Override
                                                 public void onSuccess(DocumentReference documentReference) {
-                                                    startActivity(new Intent(RegistroDatos.this,Menu_Principal.class));
+                                                    startActivity(new Intent(RegistroDatos.this,fragmento.class));
                                                     finish();
                                                 }
                                             })

@@ -51,6 +51,8 @@ public class Menu_Principal extends Fragment {
     List<Evento> itemEventos, listareciente;
 
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
