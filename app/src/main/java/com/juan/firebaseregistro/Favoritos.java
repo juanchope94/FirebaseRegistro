@@ -38,7 +38,7 @@ public class Favoritos extends Fragment {
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
     ImageView imagenevento;
-    ImageButton botonLlamar, botonCalendario, botonubicacion, botonfavoritos;
+    ImageButton botonLlamar, botonCalendario, botonubicacion, botonfavoritos,botonInscri;
     String telefono;
     String titulo, descripcion;
     int  duracion= 1;
@@ -72,6 +72,7 @@ public class Favoritos extends Fragment {
         botonfavoritos =(ImageButton) view.findViewById(R.id.btn_Campana_Favoritos);
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
         botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
+        botonInscri = (ImageButton)view.findViewById(R.id.btn_Inscribirse);
 
 
         Bundle eventodetall  = getArguments();
@@ -191,6 +192,15 @@ botonfavoritos.setOnClickListener(new View.OnClickListener() {
                 });
     }
 });
+
+        botonInscri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent incri = new Intent(getActivity(),Formulario.class);
+                startActivity(incri);
+            }
+        });
 
         return view;
 
