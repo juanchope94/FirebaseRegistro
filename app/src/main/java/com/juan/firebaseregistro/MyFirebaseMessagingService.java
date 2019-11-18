@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -13,10 +14,12 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 //verificar
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import static android.graphics.Color.rgb;
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -60,6 +63,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void showNotification(Map<String, String> data) {
         String title = data.get("title").toString();
         String body = data.get("body").toString();
+        String urlImagen= data.get("imagen").toString();
         String NOTIFICATION_CHANNEL_ID = getString(R.string.app_name);
 
         Intent intent = new Intent(this, MainActivity.class);
@@ -69,6 +73,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
+        try {
+            Bitmap bitmap = Glide
+                    .with(this)
+                    .asBitmap()
+                    .load(urlImagen)
+                    .submit()
+                    .get();
+
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
         notificationBuilder
@@ -76,6 +88,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setColor(rgb(255,160,0))
                 .setContentTitle(title)
                 .setContentText(body)
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(bitmap))
                 .setAutoCancel(true)
                 .setVibrate(new long[]{0, 1000, 500, 1000})
                 .setSound(defaultSoundUri)
@@ -100,6 +114,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
+
+        }
+        catch (InterruptedException e)
+        {
+
+        }
+        catch (ExecutionException e){
+
+        }
     }
     private void showNotification(String title, String body){
 
