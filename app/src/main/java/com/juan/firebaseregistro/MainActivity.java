@@ -46,8 +46,12 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 
 import org.json.JSONException;
@@ -126,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
 
         mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
+
 
         //Implementacion inicio de sesion con facebook
         callbackManager= CallbackManager.Factory.create();
@@ -212,13 +217,80 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else{
             credential = GoogleAuthProvider.getCredential(accestoken,null);
+            /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            //Toast.makeText(MainActivity.this, "Facebook: "+user.getEmail(), Toast.LENGTH_SHORT).show();
+            final String name = user.getDisplayName();
+            final String email1 = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+            Toast.makeText(MainActivity.this, "Nombre :"+name, Toast.LENGTH_SHORT).show();
+            Map<String, Object> userF = new HashMap<>();
+            userF.put("correo", email1);
+            userF.put("nombre", name);
+            userF.put("rol", "Usuario");
+            db.collection("users").add(userF)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(MainActivity.this, "Usuario Gmail:"+name, Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(MainActivity.this, "No se guardo el usuario Facebook", Toast.LENGTH_SHORT).show();
+                }
+            });*/
         }
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+
                         FirebaseUser currentUser = mAuth.getCurrentUser();
                         updateUI(currentUser);
+                        ///Registro de usuario en coleccion users
+                        final String name = currentUser.getDisplayName();
+                        final String email1 = currentUser.getEmail();
+
+                        String actFecha = dateFormat.format(date).toString();
+                        Toast.makeText(MainActivity.this, "Nombre :"+name, Toast.LENGTH_SHORT).show();
+                        FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+                        CollectionReference yourCollRef = rootRef.collection("users");
+                        Query query = yourCollRef.whereEqualTo("correo", email1);
+                        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        //Log.d(TAG, document.getId() + " => " + document.getData());
+                                        Toast.makeText(MainActivity.this, "Usuario ya esta registrado: "+email1, Toast.LENGTH_SHORT).show();
+
+                                    }
+                                } else {
+                                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                                    Date date = new Date();
+                                    String actFecha = dateFormat.format(date).toString();
+                                    Map<String, Object> userF = new HashMap<>();
+                                    userF.put("correo", email1);
+                                    userF.put("nombre", name);
+                                    userF.put("rol", "Usuario");
+                                    userF.put("fechaIngreso",actFecha);
+                                    db.collection("users").add(userF)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    Toast.makeText(MainActivity.this, "Usuario Gmail: "+name, Toast.LENGTH_SHORT).show();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(MainActivity.this, "No se guardo el usuario Facebook", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+
+                            }
+                        });
 
                     }
                 });

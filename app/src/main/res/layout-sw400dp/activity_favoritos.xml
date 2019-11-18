@@ -128,6 +128,15 @@
         android:background="@drawable/ic_movil">
 
     </ImageButton>
+    <ImageButton
+        android:id="@+id/btn_Inscribirse"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn_Llamar"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/ic_movil">
+
+    </ImageButton>
 
     <TextView
         android:id="@+id/txt_Numero_Telefonico"
