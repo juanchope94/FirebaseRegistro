@@ -18,7 +18,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -27,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -211,6 +214,22 @@ public class Menu_Principal extends Fragment {
     //de aqui pa abajo es de juan
 
     private void listatodos() {
+
+        FirebaseMessaging.getInstance().subscribeToTopic("evento")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "bien";
+                        if (!task.isSuccessful()) {
+                            msg = "mal";
+                        }
+                        Log.d("me suscribi a ", msg);
+                    }
+                });
+
+
+
+
 
         db.collection("Evento").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
