@@ -84,7 +84,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
         notificationBuilder
-                .setSmallIcon(R.drawable.eventime_gps)
+                .setSmallIcon(R.drawable.eventime)
                 .setColor(rgb(255,160,0))
                 .setContentTitle(title)
                 .setContentText(body)
