@@ -8,12 +8,73 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:488243293443:android:8b53317f8442a5c8aacd36",
+        "android_client_info": {
+          "package_name": "com.example.actualizarfecha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488243293443-vr4g2e13u14bisqsun200lg5a7rs4beh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.actualizarfecha",
+            "certificate_hash": "1f8370e3c9c4a14b0c48022707016b66440c1fd7"
+          }
+        },
+        {
+          "client_id": "488243293443-fd77vrrqfckoqk77d6u9f1q60arb9ddh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcMwGVr3BgdPO-ysXqQfhtdJ2d-lfNB6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488243293443-fd77vrrqfckoqk77d6u9f1q60arb9ddh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:488243293443:android:eace8643c8a39755",
         "android_client_info": {
           "package_name": "com.juan.firebaseregistro"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "488243293443-qllelj9aejhupftd4bj38jtiuscj4a6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.juan.firebaseregistro",
+            "certificate_hash": "1e76d7444ea3cd5d0cc98b3abe878cdb319d95f7"
+          }
+        },
+        {
+          "client_id": "488243293443-p9en0rjb0um5p41r4kpescil2csip526.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.juan.firebaseregistro",
+            "certificate_hash": "9166d9dbb852fcfdc78b83a8eed6db148c24c9b1"
+          }
+        },
+        {
+          "client_id": "488243293443-2be2jshu1ljkhc94rnuhir92afjhpnvu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.juan.firebaseregistro",
+            "certificate_hash": "818216085ce65cdc0e38441640397497ebd0c895"
+          }
+        },
         {
           "client_id": "488243293443-ej07aloivt5d7ags6tg4gh8nr3aua045.apps.googleusercontent.com",
           "client_type": 1,
