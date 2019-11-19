@@ -70,7 +70,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycEventosTodos"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="260dp"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
