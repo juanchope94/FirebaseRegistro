@@ -82,7 +82,7 @@
         android:layout_height="18dp"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-
+        android:layout_marginTop="10dp"
         android:text="Crea tu cuenta gratis aqui"
         android:textColor="#7F8F8C"
         android:textSize="12dp"
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnIniciar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-10dp"
+        android:layout_marginTop="10dp"
         android:text="¿Todavia no estas registrado?"
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp"
@@ -284,7 +284,6 @@
         android:layout_width="172dp"
         android:layout_height="37dp"
         android:layout_below="@+id/btnGmail"
-
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="114dp" />
 
