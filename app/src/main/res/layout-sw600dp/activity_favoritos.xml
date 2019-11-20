@@ -137,18 +137,18 @@
 
 
     </TextView>
+    <!--
+        <com.nightonke.boommenu.BoomMenuButton
+            android:id="@+id/idboom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+            app:boom_inActionBar="false"
+            app:boom_button_color="@color/colorPrimary"
+            app:boom_button_pressed_color="@color/colorAccent">
+        </com.nightonke.boommenu.BoomMenuButton> -->
 
-    <com.nightonke.boommenu.BoomMenuButton
-        android:id="@+id/idboom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="20dp"
-        app:boom_inActionBar="false"
-        app:boom_button_color="@color/colorPrimary"
-        app:boom_button_pressed_color="@color/colorAccent">
-    </com.nightonke.boommenu.BoomMenuButton>
 
-
-</RelativeLayout>
+    </RelativeLayout>

@@ -17,13 +17,16 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class fragmento extends AppCompatActivity implements Comunicador {
 
-
+/*
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+if ( instanceof BommMenu){
+    ((BommMenu) favoritos).onWindowFocusChanged(hasFocus);
 
+}
 
-    }
+    }*/
 
     private BottomNavigationView bnview;
    // final Fragment fragment1 = new Menu_Principal();

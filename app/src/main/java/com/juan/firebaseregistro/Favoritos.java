@@ -37,7 +37,7 @@ import com.nightonke.boommenu.Util;
 
 import java.util.Calendar;
 
-public class Favoritos extends Fragment implements BommMenu{
+public class Favoritos extends Fragment {
     public static Favoritos newInstance()
     {
         return new Favoritos();
@@ -56,14 +56,10 @@ public class Favoritos extends Fragment implements BommMenu{
     final private int REQUIERE =111;
     private static final String TAG = "MyActivity";
 
-    private boolean init =false;
-    private BoomMenuButton boomMenuButton;
+    //private boolean init =false;
+    //private BoomMenuButton boomMenuButton;
 
-
-
-
-
-    public Favoritos() {
+   public Favoritos() {
 
     }
 
@@ -86,11 +82,10 @@ public class Favoritos extends Fragment implements BommMenu{
 
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
         botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
-        boomMenuButton =(BoomMenuButton) view.findViewById(R.id.idboom);
+     //   boomMenuButton =(BoomMenuButton) view.findViewById(R.id.idboom);
 
 
         Bundle eventodetall  = getArguments();
-
 
         Evento eventomues = null;
         if (getArguments() != null){
@@ -200,10 +195,10 @@ botonubicacion.setOnClickListener(new View.OnClickListener() {
 
     }
 
-
+/*
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        super.onMultiWindowModeChanged(hasFocus);
+
 
 
         int [][]  suButtonColors = new int[3][2];
@@ -252,7 +247,7 @@ botonubicacion.setOnClickListener(new View.OnClickListener() {
 
 
 
-    }
+    }*/
 
 
     }
