@@ -63,6 +63,7 @@
     <EditText
         android:id="@+id/editContrasenaRegistro"
         android:layout_width="196dp"
+        android:inputType="textPassword"
         android:layout_height="44dp"
         android:layout_below="@+id/editNombreUsuario"
         android:layout_centerHorizontal="true"
