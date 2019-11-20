@@ -130,15 +130,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </ImageButton>
-    <ImageButton
-        android:id="@+id/btn_Inscribirse"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/btn_Llamar"
-        android:layout_marginTop="7dp"
-        android:background="@drawable/ic_movil">
 
-    </ImageButton>
 
     <TextView
         android:id="@+id/txt_Numero_Telefonico"
@@ -150,7 +142,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toEndOf="@+id/btn_Llamar"
-        tools:layout_editor_absoluteY="440dp"></TextView>
+        tools:layout_editor_absoluteY="440dp"
+        tools:ignore="MissingConstraints"></TextView>
 
     <TextView
         android:id="@+id/txt_Descripcion_Del_Evento"
@@ -164,5 +157,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></TextView>
 
-
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/idboom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        app:boom_inActionBar="false"
+        app:boom_button_color="@color/colorPrimary"
+        app:boom_button_pressed_color="@color/colorAccent"
+        tools:ignore="MissingConstraints">
+    </com.nightonke.boommenu.BoomMenuButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

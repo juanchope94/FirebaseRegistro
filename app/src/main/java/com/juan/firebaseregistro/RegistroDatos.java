@@ -36,6 +36,8 @@ import java.util.Map;
 
 public class RegistroDatos extends AppCompatActivity implements View.OnClickListener {
 
+
+
     EditText edtCorreoReg, edtContrasenaReg, edtNombreUsuario;
     Button btnReg;
     FirebaseAuth mAuth;

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.provider.CalendarContract;
@@ -18,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,10 +29,15 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.nightonke.boommenu.BoomMenuButton;
+import com.nightonke.boommenu.Types.BoomType;
+import com.nightonke.boommenu.Types.ButtonType;
+import com.nightonke.boommenu.Types.PlaceType;
+import com.nightonke.boommenu.Util;
 
 import java.util.Calendar;
 
-public class Favoritos extends Fragment {
+public class Favoritos extends Fragment implements BommMenu{
     public static Favoritos newInstance()
     {
         return new Favoritos();
@@ -38,7 +45,7 @@ public class Favoritos extends Fragment {
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
     ImageView imagenevento;
-    ImageButton botonLlamar, botonCalendario, botonubicacion, botonfavoritos,botonInscri;
+    ImageButton botonLlamar, botonCalendario, botonubicacion, botonfavoritos;
     String telefono;
     String titulo, descripcion;
     int  duracion= 1;
@@ -49,10 +56,17 @@ public class Favoritos extends Fragment {
     final private int REQUIERE =111;
     private static final String TAG = "MyActivity";
 
+    private boolean init =false;
+    private BoomMenuButton boomMenuButton;
+
+
+
+
 
     public Favoritos() {
 
     }
+
 
 
     @Nullable
@@ -72,7 +86,7 @@ public class Favoritos extends Fragment {
         botonfavoritos =(ImageButton) view.findViewById(R.id.btn_Campana_Favoritos);
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
         botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
-        botonInscri = (ImageButton)view.findViewById(R.id.btn_Inscribirse);
+        boomMenuButton =(BoomMenuButton) view.findViewById(R.id.idboom);
 
 
         Bundle eventodetall  = getArguments();
@@ -193,14 +207,9 @@ botonfavoritos.setOnClickListener(new View.OnClickListener() {
     }
 });
 
-        botonInscri.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent incri = new Intent(getActivity(),Formulario.class);
-                startActivity(incri);
-            }
-        });
+
+
 
         return view;
 
@@ -210,5 +219,59 @@ botonfavoritos.setOnClickListener(new View.OnClickListener() {
     }
 
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onMultiWindowModeChanged(hasFocus);
 
-}
+
+        int [][]  suButtonColors = new int[3][2];
+        for (int i = 0 ; i<3;i++ )
+
+        {
+
+            suButtonColors[i][1] = ContextCompat.getColor(getContext(), R.color.Azul_Botones);
+            suButtonColors[i][0] = Util.getInstance().getPressedColor(suButtonColors[i][1]);
+
+        }
+
+        new BoomMenuButton.Builder()
+                .addSubButton (ContextCompat.getDrawable(getContext(),R.drawable.ic_gps),suButtonColors[0],"Menu Boton")
+                .addSubButton (ContextCompat.getDrawable(getContext(),R.drawable.ic_bienestar),suButtonColors[0],"Recurso de Codigo")
+
+
+                .button(ButtonType.CIRCLE)
+                .boom(BoomType.LINE)
+                .place(PlaceType.CIRCLE_8_1)
+                .subButtonTextColor(ContextCompat.getColor(getContext(),R.color.default_boom_button_color))
+                .subButtonsShadow(Util.getInstance().dp2px(2),Util.getInstance().dp2px(2))
+                .onSubButtonClick(new BoomMenuButton.OnSubButtonClickListener() {
+                                      @Override
+                                      public void onClick(int buttonIndex) {
+
+                                          switch (buttonIndex){
+
+                                              case 0:
+                                                  Toast.makeText(getContext(), "Primer boton", Toast.LENGTH_SHORT).show();
+                                                  break;
+
+                                              case 1:
+                                                  Toast.makeText(getContext(), "segundo boton", Toast.LENGTH_SHORT).show();
+                                                  break;
+
+
+
+
+                                          }
+                                      }
+                                  }
+
+                )
+                .init(boomMenuButton);
+
+
+
+    }
+
+
+    }
+
