@@ -45,7 +45,7 @@ public class Favoritos extends Fragment implements BommMenu{
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
     ImageView imagenevento;
-    ImageButton botonLlamar, botonCalendario, botonubicacion, botonfavoritos;
+    ImageButton botonLlamar, botonCalendario, botonubicacion;
     String telefono;
     String titulo, descripcion;
     int  duracion= 1;
@@ -83,7 +83,7 @@ public class Favoritos extends Fragment implements BommMenu{
         numeroTelefono =(TextView) view.findViewById(R.id.txt_Numero_Telefonico);
         botonLlamar =(ImageButton) view.findViewById(R.id.btn_Llamar);
         botonCalendario =(ImageButton) view.findViewById(R.id.btn_Calendario);
-        botonfavoritos =(ImageButton) view.findViewById(R.id.btn_Campana_Favoritos);
+
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
         botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
         boomMenuButton =(BoomMenuButton) view.findViewById(R.id.idboom);
@@ -187,25 +187,7 @@ botonubicacion.setOnClickListener(new View.OnClickListener() {
         }
 
 
-botonfavoritos.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
 
-        FirebaseMessaging.getInstance().subscribeToTopic("Prueba")
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        String msg = titulo;
-                        if (!task.isSuccessful()) {
-                            msg = telefono;
-                        }
-                      //  Log.d(Tag, msg);
-                        Log.d(TAG,msg);
-                        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-});
 
 
 

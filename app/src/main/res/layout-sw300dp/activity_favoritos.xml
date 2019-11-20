@@ -15,30 +15,6 @@
 
     </ImageView>
 
-    <ImageButton
-        android:id="@+id/btn_Campana_Favoritos"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_alignBottom="@+id/img_Favoritos"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="-24dp"
-        android:layout_toStartOf="@+id/btn_Me_Gusta_Favoritos"
-        android:background="@drawable/bordeados_01"
-        android:src="@drawable/ic_activar_notificaciones"></ImageButton>
-
-    <ImageButton
-        android:id="@+id/btn_Me_Gusta_Favoritos"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_alignBottom="@+id/img_Favoritos"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="-24dp"
-        android:background="@drawable/bordeados_01"
-        android:src="@drawable/ic_corazon_favoritos"></ImageButton>
-
     <TextView
         android:id="@+id/txt_Nombre_Del_Evento_Favoritos"
         android:layout_width="409dp"
