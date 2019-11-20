@@ -75,9 +75,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="145dp" />
+        android:layout_marginBottom="160dp" />
 
-    >>>>>> 6bd47098d168fe00f4330571bb7b342e3b0520f0
 
 
 </RelativeLayout>
