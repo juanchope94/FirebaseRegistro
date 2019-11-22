@@ -8,7 +8,7 @@
     tools:context=".Favoritos">
 
 
-    <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/img_Favoritos"
         android:layout_width="match_parent"
         android:layout_height="217dp"
@@ -17,7 +17,7 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
-    </ImageView>
+    </com.github.chrisbanes.photoview.PhotoView>
 
     <ImageButton
         android:id="@+id/btn_Campana_Favoritos"
