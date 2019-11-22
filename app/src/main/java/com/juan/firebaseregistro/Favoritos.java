@@ -2,10 +2,12 @@ package com.juan.firebaseregistro;
 
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.nfc.Tag;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,7 +29,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -46,12 +47,11 @@ public class Favoritos extends Fragment {
     }
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
-    PhotoView imagenevento;
+    ImageView imagenevento;
     ImageButton botonLlamar, botonCalendario, botonubicacion;
     Button incripcion;
     String telefono;
     String titulo, descripcion;
-
     int  duracion= 1;
 
     public static String  latitud;
@@ -78,7 +78,7 @@ public class Favoritos extends Fragment {
         final View view = getLayoutInflater().inflate(R.layout.activity_favoritos, container, false);
 
         nombreevento = (TextView) view.findViewById(R.id.txt_Nombre_Del_Evento_Favoritos);
-        imagenevento = (PhotoView) view.findViewById(R.id.img_Favoritos);
+        imagenevento = (ImageView) view.findViewById(R.id.img_Favoritos);
         descripcionevento =(TextView) view.findViewById(R.id.txt_Descripcion_Del_Evento);
         direccionEvento =(TextView) view.findViewById(R.id.txt_Dirreccion);
         numeroTelefono =(TextView) view.findViewById(R.id.txt_Numero_Telefonico);
@@ -93,7 +93,7 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
         Bundle eventodetall  = getArguments();
 
         Evento eventomues = null;
-        if (getArguments() != null){
+        if (getArguments() != null) {
 
             eventomues = (Evento) eventodetall.getSerializable("objeto");
             nombreevento.setText(eventomues.getNombre());
@@ -106,10 +106,10 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
             telefono = eventomues.getTelefono();
             titulo = eventomues.getNombre();
             titulomapa = eventomues.getNombre();
-            descripcion= eventomues.getDescripcion();
+            descripcion = eventomues.getDescripcion();
             latitud = eventomues.getLatitud();
-            longitud= eventomues.getLongitud();
-            urlformularioo= eventomues.getUrlInscripcion();
+            longitud = eventomues.getLongitud();
+            urlformularioo = eventomues.getUrlInscripcion();
 
             final String fecha = eventomues.getFecha();
 
@@ -121,41 +121,60 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
             incripcion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent formular= new Intent(getContext(),Formulario.class);
+                    Intent formular = new Intent(getContext(), Formulario.class);
                     startActivity(formular);
                 }
             });
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {}
 
-botonubicacion.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-
-
-        Intent mapas = new Intent(getContext(),Ubication.class);
-        startActivity(mapas);
-    }
-});
-
-
-            botonLlamar.setOnClickListener(new View.OnClickListener() {
+            botonubicacion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
 
+                    Intent mapas = new Intent(getContext(), Ubication.class);
+                    startActivity(mapas);
+                    int permisoubication  = ActivityCompat.checkSelfPermission (getContext(), Manifest.permission.ACCESS_FINE_LOCATION );
+                    if (permisoubication != PackageManager.PERMISSION_GRANTED)
+                    {
+                        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
+                        {
+                            requestPermissions ( new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUIERE);
 
 
+                        }
 
-                    Uri uri = Uri.parse("tel:" + telefono);
-                    Intent intent = new Intent(Intent.ACTION_DIAL, uri);
-                   // if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
-                  //  {return;}
-                    startActivity(intent);
-
-
-
-
+                    }
                 }
             });
+            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)
+                    != PackageManager.PERMISSION_GRANTED) {}
+
+                botonLlamar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        Uri uri = Uri.parse("tel:" + telefono);
+                        Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                        // if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
+                        //  {return;}
+                        startActivity(intent);
+                        int permisoAlmacenamiento  = ActivityCompat.checkSelfPermission (getContext(), Manifest.permission.CALL_PHONE );
+                        if (permisoAlmacenamiento != PackageManager.PERMISSION_GRANTED)
+                        {
+                            if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
+                            {
+                                requestPermissions ( new String[]{Manifest.permission.CALL_PHONE},REQUIERE);
+
+
+                            }
+
+                        }
+
+                    }
+                });
 
             botonCalendario.setOnClickListener(new View.OnClickListener() {
                 @Override
