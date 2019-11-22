@@ -53,6 +53,14 @@ Button btn_acerca;
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             btn_nombre.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+            btn_cerrar.setVisibility(view.VISIBLE);
+            btn_cambio_contra.setVisibility(view.VISIBLE);
+
+        }
+        else{
+            btn_cerrar.setVisibility(view.INVISIBLE);
+            btn_cambio_contra.setVisibility(view.INVISIBLE);
+            btn_acerca.setY(-390);
         }
 
         btn_cerrar.setOnClickListener(new View.OnClickListener() {
