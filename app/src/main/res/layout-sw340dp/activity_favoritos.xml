@@ -7,13 +7,13 @@
     tools:context=".Favoritos">
 
 
-    <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/img_Favoritos"
         android:layout_width="match_parent"
         android:layout_height="217dp"
         >
 
-    </ImageView>
+    </com.github.chrisbanes.photoview.PhotoView>
 
     <TextView
         android:id="@+id/txt_Nombre_Del_Evento_Favoritos"

@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -45,11 +46,12 @@ public class Favoritos extends Fragment {
     }
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
-    ImageView imagenevento;
+    PhotoView imagenevento;
     ImageButton botonLlamar, botonCalendario, botonubicacion;
     Button incripcion;
     String telefono;
     String titulo, descripcion;
+
     int  duracion= 1;
 
     public static String  latitud;
@@ -75,7 +77,7 @@ public class Favoritos extends Fragment {
         final View view = getLayoutInflater().inflate(R.layout.activity_favoritos, container, false);
 
         nombreevento = (TextView) view.findViewById(R.id.txt_Nombre_Del_Evento_Favoritos);
-        imagenevento = (ImageView) view.findViewById(R.id.img_Favoritos);
+        imagenevento = (PhotoView) view.findViewById(R.id.img_Favoritos);
         descripcionevento =(TextView) view.findViewById(R.id.txt_Descripcion_Del_Evento);
         direccionEvento =(TextView) view.findViewById(R.id.txt_Dirreccion);
         numeroTelefono =(TextView) view.findViewById(R.id.txt_Numero_Telefonico);
