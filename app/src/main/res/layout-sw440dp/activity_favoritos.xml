@@ -10,18 +10,22 @@
     <ImageView
         android:id="@+id/img_Favoritos"
         android:layout_width="match_parent"
-        android:layout_height="256dp"
+        android:layout_height="232dp"
         >
 
     </ImageView>
 
     <TextView
         android:id="@+id/txt_Nombre_Del_Evento_Favoritos"
-        android:layout_width="471dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_width="428dp"
+        android:layout_height="65dp"
+        android:textAlignment="center"
+
         android:layout_below="@+id/img_Favoritos"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="CINE AL SENA"
         android:textColor="@color/Negro_Letras"
         android:textSize="25dp">
@@ -30,9 +34,14 @@
 
     <TextView
         android:id="@+id/txt_Nombre_Del_Autor_Favoritos"
-        android:layout_width="458dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:textAlignment="center"
         android:layout_below="@+id/txt_Nombre_Del_Evento_Favoritos"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+
         android:text="Por Jorge Navas"
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp">
@@ -44,6 +53,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-10dp"
         android:layout_below="@+id/txt_Nombre_Del_Autor_Favoritos"
         android:background="@drawable/ic_calendario"
         app:layout_constraintBottom_toTopOf="@+id/btn_Ubicacion"
@@ -52,15 +63,19 @@
 
     </ImageButton>
 
+
     <TextView
         android:id="@+id/txt_Fecha_Del_Evento"
         android:layout_width="292dp"
-        android:layout_height="54dp"
+        android:layout_height="44dp"
         android:layout_below="@+id/txt_Nombre_Del_Autor_Favoritos"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="10dp"
+        android:textDirection="locale"
+        android:layout_marginTop="03dp"
+        android:layout_marginBottom="20dp"
+
         android:layout_marginEnd="45dp"
         android:layout_toEndOf="@+id/btn_Calendario"
         android:text="viernes 6 de septiembre 6:00 p.m. - 9:00 p.m."
@@ -71,6 +86,7 @@
         android:id="@+id/btn_Ubicacion"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
         android:layout_below="@+id/btn_Calendario"
         android:background="@drawable/ic_gps"
@@ -85,9 +101,10 @@
         android:layout_height="44dp"
         android:layout_below="@+id/txt_Fecha_Del_Evento"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="0dp"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
+
         android:layout_marginEnd="46dp"
         android:layout_toEndOf="@+id/btn_Ubicacion"
         android:text="Centro de Servicios y Gestión Empresarial
@@ -99,6 +116,7 @@
         android:id="@+id/btn_Llamar"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="20dp"
         android:layout_below="@+id/btn_Ubicacion"
         android:layout_marginTop="7dp"
         android:background="@drawable/ic_movil">
@@ -108,14 +126,14 @@
 
     <TextView
         android:id="@+id/txt_Numero_Telefonico"
-        android:layout_width="140dp"
-        android:layout_height="49dp"
+        android:layout_width="291dp"
+        android:layout_height="44dp"
         android:layout_below="@+id/txt_Dirreccion"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="201dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="46dp"
         android:layout_toEndOf="@+id/btn_Llamar"
         android:text="311-3617453"
         android:textColor="@color/Negro_Letras"
@@ -126,18 +144,18 @@
     <TextView
         android:id="@+id/txt_Descripcion_Del_Evento"
         android:layout_width="match_parent"
-        android:layout_height="276dp"
+        android:layout_height="120dp"
         android:layout_below="@+id/txt_Numero_Telefonico"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginTop="31dp"
+        android:textAlignment="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="El próximo viernes 6 de septiembre en el auditorio del prmer piso (Salón de videoconferencias) de la torre norte, se llevara a cabo el 6° taller que hace parte de la iniciativa de promoción de cinematografia llamada cine al Sena, el invitado será el reconocido director caleño Jorge Navas, quien a través de uno de sus primeros trabajos cinematográficos: Alguien mató Algo, logró catapultarse en la industria cinematográfica nacional. "
         android:textColor="@color/Gris_Letras"
         android:textSize="12dp">
 
 
     </TextView>
-
     <!--
     <com.nightonke.boommenu.BoomMenuButton
         android:id="@+id/idboom"
@@ -149,7 +167,7 @@
         app:boom_inActionBar="false"
         app:boom_button_color="@color/colorPrimary"
         app:boom_button_pressed_color="@color/colorAccent">
-    </com.nightonke.boommenu.BoomMenuButton> -->
-
+    </com.nightonke.boommenu.BoomMenuButton>
+   -->
 
 </RelativeLayout>
