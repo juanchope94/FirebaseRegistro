@@ -31,7 +31,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.Types.BoomType;
@@ -40,6 +45,8 @@ import com.nightonke.boommenu.Types.PlaceType;
 import com.nightonke.boommenu.Util;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Favoritos extends Fragment {
     public static Favoritos newInstance()
@@ -49,7 +56,7 @@ public class Favoritos extends Fragment {
 
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
     PhotoView imagenevento;
-    ImageButton botonLlamar, botonCalendario, botonubicacion;
+    ImageButton botonLlamar, botonCalendario, botonubicacion, btn_interes;
     Button incripcion;
     String telefono;
     String titulo, descripcion;
@@ -85,10 +92,19 @@ public class Favoritos extends Fragment {
         numeroTelefono =(TextView) view.findViewById(R.id.txt_Numero_Telefonico);
         botonLlamar =(ImageButton) view.findViewById(R.id.btn_Llamar);
         botonCalendario =(ImageButton) view.findViewById(R.id.btn_Calendario);
-incripcion = (Button)view.findViewById(R.id.btnIncripcion);
+        incripcion = (Button)view.findViewById(R.id.btnIncripcion);
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
         botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
-     //   boomMenuButton =(BoomMenuButton) view.findViewById(R.id.idboom);
+        btn_interes =(ImageButton)  view.findViewById(R.id.btn_Me_Interesa);
+
+        //   boomMenuButton =(BoomMenuButton) view.findViewById(R.id.idboom);
+
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            btn_interes.setVisibility(view.VISIBLE);
+        }
+        else {
+            btn_interes.setVisibility(view.INVISIBLE);
+        }
 
 
         Bundle eventodetall  = getArguments();
@@ -111,7 +127,7 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
             latitud = eventomues.getLatitud();
             longitud = eventomues.getLongitud();
             urlformularioo = eventomues.getUrlInscripcion();
-
+            final String id= eventomues.getId();
             final String fecha = eventomues.getFecha();
 
             String[] parts = fecha.split("-");
@@ -126,6 +142,33 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
                     startActivity(formular);
                 }
             });
+
+            btn_interes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Map<String,Object> map = new HashMap<>();
+                    map.put("idEvento",id);
+                    map.put("correo", FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("Interes")
+                            .add(map)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+
+                                    Toast.makeText(getContext(), "Te intereso este evento!", Toast.LENGTH_LONG).show();
+                                }
+                            })
+
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+
+                                }
+                            });
+                }
+            });
+
             if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {}
 
