@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_menu_principal_00"
+
     tools:context=".MainActivity">
 
     <FrameLayout
