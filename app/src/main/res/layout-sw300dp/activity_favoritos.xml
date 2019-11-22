@@ -22,6 +22,7 @@
         android:layout_below="@+id/img_Favoritos"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
+        android:background="@drawable/bordeados_03"
         android:text="CINE AL SENA"
         android:textColor="@color/Negro_Letras"
         android:textSize="25dp">
@@ -34,6 +35,7 @@
         android:layout_height="28dp"
         android:layout_below="@+id/txt_Nombre_Del_Evento_Favoritos"
         android:text="Por Jorge Navas"
+        android:background="@drawable/bordeados_03"
         android:textColor="@color/Negro_Letras"
         android:textSize="12dp">
 
@@ -61,6 +63,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/bordeados_03"
         android:layout_marginEnd="45dp"
         android:layout_toEndOf="@+id/btn_Calendario"
         android:text="viernes 6 de septiembre 6:00 p.m. - 9:00 p.m."
@@ -88,6 +91,7 @@
         android:layout_marginBottom="10dp"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/bordeados_03"
         android:layout_marginEnd="46dp"
         android:layout_toEndOf="@+id/btn_Ubicacion"
         android:text="Centro de Servicios y Gestión Empresarial
@@ -116,6 +120,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="201dp"
+        android:background="@drawable/bordeados_03"
         android:layout_toEndOf="@+id/btn_Llamar"
         android:text="311-3617453"
         android:textColor="@color/Negro_Letras"
@@ -131,6 +136,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="33dp"
         android:layout_marginBottom="-15dp"
+        android:background="@drawable/bordeados_03"
         android:text="El próximo viernes 6 de septiembre en el auditorio del prmer piso (Salón de videoconferencias) de la torre norte, se llevara a cabo el 6° taller que hace parte de la iniciativa de promoción de cinematografia llamada cine al Sena, el invitado será el reconocido director caleño Jorge Navas, quien a través de uno de sus primeros trabajos cinematográficos: Alguien mató Algo, logró catapultarse en la industria cinematográfica nacional. "
         android:textColor="@color/Gris_Letras"
         android:textSize="12dp">
