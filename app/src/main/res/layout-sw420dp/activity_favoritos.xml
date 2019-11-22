@@ -145,7 +145,7 @@
         android:id="@+id/txt_Descripcion_Del_Evento"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_below="@+id/txt_Numero_Telefonico"
+        android:layout_below="@+id/btnIncripcion"
         android:layout_marginTop="31dp"
         android:textAlignment="center"
         android:layout_marginStart="10dp"
@@ -156,6 +156,26 @@
 
 
     </TextView>
+    <Button
+        android:id="@+id/btnIncripcion"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/txt_Numero_Telefonico"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/bordeados_03"
+        android:drawableLeft="@drawable/ic_creditos"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco"
+        android:text="INSCRIPCION"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="10dp"
+        android:textStyle="bold">
+    </Button>
     <!--
     <com.nightonke.boommenu.BoomMenuButton
         android:id="@+id/idboom"

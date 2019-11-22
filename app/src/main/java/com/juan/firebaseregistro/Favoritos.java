@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class Favoritos extends Fragment {
     TextView nombreevento, descripcionevento, numeroTelefono, direccionEvento, fechaEvento;
     ImageView imagenevento;
     ImageButton botonLlamar, botonCalendario, botonubicacion;
+    Button incripcion;
     String telefono;
     String titulo, descripcion;
     int  duracion= 1;
@@ -79,7 +81,7 @@ public class Favoritos extends Fragment {
         numeroTelefono =(TextView) view.findViewById(R.id.txt_Numero_Telefonico);
         botonLlamar =(ImageButton) view.findViewById(R.id.btn_Llamar);
         botonCalendario =(ImageButton) view.findViewById(R.id.btn_Calendario);
-
+incripcion = (Button)view.findViewById(R.id.btnIncripcion);
         fechaEvento =(TextView) view.findViewById(R.id.txt_Fecha_Del_Evento);
         botonubicacion =(ImageButton) view.findViewById(R.id.btn_Ubicacion);
      //   boomMenuButton =(BoomMenuButton) view.findViewById(R.id.idboom);
@@ -111,6 +113,13 @@ public class Favoritos extends Fragment {
             final String part2 = parts[1];
             final String part3 = parts[2];
 
+            incripcion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent formular= new Intent(getContext(),Formulario.class);
+                    startActivity(formular);
+                }
+            });
 
 botonubicacion.setOnClickListener(new View.OnClickListener() {
     @Override
