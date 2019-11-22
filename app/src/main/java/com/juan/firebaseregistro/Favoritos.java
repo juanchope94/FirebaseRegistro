@@ -56,6 +56,7 @@ public class Favoritos extends Fragment {
 
     public static String  latitud;
     public static String longitud;
+    public static String urlformularioo;
     public static String titulomapa;
     final private int REQUIERE =111;
     private static final String TAG = "MyActivity";
@@ -108,6 +109,8 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
             descripcion= eventomues.getDescripcion();
             latitud = eventomues.getLatitud();
             longitud= eventomues.getLongitud();
+            urlformularioo= eventomues.getUrlInscripcion();
+
             final String fecha = eventomues.getFecha();
 
             String[] parts = fecha.split("-");

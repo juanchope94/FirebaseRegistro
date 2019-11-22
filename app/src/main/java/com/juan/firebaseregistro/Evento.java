@@ -15,13 +15,12 @@ public class Evento implements Serializable {
     String descripcion;
     String direccion;
     String fecha;
-
-
-
     String urlFormulario;
+    String urlInscripcion;
 
 
-    public Evento(String nombre, String telefono, String urlImagen, String categoria, String descripcion, String direccion, String fecha, String latitud, String longitud,String urlFormulario) {
+
+    public Evento(String nombre, String telefono, String urlImagen, String categoria, String descripcion, String direccion, String fecha, String latitud, String longitud,String urlFormulario,String urlInscripcion) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.urlImagen = urlImagen;
@@ -32,6 +31,7 @@ public class Evento implements Serializable {
         this.latitud = latitud;
         this.longitud = longitud;
         this.urlFormulario= urlFormulario;
+        this.urlInscripcion=urlInscripcion;
     }
 
     public Evento() {
@@ -125,6 +125,11 @@ public class Evento implements Serializable {
         this.urlFormulario = urlFormulario;
     }
 
+    public String getUrlInscripcion() {
+        return urlInscripcion;
+    }
 
-
+    public void setUrlInscripcion(String urlInscripcion) {
+        this.urlInscripcion = urlInscripcion;
+    }
 }
