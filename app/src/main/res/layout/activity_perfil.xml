@@ -54,21 +54,7 @@
         android:tint="#2B2B2B">
 
     </Button>
-    <Button
-        android:id="@+id/btn_Activar_Notificaciones"
-        android:layout_width="196dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Activar Notificaciones"
-        android:background="@drawable/bordeados_00"
-        android:textColor="@color/Negro_Letras"
-        android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_activar_notificaciones"
-        android:layout_marginTop="240dp"
-        android:outlineAmbientShadowColor="@color/Blanco"
-        android:outlineSpotShadowColor="@color/Blanco">
 
-    </Button>
     <Button
         android:id="@+id/btn_Cerrar_Session"
         android:layout_width="196dp"
@@ -84,6 +70,29 @@
         android:outlineSpotShadowColor="@color/Blanco">
 
     </Button>
+
+    <Button
+        android:id="@+id/btn_AcercaDe"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_Cerrar_Session"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/bordeados_03"
+        android:drawableLeft="@drawable/ic_cerrar_session"
+        android:outlineAmbientShadowColor="@color/Blanco"
+        android:outlineSpotShadowColor="@color/Blanco"
+        android:text="acerca de"
+        android:textColor="@color/Negro_Letras"
+        android:textSize="10dp"
+        android:textStyle="bold">
+
+    </Button>
+
 
 
 
