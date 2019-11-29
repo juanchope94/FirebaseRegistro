@@ -46,15 +46,7 @@
         android:textColor="@color/Negro_Letras"
         android:textSize="15dp"></TextView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycEventosRecientes"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
 
-        />
 
     <TextView
         android:id="@+id/textView2"

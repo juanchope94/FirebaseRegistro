@@ -8,13 +8,7 @@
 
 
         ></item>
-    <item
-        android:id="@+id/menu_Favoritos"
-        android:title="Favoritos"
-        android:icon="@drawable/ic_corazon"
 
-
-        ></item>
     <item
         android:id="@+id/perfil"
         android:title="Perfil"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,18 +8,7 @@
     tools:context=".Menu_Principal">
 
 
-    <ImageView
-        android:id="@+id/img_Eventime"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:src="@drawable/eventime_letras">
 
-    </ImageView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_00"
@@ -35,48 +24,15 @@
         app:menu="@menu/menu_principal_main"
         tools:layout_editor_absoluteX="0dp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="22dp"
-        android:layout_below="@+id/navigation_00"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentEnd="true"
-        android:text="Recientes"
-        android:textColor="@color/Negro_Letras"
-        android:textSize="15dp"></TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycEventosRecientes"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-
-        />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="22dp"
-        android:layout_below="@+id/recycEventosRecientes"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:text="Eventos Generales"
-        android:textColor="@color/Negro_Letras"
-        android:textSize="15dp"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycEventosTodos"
         android:layout_width="match_parent"
-        android:layout_height="486dp"
-        android:layout_below="@+id/textView2"
+        android:layout_height="607dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="160dp" />
+        android:layout_marginBottom="553dp" />
 
 
-
-</RelativeLayout>
+</LinearLayout>

@@ -1,37 +1,22 @@
 package com.juan.firebaseregistro;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -47,31 +32,14 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
     String usuario,nombres, apellidos, cedulas, fechaNacimiento, fechaExpedicion, direcciones, correos,ciudades,departamentos,celulares,nombreAcudiente,telefonoAcudiente;
     int ano, mes, dia;
     Calendar miCalendario;
-    FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String email = "";
-    String nombreUsuario = "";
-    String password= "";
-    String roll="Usuario";
-    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
-    Date date = new Date();
-    String strDate = dateFormat.format(date).toString();
-    //myRef.child("datetime").setValue(strDate);
-
-
     private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_datos);
-
         referenciar();
         mostrarFecha();
-        mAuth = FirebaseAuth.getInstance();
-        btnReg = findViewById(R.id.btnGuardarUsuario);
-        progressDialog = new ProgressDialog(this);
-        btnReg.setOnClickListener(this);
 
     }
     private void referenciar() {
@@ -93,6 +61,8 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
         nombreA = findViewById(R.id.txtNombreA);
         telefonoA = findViewById(R.id.txtTelefonoA);
         btnReg = findViewById(R.id.btnGuardarUsuario);
+        progressDialog = new ProgressDialog(this);
+        btnReg.setOnClickListener(this);
     }
 
     private void mostrarFecha() {
@@ -135,7 +105,6 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
 
 
 
-
                 progressDialog.setMessage("Registrando Datos....");
                 progressDialog.show();
 
@@ -161,6 +130,8 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                 @Override
                                                 public void onSuccess(DocumentReference documentReference) {
+                                                    Toast.makeText(RegistroDatos.this, "Datos registrados correctamente", Toast.LENGTH_SHORT).show();
+
                                                     startActivity(new Intent(RegistroDatos.this,fragmento.class));
                                                     finish();
                                                 }
@@ -188,8 +159,10 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
   @Override
     public void onClick(View v) {
 
-        registrarDatos();
+        if(v.getId()==R.id.btnGuardarUsuario) {
 
+            registrarDatos();
+        }
     }
 
 }

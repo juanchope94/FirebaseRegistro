@@ -4,21 +4,8 @@
     <item
         
         android:id="@+id/bienestar"
-        android:title="Bienestar al Aprendiz"
+        android:title="RECUPERACION"
         android:icon="@drawable/icon_bienestar"
-
-        ></item>
-    <item
-        android:id="@+id/ofertas_educativas"
-        android:title="Ofertas Educativas"
-        android:icon="@drawable/ic_oferta_educativa"
-
-
-        ></item>
-    <item
-        android:id="@+id/egresados"
-        android:title="Egresados"
-        android:icon="@drawable/ic_egresado"
 
         ></item>
 

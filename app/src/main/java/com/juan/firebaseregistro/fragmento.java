@@ -51,19 +51,6 @@ if ( instanceof BommMenu){
                         cambiarFragment(Menu_Principal.newInstance());
                         return true;
 
-                    case R.id.menu_Favoritos:
-
-                      if (FirebaseAuth.getInstance().getCurrentUser()!=null) {
-                          cambiarFragmentper(Menu_Favoritos.newInstance());
-                      }
-                      else{
-                          Intent intent = new Intent(fragmento.this, MainActivity.class);
-                          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK );
-                          startActivity(intent);
-                      }
-
-                        return true;
-
                     case R.id.perfil:
                         cambiarFragmentper(Perfil.newInstance());
                         return true;

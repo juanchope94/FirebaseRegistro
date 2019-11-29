@@ -68,20 +68,15 @@ public class Menu_Principal extends Fragment {
         recycleRecientes = (RecyclerView) view.findViewById(R.id.recycEventosRecientes);
         itemEventos = new ArrayList<>();
         tituloSeccion = view.findViewById(R.id.textView2);
-        listareciente = new ArrayList<>();
-        opciones.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+           opciones.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recycleRecientes.setLayoutManager(layoutManager);
+
         eventoclick();
         eventoClicr();
         listatodos();
-        listarecientes();
-
 
         return view;
     }
@@ -164,15 +159,6 @@ public class Menu_Principal extends Fragment {
                     tituloSeccion.setText("Bienestar");
                     ActualizarRecycler("Bienestar");
                     return true;
-                case R.id.ofertas_educativas:
-                    tituloSeccion.setText("Ofertas Educativas");
-                    ActualizarRecycler("Educacion");
-
-                    return true;
-                case R.id.egresados:
-                    tituloSeccion.setText("Egresados");
-                    ActualizarRecycler("Egresados");
-                    return true;
 
                 default:
                     listatodos();
@@ -184,36 +170,7 @@ public class Menu_Principal extends Fragment {
 
     };
 
-    private void listarecientes() {
-
-        db.collection("Evento").orderBy("fecha").limit(5).addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value,
-                                        @Nullable FirebaseFirestoreException e) {
-                        if (e != null) {
-                            Log.w("", "Listen failed.", e);
-                            return;
-                        }
-                        listareciente.clear();
-                        for (QueryDocumentSnapshot doc : value) {
-                            Evento eve = doc.toObject(Evento.class);
-                            listareciente.add(eve);
-
-                        }
-
-                        adaptadorEventosRecientes.notifyDataSetChanged();
-
-                    }
-                });
-
-        adaptadorEventosRecientes = new AdaptadorEventosRecientes(listareciente,getContext(), clickr);
-        recycleRecientes.setAdapter(adaptadorEventosRecientes);
-
-    }
-
-    //de aqui pa abajo es de juan
-
-    private void listatodos() {
+      private void listatodos() {
 
         FirebaseMessaging.getInstance().subscribeToTopic("evento")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
