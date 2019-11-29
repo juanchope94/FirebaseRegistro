@@ -125,31 +125,20 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
                     startActivity(formular);
                 }
             });
-            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {}
+
 
             botonubicacion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     Intent mapas = new Intent(getContext(), Ubication.class);
                     startActivity(mapas);
-                    int permisoubication  = ActivityCompat.checkSelfPermission (getContext(), Manifest.permission.ACCESS_FINE_LOCATION );
-                    if (permisoubication != PackageManager.PERMISSION_GRANTED)
-                    {
-                        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
-                        {
-                            requestPermissions ( new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUIERE);
+                    Toast.makeText(getContext(), "ub:"+latitud
+                            , Toast.LENGTH_SHORT).show();
 
 
-                        }
-
-                    }
                 }
             });
-            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)
-                    != PackageManager.PERMISSION_GRANTED) {}
+
 
                 botonLlamar.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -161,17 +150,7 @@ incripcion = (Button)view.findViewById(R.id.btnIncripcion);
                         // if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
                         //  {return;}
                         startActivity(intent);
-                        int permisoAlmacenamiento  = ActivityCompat.checkSelfPermission (getContext(), Manifest.permission.CALL_PHONE );
-                        if (permisoAlmacenamiento != PackageManager.PERMISSION_GRANTED)
-                        {
-                            if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
-                            {
-                                requestPermissions ( new String[]{Manifest.permission.CALL_PHONE},REQUIERE);
 
-
-                            }
-
-                        }
 
                     }
                 });
