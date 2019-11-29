@@ -1,11 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/Negro_Letras</item>
-        <item name="colorPrimaryDark">@color/Gris_Fondo</item>
-        <item name="colorAccent">@color/Negro_Letras</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="TexviewsubTitulo">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorAzulOscuro2</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">5dp</item>
+    </style>
+    <style name="edit">
+        <item name="android:height">42dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">340dp</item>
+        <item name="android:shadowRadius">1.5</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+    <style name="noaction" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimario</item>
+        <item name="colorPrimaryDark">@color/colorPrimarioOscuro</item>
+        <item name="colorAccent">@color/colorClaro</item>
+    </style>
+
+    <style name="TemaCalendario" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="colorAccent">@color/colorAzulOscuro2</item>                   <!--header background-->
+        <item name="android:windowBackground">@color/colorGrisClaro</item>     <!--calendar background-->
+        <item name="android:colorControlActivated">@color/colorRojo</item> <!--selected day-->
+        <item name="android:textColorPrimary">@color/colorNegro</item> <!--days of the month-->
+        <item name="android:textColorSecondary">@color/colorNegro</item>    <!--days of the week-->
+    </style>
+
+
+
 </resources>

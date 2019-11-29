@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,26 +32,29 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegistroDatos extends AppCompatActivity implements View.OnClickListener {
 
 
-
-    EditText edtCorreoReg, edtContrasenaReg, edtNombreUsuario;
     Button btnReg;
+    EditText fecha,fechaExpe;
+    EditText nombre,apellido,cedula,direccion,correo,ciudad,departamento,celular,nombreA,telefonoA;
+    String usuario,nombres, apellidos, cedulas, fechaNacimiento, fechaExpedicion, direcciones, correos,ciudades,departamentos,celulares,nombreAcudiente,telefonoAcudiente;
+    int ano, mes, dia;
+    Calendar miCalendario;
     FirebaseAuth mAuth;
-     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     String email = "";
     String nombreUsuario = "";
     String password= "";
     String roll="Usuario";
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
     Date date = new Date();
     String strDate = dateFormat.format(date).toString();
     //myRef.child("datetime").setValue(strDate);
@@ -59,66 +64,98 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_registro_datos);
+
+        referenciar();
+        mostrarFecha();
         mAuth = FirebaseAuth.getInstance();
-       //aDatabase = FirebaseDatabase.getInstance().getReference();
-        edtCorreoReg = findViewById(R.id.editCorreoRegisto);
-        edtContrasenaReg = findViewById(R.id.editContrasenaRegistro);
-        btnReg = findViewById(R.id.btnRegistrar);
+        btnReg = findViewById(R.id.btnGuardarUsuario);
         progressDialog = new ProgressDialog(this);
-        edtNombreUsuario = findViewById(R.id.editNombreUsuario);
+        btnReg.setOnClickListener(this);
 
-       btnReg.setOnClickListener(this);
+    }
+    private void referenciar() {
 
+        fecha = findViewById(R.id.txtFechaNacimiento);
+        fechaExpe = findViewById(R.id.txtFechaExpedicion);
+        miCalendario = Calendar.getInstance();
+        ano = miCalendario.get(Calendar.YEAR);
+        mes = miCalendario.get(Calendar.MONTH)+1;
+        dia = miCalendario.get(Calendar.DAY_OF_MONTH);
+        nombre = findViewById(R.id.txtNombre);
+        apellido = findViewById(R.id.txtApellido);
+        cedula = findViewById(R.id.txtCedula);
+        direccion = findViewById(R.id.txtDireccion);
+        correo = findViewById(R.id.txtCorreo);
+        ciudad = findViewById(R.id.txtCiudad);
+        departamento = findViewById(R.id.txtDepartamento);
+        celular = findViewById(R.id.txtTelefono);
+        nombreA = findViewById(R.id.txtNombreA);
+        telefonoA = findViewById(R.id.txtTelefonoA);
+        btnReg = findViewById(R.id.btnGuardarUsuario);
+    }
 
-
-
+    private void mostrarFecha() {
+        String fechaAux= dia + "/" + mes + "/" + ano;
+        fecha.setText(fechaAux);
+        fechaExpe.setText(fechaAux);
+    }
+    public void mostrarCalendario(View view) {
+        Calendar miCalendario = new GregorianCalendar();//Calendar.getInstance();
+        miCalendario.setTime(new Date());
+        new DatePickerDialog(this, R.style.TemaCalendario, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                ano = year;
+                mes = monthOfYear + 1;
+                dia = dayOfMonth;
+                mostrarFecha();
+            }
+        }, miCalendario.get(Calendar.YEAR), miCalendario.get(Calendar.MONTH), miCalendario.get(Calendar.DAY_OF_MONTH)).show();
     }
 
 
-
-
-
-
-
     public void registrarDatos()
-        {
-             email = edtCorreoReg.getText().toString().trim();
-             password = edtContrasenaReg.getText().toString().trim();
-             nombreUsuario = edtNombreUsuario.getText().toString();
+
+    {
+
+        nombres = nombre.getText().toString();
+        apellidos = apellido.getText().toString();
+        cedulas = cedula.getText().toString();
+        fechaNacimiento = fecha.getText().toString();
+        fechaExpedicion = fechaExpe.getText().toString();
+        direcciones = direccion.getText().toString();
+        correos = correo.getText().toString();
+        ciudades = ciudad.getText().toString();
+        departamentos = departamento.getText().toString();
+        celulares = celular.getText().toString();
+        nombreAcudiente = nombreA.getText().toString();
+        telefonoAcudiente = telefonoA.getText().toString();
 
 
 
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(RegistroDatos.this, "El email es campo obligatorio", Toast.LENGTH_SHORT).show();
-            }
 
-            else if (TextUtils.isEmpty(password)) {
-                Toast.makeText(RegistroDatos.this, "la constraseña es campo obligatorio", Toast.LENGTH_SHORT).show();
-            } else if(TextUtils.isEmpty(nombreUsuario)) {
-                Toast.makeText(this, "El nombre es Obligatorio", Toast.LENGTH_SHORT).show();
-
-        }
-
-            else {
 
                 progressDialog.setMessage("Registrando Datos....");
                 progressDialog.show();
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
+
                                     // si la tarea se relalizo
                                   Map<String,Object> map = new HashMap<>();
-                                    map.put("nombre",nombreUsuario);
-                                    map.put("correo",email);
-                                    map.put("rol",roll);
-                                   map.put("fechaIngreso",strDate);
+                                    map.put("nombre",nombres);
+                                    map.put("apellidos",apellidos);
+                                    map.put("cedula",cedulas);
+                                    map.put("fechaNacimiento",fechaNacimiento);
+                                    map.put("fechaExpedicion",fechaExpedicion);
+                                    map.put("direccion",direcciones);
+                                   map.put("correo",correos);
+                                   map.put("ciudad",ciudades);
+                                   map.put("departamento",departamentos);
+                                   map.put("celular",celulares);
+                                   map.put("nombreAcudiente",nombreAcudiente);
+                                   map.put("telefonoAcudiente",telefonoAcudiente);
 
-                                    String id = mAuth.getCurrentUser().getUid();
+
                                     db.collection("users")
                                             .add(map)
                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -136,27 +173,15 @@ public class RegistroDatos extends AppCompatActivity implements View.OnClickList
                                                 }
                                             });
 
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    if(task.getException() instanceof FirebaseAuthUserCollisionException)
-                                    {
 
-                                        Toast.makeText(RegistroDatos.this, "El usuario ya se encuentra registrado!", Toast.LENGTH_LONG).show();
-
-                                    }
-                                    else
-                                    Toast.makeText(RegistroDatos.this, "Upss a ocurrido un error "+task.getException(), Toast.LENGTH_LONG).show();
-                                }
 
                                 progressDialog.dismiss();
 
-                                // ...
-                            }
-                        });
+
 
             }
 
-        }
+
 
 
 

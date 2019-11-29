@@ -14,6 +14,14 @@
     <color name="azul_claro">#56B0DA</color>
     <color name="Verde_Boton_Iniciar">#007E01</color>
     <color name="Azul_Botones">#172679</color>
+    <color name="colorAzulOscuro2">#37417A</color>
+    <color name="colorGrisClaro">#6D6E79</color>
+    <color name="colorRojo">#D52F59</color>
+    <color name="colorPrimario">#065272</color>
+    <color name="colorPrimarioOscuro">#0E1F94</color>
+    <color name="colorClaro">#dff2fa</color>
+    <color name="colorAzulCrema">#7DAFC4</color>
+    <color name="colorNegro">#0F0F0F</color>
 
 
 

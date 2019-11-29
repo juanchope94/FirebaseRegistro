@@ -134,8 +134,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         //
         String NOTIFICATION_CHANNEL_ID = getString(R.string.app_name);
-
-
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
         notificationBuilder
@@ -147,7 +145,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setVibrate(new long[]{0, 1000, 500, 1000})
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent)
-
                 .setContentInfo("info");
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -164,8 +161,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             notificationChannel.enableLights(true);
             notificationManager.createNotificationChannel(notificationChannel);
         }
-
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
-
     }
 }

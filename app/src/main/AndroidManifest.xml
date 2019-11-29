@@ -73,10 +73,10 @@
             android:name=".Principal"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RegistroDatos"
+            android:name=".Splash"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Splash"
+            android:name=".RegistroDatos"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
