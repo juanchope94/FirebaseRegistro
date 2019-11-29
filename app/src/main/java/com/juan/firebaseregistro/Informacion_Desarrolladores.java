@@ -29,7 +29,7 @@ public class Informacion_Desarrolladores extends AppCompatActivity {
     public List<Descripcion_Desarrolladores> obtenerDescripcion()
     {
         List<Descripcion_Desarrolladores> desarrollo = new ArrayList<>();
-        desarrollo.add(new Descripcion_Desarrolladores("Version 1.0","Aplicación desarrollada bajo la especialización en desarrollo de aplicaciones para dispositivos móviles de SENA CTPI 2019","Desarrollado por:","Fabián Urrea Ceballos","Edwin Willer Narvaez","Danilo Manquillo López","Juan David Muñoz Garzón","Felipe Betancourt Figueroa","Gustavo Salazar Escobar","Instructora:","Ing. Zulema León",R.drawable.eventime));
+        desarrollo.add(new Descripcion_Desarrolladores("Direccion SENA CTPI: Tv. 9 Nte. #60, Popayán, Cauca","Numero de contacto: 3233674202","Correos instructor:","zleon_20@hotmail.co",R.drawable.logo));
 
         return desarrollo;
     }

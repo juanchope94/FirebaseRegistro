@@ -31,7 +31,7 @@ public class Perfil extends Fragment {
     Button btn_cerrar;
     Button btn_cambio_contra;
 Button btn_acerca;
-    Button btn_nombre;
+
     public String email;
    
 
@@ -48,11 +48,11 @@ Button btn_acerca;
         // crerrar sesion
         btn_cerrar = view.findViewById(R.id.btn_Cerrar_Session);
         btn_cambio_contra = view.findViewById(R.id.btn_Cambiar_Contrasena);
-        btn_nombre = view.findViewById(R.id.btn_Nombre_Usuario);
+
         btn_acerca = view.findViewById(R.id.btn_AcercaDe);
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            btn_nombre.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+
             btn_cerrar.setVisibility(view.VISIBLE);
             btn_cambio_contra.setVisibility(view.VISIBLE);
 

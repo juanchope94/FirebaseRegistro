@@ -7,19 +7,13 @@ public class Descripcion_Desarrolladores {
     public Descripcion_Desarrolladores() {
     }
 
-    public Descripcion_Desarrolladores(String nombre, String descripcion, String desarrollado, String nombre1, String nombre2, String nombre3, String nombre4, String nombre5, String nombre6, String instructor, String nombre7, int imgFoto) {
+    public Descripcion_Desarrolladores(String nombre, String descripcion, String desarrollado, String nombre1,int img) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.desarrollado = desarrollado;
         this.nombre1 = nombre1;
-        this.nombre2 = nombre2;
-        this.nombre3 = nombre3;
-        this.nombre4 = nombre4;
-        this.nombre5 = nombre5;
-        this.nombre6 = nombre6;
-        this.instructor = instructor;
-        this.nombre7 = nombre7;
-        this.imgFoto = imgFoto;
+        this.imgFoto=img;
+
     }
 
     public String getNombre() {
