@@ -126,7 +126,7 @@ public class Favoritos extends Fragment {
             urlformularioo = eventomues.getUrlInscripcion();
 
 
-            final String id= eventomues.getId();
+            final String nombreEvento= eventomues.getNombre();
             final String fecha = eventomues.getFecha();
 
             String[] parts = fecha.split("-");
@@ -146,7 +146,7 @@ public class Favoritos extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Map<String,Object> map = new HashMap<>();
-                    map.put("idEvento",id);
+                    map.put("nombreEvento",nombreEvento);
                     map.put("correo", FirebaseAuth.getInstance().getCurrentUser().getEmail());
                     map.put("nombre", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
